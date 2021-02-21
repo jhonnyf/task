@@ -29,5 +29,6 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['prefix' => 'boards'], function () {
         Route::get('', [BoardController::class, 'index'])->name('board.index');
+        Route::get('create', [BoardController::class, 'create'])->name('board.create');
     });
 });

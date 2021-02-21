@@ -14,28 +14,7 @@
                     <h2 class="board-title">Meus quadros</h2>
                     <div class="itens">
                         <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
-                        </div>
-                        <div class="board">
-                            <a href="javascript:;">Criar novo quadro</a>
+                            <a href="javascript:;" data-modal="{{ route('board.create') }}">Criar novo quadro</a>
                         </div>
                     </div>
                 </div>

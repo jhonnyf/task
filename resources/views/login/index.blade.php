@@ -1,4 +1,4 @@
-@extends('login.layout')
+@extends('layout.login')
 
 @section('content')
     <div class="container-fluid login">
