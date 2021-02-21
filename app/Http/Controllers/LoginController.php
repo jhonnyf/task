@@ -20,7 +20,7 @@ class LoginController extends Controller
             return redirect()->route('login.index');
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('board.index');
     }
 
     public function logout()
