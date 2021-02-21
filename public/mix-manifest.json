@@ -1,4 +1,10 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/main.css": "/css/main.css",
+    "/css/vendor.css": "/css/vendor.css",
+    "/vendor.min.css": "/vendor.min.css",
+    "/js/vendor.js": "/js/vendor.js",
+    "/vendor.min.js": "/vendor.min.js",
+    "/css/main.min.css": "/css/main.min.css",
+    "/js/main.js": "/js/main.js",
+    "/js/main.min.js": "/js/main.min.js"
 }

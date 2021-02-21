@@ -1,0 +1,37 @@
+header{
+    background-color: $gray-dark;
+    color: #fff;
+    padding: 15px 0;
+
+    .menu, .settings{
+        font-weight: 400;
+        letter-spacing: 1.5px;
+    }
+
+    .menu{
+        @media (max-width: 800px){
+            text-align: center;
+        }
+    }
+
+    .brand{
+        font-weight: bold;
+        text-align: center;
+        opacity: 0.7;
+        font-size: 18px;
+        letter-spacing: 2.5px;
+    }
+
+    .settings{
+        text-align: right;    
+        @media (max-width: 800px){
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 800px){
+        .menu, .brand{
+            margin-bottom: 10px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,38 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+
+ /**
+  * VENDOR
+  */
+mix.combine([
+    './node_modules/bootstrap/dist/css/bootstrap-grid.css'
+], './public/css/vendor.css').minify('vendor.css');
+
+mix.combine([
+    './node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+], './public/js/vendor.js').minify('vendor.js');
+
+/**
+ * MAIN
+ */
+
+mix.sass('./resources/scss/main.scss', './public/css/main.css').minify('./public/css/main.css');
+
+mix.combine([
+    './resources/js/app.js'
+], './public/js/main.js').minify('./public/js/main.js');
+
+mix.webpackConfig({
+    plugins: [
+        new BrowserSyncPlugin({
+            port: 3000,
+            files: [
+                'app/**/*',
+                'public/**/*',
+                'resources/views/**/*',
+                'routes/**/*'
+            ]
+        })
+    ]
+});

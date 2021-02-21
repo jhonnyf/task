@@ -1,0 +1,68 @@
+.board-list{
+    margin-top: 30px;
+
+    .board-menu{
+        li{                
+            list-style: none;
+            margin-bottom: 10px;
+
+            &:hover{
+                transition: background-color .7s ease;
+                background-color: $pink-dark;
+                opacity: 0.7;
+            }
+
+            a{
+                text-decoration: none;
+                display: block;
+                color: #fff;
+                font-weight: 400;
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .boards{
+
+        .board-title{
+            margin-bottom: 15px;
+        }        
+        
+        .itens{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+
+            @media (max-width: 800px){
+                flex-direction: column;
+            }
+        }        
+
+        .board{
+            width: 25%;
+            padding: 0 10px;
+            margin-bottom: 20px;
+
+            @media (max-width: 800px){
+                width: 100%;
+            }
+
+            a{
+                background-color: $pink-dark;            
+                padding: 40px 25px;
+                color: $gray-dark;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                font-weight: 500;
+                letter-spacing: 1.5px;
+
+                &:hover{
+                    opacity: 0.7;
+                    transition: opacity .7s ease;
+                }
+            }
+        }
+    }
+}

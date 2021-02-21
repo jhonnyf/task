@@ -1,0 +1,18 @@
+@import 'variables.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: $gray-light;
+    background-color: $pink-light;
+}
+
+@import 'utilities.scss';
+@import 'header.scss';
+@import 'board-list.scss';
