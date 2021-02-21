@@ -79,6 +79,7 @@ body {
 }
 .login .access {
   width: 50%;
+  max-width: 400px;
 }
 .login .text {
   margin-bottom: 30px;

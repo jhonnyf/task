@@ -20,7 +20,7 @@
                         </div>
     
                         <div class="form-field">
-                            <input type="password" class="input" name="password" id="password" placeholder="senha" required>
+                            <input type="password" class="input" name="password" id="password" placeholder="Senha" required>
                         </div>
     
                         <div class="text-right">
