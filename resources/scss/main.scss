@@ -3,7 +3,8 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;   
+    outline: none;
 }
 
 body{
@@ -14,5 +15,7 @@ body{
 }
 
 @import 'utilities.scss';
+@import 'form.scss';
+@import 'login.scss';
 @import 'header.scss';
 @import 'board-list.scss';

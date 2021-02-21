@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -21,6 +22,68 @@ body {
 
 .text-right {
   text-align: right;
+}
+
+.btn {
+  border: 1px solid #444f5a;
+  padding: 10px 15px;
+  background: #444f5a;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.7;
+}
+
+.bg-gray-light {
+  background-color: #444f5a;
+}
+
+.bg-gray-dark {
+  background-color: #3e4149;
+}
+
+.form {
+  width: 100%;
+}
+.form .form-field {
+  margin-bottom: 10px;
+}
+.form .form-field .input {
+  border: 1px solid #444f5a;
+  padding: 10px 15px;
+  width: 100%;
+  display: block;
+  color: #444f5a;
+}
+
+.login .brand {
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 48px;
+  letter-spacing: 2.5px;
+  color: #fff;
+}
+.login .brand .brand-sub {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.login .container-login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.login .access {
+  width: 50%;
+}
+.login .text {
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 25px;
 }
 
 header {

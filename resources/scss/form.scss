@@ -1,0 +1,15 @@
+.form{
+    width: 100%;
+
+    .form-field{
+        margin-bottom: 10px;
+
+        .input{
+            border: 1px solid $gray-light;
+            padding: 10px 15px;
+            width: 100%;
+            display: block;
+            color: $gray-light;
+        }
+    }
+}
