@@ -51,7 +51,6 @@ function app() {
     Modal.init()
 }
 
-
 document.onreadystatechange = function(){
     if(document.readyState == "complete"){
         app();
