@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-6 container-login justify-content-center">
                 <div class="access">
-                    <form action="{{ route('login.authenticate') }}" method="post" class="form form-ajax" autocomplete="off">
+                    <form action="{{ route('login.authenticate') }}" method="post" class="form" autocomplete="off">
                         @csrf
 
                         <p class="text">Para acessar nosso sistema, insira suas credenciais e aproveite nosso sistema!</p>

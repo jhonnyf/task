@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class BoardController extends Controller
 {
 
@@ -23,5 +25,10 @@ class BoardController extends Controller
         ];
 
         return response()->json($response);
+    }
+
+    public function store(Request $request)
+    {
+        return response()->json($request->all());
     }
 }

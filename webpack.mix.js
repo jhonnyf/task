@@ -11,7 +11,7 @@ mix.combine([
 
 mix.combine([
     './node_modules/jquery/dist/jquery.js',
-    './node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+    './node_modules/bootstrap/dist/js/bootstrap.bundle.js'    
 ], './public/js/vendor.js').minify('./public/js/vendor.js');
 
 /**
@@ -20,7 +20,7 @@ mix.combine([
 
 mix.sass('./resources/scss/main.scss', './public/css/main.css').minify('./public/css/main.css');
 
-mix.combine([
+mix.js([
     './resources/js/app.js'
 ], './public/js/main.js').minify('./public/js/main.js');
 
