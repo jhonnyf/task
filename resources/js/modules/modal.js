@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Modal = function () {
     const loadModal = function () {
         let element = $(this);

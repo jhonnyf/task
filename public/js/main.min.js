@@ -1946,12 +1946,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Modal": () => (/* binding */ Modal)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
 var Modal = function () {
   var loadModal = function loadModal() {
     var element = $(this);
     var url = element.data('modal');
     var type = 'GET';
-    axios({
+    axios__WEBPACK_IMPORTED_MODULE_0___default()({
       url: url,
       method: type,
       responseType: 'json'
