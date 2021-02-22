@@ -1912,12 +1912,13 @@ var Form = function () {
   var formAjax = function formAjax() {
     var element = $(this);
     var action = element.attr('action');
-    $.ajax({
+    axios__WEBPACK_IMPORTED_MODULE_0___default()({
       url: action,
-      data: element.serializeArray(),
-      type: 'POST',
-      dataType: 'json'
-    }).done(function (response) {
+      data: element.serialize(),
+      method: 'post',
+      responseType: 'json'
+    }).then(function (response) {
+      response = response.data;
       console.log(response);
     });
     return false;
@@ -1950,11 +1951,12 @@ var Modal = function () {
     var element = $(this);
     var url = element.data('modal');
     var type = 'GET';
-    $.ajax({
+    axios({
       url: url,
-      type: type,
-      dataType: 'json'
-    }).done(function (response) {
+      method: type,
+      responseType: 'json'
+    }).then(function (response) {
+      response = response.data;
       $('.container-modal').remove();
 
       if (response.error) {

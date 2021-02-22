@@ -5,17 +5,16 @@ const Form = function () {
     const formAjax = function () {
         let element = $(this);
         let action = element.attr('action');
-        
 
-        $.ajax({
+        axios({
             url: action,
-            data: element.serializeArray(),
-            type: 'POST',
-            dataType: 'json'
-        }).done(function (response) {
-            
-            console.log(response);
+            data: element.serialize(),
+            method: 'post',
+            responseType: 'json'
+        }).then(function (response) {
+            response = response.data;
 
+            console.log(response);
         });
 
         return false;

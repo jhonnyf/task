@@ -4,11 +4,13 @@ const Modal = function () {
         let url = element.data('modal');
         let type = 'GET';
 
-        $.ajax({
+        axios({
             url: url,
-            type: type,
-            dataType: 'json'
-        }).done(function (response) {
+            method: type,
+            responseType: 'json'
+        }).then(function (response) {
+            response = response.data;
+
             $('.container-modal').remove();
 
             if (response.error) {
