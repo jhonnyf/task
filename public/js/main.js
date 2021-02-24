@@ -1919,7 +1919,10 @@ var Form = function () {
       responseType: 'json'
     }).then(function (response) {
       response = response.data;
-      console.log(response);
+      element.prepend(response.message);
+      setTimeout(function () {
+        element.find('.alert').fadeOut();
+      }, 2000);
     });
     return false;
   };

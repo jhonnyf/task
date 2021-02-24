@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BoardController extends Controller
 {
@@ -29,6 +31,15 @@ class BoardController extends Controller
 
     public function store(Request $request)
     {
-        return response()->json($request->all());
+        $User = User::find(Auth::user()->id);
+
+        $responseBoard = $User->boards()->create(['board' => $request->board]);
+
+        $response = [            
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!' , 'error' => false])->render(),
+            'return'  => $responseBoard,
+        ];
+
+        return response()->json($response);
     }
 }

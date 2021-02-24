@@ -35,3 +35,30 @@
 .no-scroll{
     overflow: hidden;
 }
+
+.alert{
+    color: #41464b;
+    background-color: #e2e3e5;
+    border-color: #d3d6d8;
+    padding: 8px 13px;
+    border: 1px solid;
+    margin-bottom: 10px;
+
+    &.alert-error{
+        background-color: $alert-red;
+        color: $alert-red;
+        border-color: $alert-red-border;
+    }
+
+    &.alert-warning{
+        background-color: $alert-yellow;
+        color: $alert-yellow-text;
+        border-color: $alert-yellow-border;
+    }
+
+    &.alert-success{
+        background-color: $alert-green;
+        color: $alert-green-text;
+        border-color: $alert-green-border;
+    }
+}
