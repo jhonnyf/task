@@ -14,7 +14,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 menu">home</div>
-                    <div class="col-md-4 brand">Task</div>
+                    <div class="col-md-4 brand">
+                        <a href="{{ route('board.index') }}">Task</a>
+                    </div>
                     <div class="col-md-4 settings">configurações</div>
                 </div>
             </div>

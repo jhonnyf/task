@@ -169,6 +169,15 @@ header .brand {
   font-size: 18px;
   letter-spacing: 2.5px;
 }
+header .brand a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 1s ease;
+}
+header .brand a:hover {
+  opacity: 0.7;
+  transition: all 1s ease;
+}
 header .settings {
   text-align: right;
 }

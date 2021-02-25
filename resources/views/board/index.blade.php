@@ -13,6 +13,11 @@
                 <div class="boards">
                     <h2 class="board-title">Meus quadros</h2>
                     <div class="itens">
+                        @foreach ($boards as $board)
+                            <div class="board">
+                                <a href="{{ route('board.detail', ['id' => $board->id]) }}">{{ $board->board }}</a>
+                            </div>    
+                        @endforeach
                         <div class="board">
                             <a href="javascript:;" data-modal="{{ route('board.create') }}">Criar novo quadro</a>
                         </div>

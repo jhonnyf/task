@@ -1912,6 +1912,7 @@ var Form = function () {
   var formAjax = function formAjax() {
     var element = $(this);
     var action = element.attr('action');
+    element.find('button').attr('disabled', 'disabled').html('<i class="fas fa-spinner"></i>');
     axios__WEBPACK_IMPORTED_MODULE_0___default()({
       url: action,
       data: element.serialize(),
@@ -1920,11 +1921,23 @@ var Form = function () {
     }).then(function (response) {
       response = response.data;
       element.prepend(response.message);
+      responseAjax(response);
       setTimeout(function () {
-        element.find('.alert').fadeOut();
+        element.find('.alert').fadeOut(function () {
+          $(this).remove();
+          element.find('button').removeAttr('disabled').html('ENVIAR');
+        });
       }, 2000);
     });
     return false;
+  };
+
+  var responseAjax = function responseAjax(response) {
+    console.log(response);
+
+    if (response.result.method == 'redirect') {
+      window.location = response.result.url;
+    }
   };
 
   return {

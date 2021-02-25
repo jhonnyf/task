@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board as Model;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,23 @@ class BoardController extends Controller
 
     public function index()
     {
-        return view('board.index');
+        $User = Auth::user();
+
+        $data = [
+            'boards' => $User->boards,
+        ];
+
+        return view('board.index', $data);
+    }
+
+    public function detail(int $id)
+    {
+        $data = [
+            'id'    => $id,
+            'Board' => Model::find($id),
+        ];
+
+        return view('board.detail', $data);
     }
 
     public function create()
@@ -35,9 +52,13 @@ class BoardController extends Controller
 
         $responseBoard = $User->boards()->create(['board' => $request->board]);
 
-        $response = [            
-            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!' , 'error' => false])->render(),
-            'return'  => $responseBoard,
+        $response = [
+            'error'   => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result'  => [
+                'method' => 'redirect',
+                'url'    => route('board.detail', ['id' => $responseBoard->id]),
+            ],
         ];
 
         return response()->json($response);

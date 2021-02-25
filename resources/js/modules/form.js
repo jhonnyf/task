@@ -6,6 +6,8 @@ const Form = function () {
         let element = $(this);
         let action = element.attr('action');
 
+        element.find('button').attr('disabled', 'disabled').html('<i class="fas fa-spinner"></i>');    
+
         axios({
             url: action,
             data: element.serialize(),
@@ -16,12 +18,25 @@ const Form = function () {
 
             element.prepend(response.message);
 
+            responseAjax(response);
+
             setTimeout(() => {
-                element.find('.alert').fadeOut();
+                element.find('.alert').fadeOut(function(){
+                    $(this).remove();
+                    element.find('button').removeAttr('disabled').html('ENVIAR');    
+                });
             }, 2000);
         });
 
         return false;
+    }
+
+    const responseAjax = (response) => {
+        console.log(response);
+
+        if (response.result.method == 'redirect') {
+            window.location = response.result.url;
+        }
     }
 
     return {
