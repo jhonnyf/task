@@ -246,3 +246,35 @@ header .settings {
   opacity: 0.7;
   transition: opacity 0.7s ease;
 }
+
+.board-detail {
+  margin-top: 20px;
+}
+.board-detail .columns {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.board-detail .columns .column {
+  width: 300px;
+  background-color: #3e4149;
+  padding: 15px 10px;
+  margin-right: 15px;
+}
+.board-detail .columns .column:last-child {
+  margin-right: 0;
+}
+.board-detail .columns .column h3 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.board-detail .columns .column .new-column {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+.board-detail .columns .column .form-new-column {
+  display: none;
+  margin-top: 15px;
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('detail/{id}', [BoardController::class, 'detail'])->name('board.detail');
         Route::get('create', [BoardController::class, 'create'])->name('board.create');
         Route::post('store', [BoardController::class, 'store'])->name('board.store');
+    });
+
+    Route::group(['prefix' => 'columns'], function () {
+        Route::post('store/{board_id}', [ColumnController::class, 'store'])->name('column.store');
     });
 
 });

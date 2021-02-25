@@ -10,4 +10,9 @@ class Board extends Model
     use HasFactory;
     
     protected $fillable = ['board'];
+
+    public function columns()
+    {
+        return $this->hasMany(Columns::class);
+    }
 }

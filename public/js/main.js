@@ -1844,7 +1844,9 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/form */ "./resources/js/modules/form.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./resources/js/modules/modal.js");
+/* harmony import */ var _modules_board__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/board */ "./resources/js/modules/board.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -1852,6 +1854,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 function app() {
   _modules_modal__WEBPACK_IMPORTED_MODULE_1__.Modal.init();
   _modules_form__WEBPACK_IMPORTED_MODULE_0__.Form.init();
+  _modules_board__WEBPACK_IMPORTED_MODULE_2__.Board.init();
 }
 
 document.onreadystatechange = function () {
@@ -1890,6 +1893,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/modules/board.js":
+/*!***************************************!*\
+  !*** ./resources/js/modules/board.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Board": () => (/* binding */ Board)
+/* harmony export */ });
+var Board = function () {
+  var newColumn = function newColumn() {
+    $('.form-new-column').slideDown();
+  };
+
+  return {
+    init: function init() {
+      $(document).on('click', '.new-column', newColumn);
+    }
+  };
+}();
+
+
 
 /***/ }),
 

@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BoardController extends Controller
 {
-
     public function index()
     {
         $User = Auth::user();
