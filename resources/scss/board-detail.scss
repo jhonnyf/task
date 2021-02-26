@@ -11,6 +11,7 @@
             background-color: $gray-dark;
             padding: 15px 10px;
             margin-right: 15px;
+            height: fit-content;
             
             &:last-child{
                 margin-right: 0;
@@ -25,7 +26,7 @@
             .new-column{
                 color: #fff;
                 text-decoration: none;
-                display: block;
+                display: block;        
             }
 
             .form-new-column{

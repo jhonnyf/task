@@ -11,7 +11,7 @@
                     <div class="columns">                        
                         @if ($Board->columns->count() > 0)
                             @foreach ($Board->columns as $column)
-                                <div class="column">
+                                <div class="column column-{{ $column->id }}">
                                     <h3>{{ $column->column }}</h3>
                                     <div class="cards">
                                         @if ($column->cards()->count() > 0)

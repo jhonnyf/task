@@ -20,7 +20,7 @@ class CardController extends Controller
             'result'  => [
                 'html'   => view('components.card', ['card' => $responseCard])->render(),
                 'method' => 'append',
-                'target' => '.cards'
+                'target' => ".column-{$responseCard->column_id} .cards"
             ],
         ];
 

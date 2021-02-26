@@ -260,6 +260,9 @@ header .settings {
   background-color: #3e4149;
   padding: 15px 10px;
   margin-right: 15px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .board-detail .columns .column:last-child {
   margin-right: 0;
