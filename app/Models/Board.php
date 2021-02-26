@@ -13,6 +13,6 @@ class Board extends Model
 
     public function columns()
     {
-        return $this->hasMany(Columns::class);
+        return $this->hasMany(Column::class);
     }
 }

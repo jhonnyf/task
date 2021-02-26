@@ -12,7 +12,7 @@ class ColumnController extends Controller
     {
         $Board = Board::find($board_id);
 
-        $Board->columns()->create(['column' => $request->column]);
+        $Board->cards()->create(['card' => $request->column]);
 
         $response = [
             'error'   => false,

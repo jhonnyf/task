@@ -1,7 +1,7 @@
 const Board = function () {
 
-    const newColumn = function () {        
-        $('.form-new-column').slideDown();        
+    const newColumn = function () {
+        $('.form-new-column').slideDown();
     }
 
     return {

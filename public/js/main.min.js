@@ -1968,6 +1968,10 @@ var Form = function () {
     if (response.result.method == 'redirect') {
       window.location = response.result.url;
     }
+
+    if (response.result.method == 'append') {
+      $(response.result.target).append(response.result.html);
+    }
   };
 
   return {

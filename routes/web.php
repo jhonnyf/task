@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'columns'], function () {
         Route::post('store/{board_id}', [ColumnController::class, 'store'])->name('column.store');
+    });
+
+    Route::group(['prefix' => 'cards'], function () {
+        Route::post('store/{column_id}', [CardController::class, 'store'])->name('card.store');
     });
 
 });

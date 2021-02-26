@@ -32,6 +32,28 @@
                 display: none;
                 margin-top: 15px;
             }
+
+            .form-new-card{
+                margin-top: 15px;
+            }
+
+            .cards{
+
+                .card{
+                    margin-top: 15px;
+
+                    h4{
+                        background-color: $gray-light;
+
+                        a{
+                            color: #fff;
+                            display: block;
+                            text-decoration: none;
+                            padding: 15px 10px;
+                        }
+                    }
+                }                
+            }
         }
     }
 }

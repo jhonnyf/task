@@ -278,3 +278,18 @@ header .settings {
   display: none;
   margin-top: 15px;
 }
+.board-detail .columns .column .form-new-card {
+  margin-top: 15px;
+}
+.board-detail .columns .column .cards .card {
+  margin-top: 15px;
+}
+.board-detail .columns .column .cards .card h4 {
+  background-color: #444f5a;
+}
+.board-detail .columns .column .cards .card h4 a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  padding: 15px 10px;
+}
