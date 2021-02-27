@@ -1963,10 +1963,33 @@ var Board = function () {
     });
   };
 
+  var editColumn = function editColumn() {
+    var element = $(this);
+    var value = element.text();
+    element.hide();
+    element.after('<input type="text" autocomplete="off" name="column" id="edit-column" value="' + value + '">');
+    document.getElementById('edit-column').select();
+  };
+
+  var saveColumn = function saveColumn() {
+    var element = $(this);
+    var value = element.val();
+    var column = element.closest('.column');
+    column.find('h3').text(value).show();
+    element.remove();
+    var column_id = column.data('id');
+    var url = window.location.origin + '/columns/update/' + column_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
+      'column': value
+    });
+  };
+
   return {
     init: function init() {
       cardSortable();
       columnSortable();
+      $(document).on('click', '.column h3', editColumn);
+      $(document).on('blur', '#edit-column', saveColumn);
     }
   };
 }();

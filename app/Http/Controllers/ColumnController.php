@@ -37,9 +37,25 @@ class ColumnController extends Controller
         }
 
         $response = [
-            'error' => false,
+            'error'   => false,
             'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
-            'result' => []
+            'result'  => [],
+        ];
+
+        return response()->json($response);
+    }
+
+    public function update(int $colmn_id, Request $request)
+    {
+        $Column         = Model::find($colmn_id);
+        $Column->column = $request->column;
+
+        $Column->save();
+
+        $response = [
+            'error'   => false,
+            'message' => '',
+            'result'  => [],
         ];
 
         return response()->json($response);

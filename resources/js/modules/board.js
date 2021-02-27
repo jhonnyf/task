@@ -57,10 +57,36 @@ const Board = function () {
         axios.post(url, {'sort': cards});
     }
 
+    const editColumn = function(){
+        let element = $(this);
+        let value = element.text();
+
+        element.hide();
+        element.after('<input type="text" autocomplete="off" name="column" id="edit-column" value="' + value + '">');
+        document.getElementById('edit-column').select();
+    }
+
+    const saveColumn = function(){
+        let element = $(this);
+        let value = element.val();
+        let column = element.closest('.column');
+
+        column.find('h3').text(value).show();
+        element.remove();
+
+        let column_id = column.data('id');
+        let url = window.location.origin + '/columns/update/' + column_id;
+
+        axios.post(url, {'column': value});
+    }
+
     return {
         init: function () {
             cardSortable();
             columnSortable();
+
+            $(document).on('click', '.column h3', editColumn);
+            $(document).on('blur', '#edit-column', saveColumn);
         }
     };
 }();

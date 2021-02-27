@@ -290,6 +290,7 @@ header .settings {
   color: #fff;
   font-size: 16px;
   font-weight: 500;
+  cursor: pointer;
 }
 .board-detail .columns .column .new-column {
   color: #fff;
