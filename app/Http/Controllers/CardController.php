@@ -13,7 +13,10 @@ class CardController extends Controller
     {
         $Column = Column::find($column_id);
 
-        $responseCard = $Column->cards()->create(['card' => $request->card]);
+        $responseCard = $Column->cards()->create([
+            'card' => $request->card,
+            'sort' => $Column->cards->count() + 1,
+        ]);
 
         $response = [
             'error'   => false,
@@ -21,7 +24,7 @@ class CardController extends Controller
             'result'  => [
                 'html'   => view('components.card', ['card' => $responseCard])->render(),
                 'method' => 'append',
-                'target' => ".column-{$responseCard->column_id} .cards"
+                'target' => ".column-{$responseCard->column_id} .cards",
             ],
         ];
 
@@ -37,9 +40,9 @@ class CardController extends Controller
         }
 
         $response = [
-            'error' => false,
+            'error'   => false,
             'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
-            'result' => []
+            'result'  => [],
         ];
 
         return response()->json($response);

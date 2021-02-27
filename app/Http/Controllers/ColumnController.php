@@ -13,11 +13,14 @@ class ColumnController extends Controller
     {
         $Board = Board::find($board_id);
 
-        $responseColumn = $Board->columns()->create(['column' => $request->column]);
+        $responseColumn = $Board->columns()->create([
+            'column' => $request->column,
+            'sort'   => $Board->columns->count() + 1,
+        ]);
 
         $response = [
             'error'   => false,
-            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'message' => '',
             'result'  => [
                 'html'   => view('components.column', ['column' => $responseColumn])->render(),
                 'method' => 'append',

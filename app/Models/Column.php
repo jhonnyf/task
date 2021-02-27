@@ -9,7 +9,7 @@ class Column extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['column'];
+    protected $fillable = ['column', 'sort'];
 
     public function cards()
     {
