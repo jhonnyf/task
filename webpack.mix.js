@@ -35,16 +35,4 @@ mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts', 'publ
  * BrowserSync
  */
 
-mix.webpackConfig({
-    plugins: [
-        new BrowserSyncPlugin({
-            port: 3000,
-            files: [
-                'app/**/*',
-                'public/**/*',
-                'resources/views/**/*',
-                'routes/**/*'
-            ]
-        })
-    ]
-});
+mix.browserSync();

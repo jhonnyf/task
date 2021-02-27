@@ -97,6 +97,10 @@
                     display: block;
                     font-weight: bold;
 
+                    &:hover{
+                        opacity: 0.7;
+                    }
+
                     &.delete{
                         color: $alert-red-text;
                         border-top: 1px solid transparent;
