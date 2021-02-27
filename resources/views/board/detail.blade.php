@@ -22,7 +22,7 @@
                     </div>
                     
                     <div class="columns">                        
-                        <div id="sortable-columns" class="columns-board">
+                        <div id="sortable-columns" class="columns-board" data-board_id="{{ $Board->id }}">
                             @if ($Board->columns->count() > 0)
                                 @foreach ($Board->columns as $column)
                                     <x-column :column="$column" />  

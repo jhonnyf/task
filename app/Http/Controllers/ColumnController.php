@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\Column as Model;
 use Illuminate\Http\Request;
 
 class ColumnController extends Controller
@@ -22,6 +23,23 @@ class ColumnController extends Controller
                 'method' => 'append',
                 'target' => ".columns .columns-board",
             ],
+        ];
+
+        return response()->json($response);
+    }
+
+    public function sort(int $board_id, Request $request)
+    {
+        if ($request->sort) {
+            foreach ($request->sort as $sort => $column_id) {
+                Model::where(['id' => $column_id, 'board_id' => $board_id])->update(['sort' => $sort]);
+            }
+        }
+
+        $response = [
+            'error' => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result' => []
         ];
 
         return response()->json($response);

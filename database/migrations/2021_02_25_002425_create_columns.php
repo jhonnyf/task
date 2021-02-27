@@ -16,6 +16,7 @@ class CreateColumns extends Migration
             $table->integer('active')->default(1);
             $table->foreignId('board_id')->references('id')->on('boards')->cascadeOnDelete();
             $table->string('column', 120);
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }

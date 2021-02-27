@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'columns'], function () {
         Route::post('store/{board_id}', [ColumnController::class, 'store'])->name('column.store');
+        Route::post('sort/{board_id}', [ColumnController::class, 'sort'])->name('column.sort');
     });
 
     Route::group(['prefix' => 'cards'], function () {
