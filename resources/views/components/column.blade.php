@@ -3,8 +3,17 @@
         <div class="column-title">
             <h3>{{ $column->column }}</h3>
         </div>
-        <div class="column-actions">
-            <i class="fas fa-ellipsis-v"></i>
+        <div class="column-actions dropdown">
+            <div class="column-menu dropdown-toggle">
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+            <div class="dropdown-content">
+                <h4 class="title">Ações</h4>
+                <div class="separator"></div>
+                <ul>
+                    <li><a href="javascript:;" class="delete"><i class="fas fa-trash"></i> Arquivar</a></li>
+                </ul>
+            </div>
         </div>
     </div>    
 

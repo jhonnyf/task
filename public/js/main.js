@@ -1845,7 +1845,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/form */ "./resources/js/modules/form.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./resources/js/modules/modal.js");
 /* harmony import */ var _modules_board__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/board */ "./resources/js/modules/board.js");
+/* harmony import */ var _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/dropdown */ "./resources/js/modules/dropdown.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -1855,6 +1857,7 @@ function app() {
   _modules_modal__WEBPACK_IMPORTED_MODULE_1__.Modal.init();
   _modules_form__WEBPACK_IMPORTED_MODULE_0__.Form.init();
   _modules_board__WEBPACK_IMPORTED_MODULE_2__.Board.init();
+  _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__.Dropdown.init();
 }
 
 document.onreadystatechange = function () {
@@ -1990,6 +1993,35 @@ var Board = function () {
       columnSortable();
       $(document).on('click', '.column h3', editColumn);
       $(document).on('blur', '#edit-column', saveColumn);
+    }
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modules/dropdown.js":
+/*!******************************************!*\
+  !*** ./resources/js/modules/dropdown.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Dropdown": () => (/* binding */ Dropdown)
+/* harmony export */ });
+var Dropdown = function () {
+  var toggle = function toggle() {
+    var element = $(this);
+    var dropdown = element.closest('.dropdown');
+    dropdown.find('.dropdown-content').slideToggle();
+  };
+
+  return {
+    init: function init() {
+      $(document).on('click', '.dropdown-toggle', toggle);
     }
   };
 }();

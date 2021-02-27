@@ -62,18 +62,21 @@
 
                 .column-actions{
                     width: 10%;
-                    color: $gray-light;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 19px;
-                    padding: 5px 0;
-                    cursor: pointer;
 
-                    &:hover{
-                        color: $gray-dark;
-                        background-color: $gray-light;
-                    }
+                    .column-menu{
+                        color: $gray-light;
+                        font-size: 19px;
+                        padding: 5px 0;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover{
+                            color: $gray-dark;
+                            background-color: $gray-light;
+                        }                    
+                    }                    
                 }
             }
             
