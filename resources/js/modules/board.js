@@ -30,9 +30,31 @@ const Board = function () {
 
             Sortable.create(document.getElementById('sortable-cards-' + id),{
                 group: 'shared',
-                animation: 150
+                animation: 150,
+                onUpdate: function (el) {
+                    let target = el.target.id;
+                    sortCards(target);
+                },
+                onAdd: function (el) {
+                    let target = el.target.id;
+                    sortCards(target);
+                }
             });
         });
+    }
+
+    const sortCards = function(target){
+        const cards = [];
+        $('#'+ target).find('.card').each(function(index){
+            let element = $(this);                    
+
+            cards[index] = element.data('id')
+        });
+
+        let column_id = $('#'+ target).data('column_id');
+        let url = window.location.origin + '/cards/sort/' + column_id;
+
+        axios.post(url, {'sort': cards});
     }
 
     return {

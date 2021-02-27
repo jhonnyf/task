@@ -15,6 +15,7 @@ class CreateCards extends Migration
             $table->integer('active')->default(1);
             $table->foreignId('column_id')->references('id')->on('columns')->cascadeOnDelete();
             $table->string('card', 120);
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }

@@ -1,6 +1,6 @@
 <div class="column column-{{ $column->id }}" data-id="{{ $column->id }}">
     <h3>{{ $column->column }}</h3>
-    <div id="sortable-cards-{{ $column->id }}" class="cards">
+    <div id="sortable-cards-{{ $column->id }}" data-column_id="{{ $column->id }}" class="cards">
         @if ($column->cards()->count() > 0)
             @foreach ($column->cards as $card)
                 <x-card :card="$card" />                                                

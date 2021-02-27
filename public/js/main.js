@@ -1937,8 +1937,29 @@ var Board = function () {
       var id = element.data('id');
       sortablejs__WEBPACK_IMPORTED_MODULE_1__.default.create(document.getElementById('sortable-cards-' + id), {
         group: 'shared',
-        animation: 150
+        animation: 150,
+        onUpdate: function onUpdate(el) {
+          var target = el.target.id;
+          sortCards(target);
+        },
+        onAdd: function onAdd(el) {
+          var target = el.target.id;
+          sortCards(target);
+        }
       });
+    });
+  };
+
+  var sortCards = function sortCards(target) {
+    var cards = [];
+    $('#' + target).find('.card').each(function (index) {
+      var element = $(this);
+      cards[index] = element.data('id');
+    });
+    var column_id = $('#' + target).data('column_id');
+    var url = window.location.origin + '/cards/sort/' + column_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
+      'sort': cards
     });
   };
 
