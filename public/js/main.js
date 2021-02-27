@@ -1931,8 +1931,20 @@ var Board = function () {
     });
   };
 
+  var cardSortable = function cardSortable() {
+    $('.column').each(function () {
+      var element = $(this);
+      var id = element.data('id');
+      sortablejs__WEBPACK_IMPORTED_MODULE_1__.default.create(document.getElementById('sortable-cards-' + id), {
+        group: 'shared',
+        animation: 150
+      });
+    });
+  };
+
   return {
     init: function init() {
+      cardSortable();
       columnSortable();
     }
   };

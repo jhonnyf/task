@@ -22,8 +22,22 @@ const Board = function () {
         });
     }
 
+    const cardSortable = function() {        
+
+        $('.column').each(function(){
+            let element = $(this);
+            let id = element.data('id');
+
+            Sortable.create(document.getElementById('sortable-cards-' + id),{
+                group: 'shared',
+                animation: 150
+            });
+        });
+    }
+
     return {
         init: function () {
+            cardSortable();
             columnSortable();
         }
     };
