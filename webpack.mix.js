@@ -11,7 +11,8 @@ mix.combine([
 
 mix.combine([
     './node_modules/jquery/dist/jquery.js',
-    './node_modules/bootstrap/dist/js/bootstrap.bundle.js'    
+    './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+    './node_modules/sortablejs/Sortable.js'    
 ], './public/js/vendor.js').minify('./public/js/vendor.js');
 
 /**
