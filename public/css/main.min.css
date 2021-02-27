@@ -289,6 +289,15 @@ header .settings {
 }
 .board-detail .columns .column .column-header .column-title {
   width: 90%;
+  display: flex;
+  align-items: center;
+}
+.board-detail .columns .column .column-header .column-title h3 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
 }
 .board-detail .columns .column .column-header .column-title input {
   width: 100%;
@@ -299,17 +308,17 @@ header .settings {
   color: #444f5a;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   font-size: 19px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+.board-detail .columns .column .column-header .column-actions:hover {
+  color: #3e4149;
+  background-color: #444f5a;
 }
 .board-detail .columns .column:last-child {
   margin-right: 0;
-}
-.board-detail .columns .column h3 {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
 }
 .board-detail .columns .column .new-column {
   color: #fff;
