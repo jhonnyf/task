@@ -250,10 +250,29 @@ header .settings {
 .board-detail {
   margin-top: 20px;
 }
+.board-detail .header-board {
+  display: flex;
+}
+.board-detail .header-board .title {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.board-detail .header-board .form-new-column {
+  display: flex;
+}
+.board-detail .header-board .form-new-column .form-field {
+  margin-bottom: 0;
+}
 .board-detail .columns {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+}
+.board-detail .columns .columns-board {
+  display: flex;
+  flex-direction: row;
+  margin-right: 15px;
 }
 .board-detail .columns .column {
   width: 300px;
@@ -276,10 +295,6 @@ header .settings {
   color: #fff;
   text-decoration: none;
   display: block;
-}
-.board-detail .columns .column .form-new-column {
-  display: none;
-  margin-top: 15px;
 }
 .board-detail .columns .column .form-new-card {
   margin-top: 15px;

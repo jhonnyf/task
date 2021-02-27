@@ -7,10 +7,9 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-
     public $card;
 
-    public function __construct($card)
+    public function __construct(ModelsCard $card)
     {
         $this->card = $card;
     }

@@ -1908,14 +1908,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Board": () => (/* binding */ Board)
 /* harmony export */ });
 var Board = function () {
-  var newColumn = function newColumn() {
-    $('.form-new-column').slideDown();
-  };
-
   return {
-    init: function init() {
-      $(document).on('click', '.new-column', newColumn);
-    }
+    init: function init() {}
   };
 }();
 
@@ -1955,6 +1949,7 @@ var Form = function () {
       setTimeout(function () {
         element.find('.alert').fadeOut(function () {
           $(this).remove();
+          element.find('input').val('');
           element.find('button').removeAttr('disabled').html('ENVIAR');
         });
       }, 2000);

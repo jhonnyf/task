@@ -23,6 +23,7 @@ const Form = function () {
             setTimeout(() => {
                 element.find('.alert').fadeOut(function(){
                     $(this).remove();
+                    element.find('input').val('');
                     element.find('button').removeAttr('disabled').html('ENVIAR');    
                 });
             }, 2000);

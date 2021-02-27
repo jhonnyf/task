@@ -12,12 +12,16 @@ class ColumnController extends Controller
     {
         $Board = Board::find($board_id);
 
-        $Board->columns()->create(['column' => $request->column]);
+        $responseColumn = $Board->columns()->create(['column' => $request->column]);
 
         $response = [
             'error'   => false,
             'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
-            'result'  => [],
+            'result'  => [
+                'html'   => view('components.column', ['column' => $responseColumn])->render(),
+                'method' => 'append',
+                'target' => ".columns .columns-board",
+            ],
         ];
 
         return response()->json($response);
