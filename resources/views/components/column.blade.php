@@ -1,5 +1,13 @@
 <div class="column column-{{ $column->id }}" data-id="{{ $column->id }}">
-    <h3>{{ $column->column }}</h3>
+    <div class="column-header">
+        <div class="column-title">
+            <h3>{{ $column->column }}</h3>
+        </div>
+        <div class="column-actions">
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+    </div>    
+
     <div id="sortable-cards-{{ $column->id }}" data-column_id="{{ $column->id }}" class="cards">
         @if ($column->cards()->count() > 0)
             @foreach ($column->cards as $card)

@@ -283,6 +283,25 @@ header .settings {
   height: -moz-fit-content;
   height: fit-content;
 }
+.board-detail .columns .column .column-header {
+  display: flex;
+  flex-direction: row;
+}
+.board-detail .columns .column .column-header .column-title {
+  width: 90%;
+}
+.board-detail .columns .column .column-header .column-title input {
+  width: 100%;
+  padding: 10px 15px;
+}
+.board-detail .columns .column .column-header .column-actions {
+  width: 10%;
+  color: #444f5a;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 19px;
+}
 .board-detail .columns .column:last-child {
   margin-right: 0;
 }
