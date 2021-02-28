@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Board extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = ['board'];
 
     public function columns()
     {
-        return $this->hasMany(Column::class)->orderBy('sort', 'asc');
+        return $this->hasMany(Column::class)
+            ->where('active', '<>', 2)
+            ->orderBy('sort', 'asc');
     }
 }

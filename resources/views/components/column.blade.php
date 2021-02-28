@@ -12,7 +12,7 @@
                 <div class="separator"></div>
                 <ul>
                     <li><a href="javascript:;"><i class="fas fa-copy"></i> Clonar</a></li>
-                    <li><a href="javascript:;" class="delete"><i class="fas fa-trash"></i> Arquivar</a></li>
+                    <li><a href="{{ route('column.destroy', ['column_id' => $column->id]) }}" class="link-ajax delete"><i class="fas fa-trash"></i> Arquivar</a></li>
                 </ul>
             </div>
         </div>

@@ -1846,7 +1846,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./resources/js/modules/modal.js");
 /* harmony import */ var _modules_board__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/board */ "./resources/js/modules/board.js");
 /* harmony import */ var _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/dropdown */ "./resources/js/modules/dropdown.js");
+/* harmony import */ var _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/link-ajax */ "./resources/js/modules/link-ajax.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -1858,6 +1860,7 @@ function app() {
   _modules_form__WEBPACK_IMPORTED_MODULE_0__.Form.init();
   _modules_board__WEBPACK_IMPORTED_MODULE_2__.Board.init();
   _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__.Dropdown.init();
+  _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__.LinkAjax.init();
 }
 
 document.onreadystatechange = function () {
@@ -2019,9 +2022,14 @@ var Dropdown = function () {
     dropdown.find('.dropdown-content').slideToggle();
   };
 
+  var close = function close() {
+    console.log('close');
+  };
+
   return {
     init: function init() {
       $(document).on('click', '.dropdown-toggle', toggle);
+      $(document).on('blur', '.dropdown-content', close);
     }
   };
 }();
@@ -2085,6 +2093,58 @@ var Form = function () {
   return {
     init: function init() {
       $(document).on('submit', '.form-ajax', formAjax);
+    }
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modules/link-ajax.js":
+/*!*******************************************!*\
+  !*** ./resources/js/modules/link-ajax.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LinkAjax": () => (/* binding */ LinkAjax)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var LinkAjax = function () {
+  var send = function send() {
+    var element = $(this);
+    var href = element.attr('href');
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(href).then(function (response) {
+      responseAjax(response.data);
+    });
+    return false;
+  };
+
+  var responseAjax = function responseAjax(response) {
+    if (response.result.method == 'redirect') {
+      window.location = response.result.url;
+    }
+
+    if (response.result.method == 'append') {
+      $(response.result.target).append(response.result.html);
+    }
+
+    if (response.result.method == 'remove') {
+      $(response.result.target).slideToggle(function () {
+        $(this).remove();
+      });
+    }
+  };
+
+  return {
+    init: function init() {
+      $(document).on('click', '.link-ajax', send);
     }
   };
 }();

@@ -63,4 +63,23 @@ class ColumnController extends Controller
 
         return response()->json($response);
     }
+
+    public function destroy(int $column_id)
+    {
+        $Column = Model::find($column_id);
+        
+        $Column->active = 2;
+        $Column->save();
+
+        $response = [
+            'error'   => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result'  => [
+                'target' => ".column.column-{$column_id}",
+                'method' => 'remove'
+            ]
+        ];
+
+        return response()->json($response);
+    }
 }
