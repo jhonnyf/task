@@ -47,4 +47,21 @@ class CardController extends Controller
 
         return response()->json($response);
     }
+
+    public function detail(int $card_id)
+    {
+        $data = [
+            'Card' => Model::find($card_id),
+        ];
+
+        $response = [
+            'error'   => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result'  => [
+                'html' => view('card.modal.detail', $data)->render(),
+            ],
+        ];
+
+        return response()->json($response);
+    }
 }

@@ -24,7 +24,7 @@ class ColumnController extends Controller
             'result'  => [
                 'html'   => view('components.column', ['column' => $responseColumn])->render(),
                 'method' => 'append',
-                'target' => ".columns .columns-board",
+                'target' => ".columns .columns-board",                
             ],
         ];
 
