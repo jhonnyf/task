@@ -2051,6 +2051,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./board */ "./resources/js/modules/board.js");
+
 
 
 var Form = function () {
@@ -2087,6 +2089,10 @@ var Form = function () {
 
     if (response.result.method == 'append') {
       $(response.result.target).append(response.result.html);
+
+      if (response.result.target == ".columns .columns-board") {
+        _board__WEBPACK_IMPORTED_MODULE_1__.Board.init();
+      }
     }
   };
 

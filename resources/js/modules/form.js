@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Board } from "./board";
 
 const Form = function () {
 
@@ -41,7 +42,10 @@ const Form = function () {
         }
 
         if (response.result.method == 'append') {
-            $( response.result.target ).append( response.result.html );
+            $( response.result.target ).append( response.result.html);
+            if(response.result.target == ".columns .columns-board"){
+                Board.init();
+            }            
         }
     }
 

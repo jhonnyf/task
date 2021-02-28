@@ -22,8 +22,7 @@ const Board = function () {
         });
     }
 
-    const cardSortable = function() {        
-
+    const cardSortable = function() {
         $('.column').each(function(){
             let element = $(this);
             let id = element.data('id');
