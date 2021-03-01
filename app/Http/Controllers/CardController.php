@@ -64,4 +64,31 @@ class CardController extends Controller
 
         return response()->json($response);
     }
+
+    public function update(int $card_id, Request $request)
+    {
+        $Card = Model::find($card_id);
+
+        if (isset($request->element)) {
+            $element = $request->element;
+
+            if ($element == 'card') {
+                $Card->card = $request->value;
+            }
+
+            if ($element == 'description') {
+                $Card->description = $request->value;
+            }
+        }
+
+        $Card->save();
+
+        $response = [
+            'error'   => false,
+            'message' => '',
+            'result'  => [],
+        ];
+
+        return response()->json($response);
+    }
 }

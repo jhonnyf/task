@@ -1847,7 +1847,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_board__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/board */ "./resources/js/modules/board.js");
 /* harmony import */ var _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/dropdown */ "./resources/js/modules/dropdown.js");
 /* harmony import */ var _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/link-ajax */ "./resources/js/modules/link-ajax.js");
+/* harmony import */ var _modules_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/card */ "./resources/js/modules/card.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -1861,6 +1863,7 @@ function app() {
   _modules_board__WEBPACK_IMPORTED_MODULE_2__.Board.init();
   _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__.Dropdown.init();
   _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__.LinkAjax.init();
+  _modules_card__WEBPACK_IMPORTED_MODULE_5__.Card.init();
 }
 
 document.onreadystatechange = function () {
@@ -1996,6 +1999,48 @@ var Board = function () {
       columnSortable();
       $(document).on('click', '.column h3', editColumn);
       $(document).on('blur', '#edit-column', saveColumn);
+    }
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modules/card.js":
+/*!**************************************!*\
+  !*** ./resources/js/modules/card.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Card": () => (/* binding */ Card)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Card = function () {
+  var saveBlur = function saveBlur() {
+    var element = $(this);
+    var name = element.attr('name');
+    var value = element.val();
+    var card_id = element.closest('.card-detail').data('id');
+    var url = window.location.origin + '/cards/update/' + card_id;
+    var data = {
+      'element': name,
+      'value': value
+    };
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (response) {
+      console.log(response);
+    });
+  };
+
+  return {
+    init: function init() {
+      $(document).on('blur', '.save-blur', saveBlur);
     }
   };
 }();
