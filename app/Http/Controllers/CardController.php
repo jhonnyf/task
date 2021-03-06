@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card as Model;
+use App\Models\Checklist;
 use App\Models\Column;
 use Illuminate\Http\Request;
 
@@ -74,10 +75,10 @@ class CardController extends Controller
 
             if ($element == 'card') {
                 $Card->card = $request->value;
-            }
-
-            if ($element == 'description') {
-                $Card->description = $request->value;
+            } else if ($element == 'final_date') {
+                $Card->final_date = str_replace('T', ' ', $request->value);
+            } else {
+                $Card->$element = $request->value;
             }
         }
 
@@ -87,6 +88,40 @@ class CardController extends Controller
             'error'   => false,
             'message' => '',
             'result'  => [],
+        ];
+
+        return response()->json($response);
+    }
+
+    public function generateChecklist(int $card_id)
+    {
+        $Card = Model::find($card_id);
+
+        $responseChecklist = $Card->checklists()->create(['checklist' => 'Digite aqui o titulo da sua checklist']);
+
+        $response = [
+            'error'   => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result'  => [
+                'html' => $responseChecklist,
+            ],
+        ];
+
+        return response()->json($response);
+    }
+    
+    public function generateChecklistItem(int $checklist_id)
+    {
+        $Checklist = Checklist::find($checklist_id);
+
+        $responseChecklistItem = $Checklist->items()->create(['checklist_item' => 'Digite aqui o titulo da sua checklist']);
+
+        $response = [
+            'error'   => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result'  => [
+                'html' => $responseChecklistItem,
+            ],
         ];
 
         return response()->json($response);

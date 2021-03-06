@@ -27,6 +27,10 @@ class BoardController extends Controller
             'Board' => Model::find($id),
         ];
 
+        if (empty($data['Board'])) {
+            return redirect()->route('board.index');
+        }
+
         return view('board.detail', $data);
     }
 

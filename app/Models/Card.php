@@ -9,5 +9,10 @@ class Card extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['card', 'sort', 'description'];
+    protected $fillable = ['card', 'sort', 'description', 'final_date'];
+
+    public function checklists()
+    {
+        return $this->hasMany(Checklist::class);
+    }
 }

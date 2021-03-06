@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'cards'], function () {
+        Route::post('generate-checklist-item/{checklist_id}', [CardController::class, 'generateChecklistItem'])->name('card.generate-checklist-item');
+        Route::post('generate-checklist/{card_id}', [CardController::class, 'generateChecklist'])->name('card.generate-checklist');
         Route::post('store/{column_id}', [CardController::class, 'store'])->name('card.store');
         Route::post('sort/{column_id}', [CardController::class, 'sort'])->name('card.sort');
         Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');
