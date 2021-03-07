@@ -9,5 +9,5 @@ class ChecklistsItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['checklist_item'];
+    protected $fillable = ['checklist_item', 'finished'];
 }

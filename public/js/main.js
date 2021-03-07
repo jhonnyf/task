@@ -2170,11 +2170,26 @@ var Checklist = function () {
     });
   };
 
+  var finishedItem = function finishedItem() {
+    var element = $(this);
+    var checklistItem = element.closest('.checklist-item');
+    var checklistItem_id = checklistItem.data('id');
+    var value = element.is(':checked') ? 1 : 0;
+    var url = window.location.origin + '/checklist-item/update/' + checklistItem_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
+      'element': 'finished',
+      'value': value
+    }).then(function (response) {
+      if (response.status === 200) {}
+    });
+  };
+
   return {
     init: function init() {
       $(document).on('click', '.checklist-store', store);
       $(document).on('click', '.checklist-destroy', destroy);
       $(document).on('click', '.checklist-item-store', storeItem);
+      $(document).on('click', '.checklist-item-finished', finishedItem);
       $(document).on('click', '.checklist-item-destroy', destroyItem);
     }
   };

@@ -1,11 +1,10 @@
 const mix = require('laravel-mix');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 /**
  * VENDOR
  */
 mix.combine([
-    './node_modules/bootstrap/dist/css/bootstrap-grid.css',
+    './node_modules/bootstrap/dist/css/bootstrap-grid.css',    
     './node_modules/@fortawesome/fontawesome-free/css/all.css',
 ], './public/css/vendor.css').minify('./public/css/vendor.css');
 

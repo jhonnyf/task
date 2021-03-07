@@ -404,7 +404,7 @@ header .settings {
 .card-detail {
   width: 800px;
 }
-.card-detail .title, .card-detail .section-date, .card-detail .checklist, .card-detail .mt-default {
+.card-detail .title, .card-detail .section-date, .card-detail .checklist, .card-detail .mt-default, .card-detail .title-section, .card-detail .checklist-title-section {
   margin-bottom: 25px;
 }
 .card-detail .title {
@@ -412,12 +412,33 @@ header .settings {
 }
 .card-detail .title-section {
   font-size: 16px;
-  margin-bottom: 10px;
 }
 .card-detail .btn {
   width: 100%;
   margin-bottom: 10px;
 }
+.card-detail .checklist .checklist-title-section {
+  height: 37px;
+}
+.card-detail .checklist .checklist-title-section .checklist-title {
+  font-size: 16px;
+}
+.card-detail .checklist .checklist-title-section .mt-default {
+  margin-bottom: 0;
+}
+.card-detail .checklist .checklist-destroy, .card-detail .checklist .checklist-item-destroy {
+  margin-left: 15px;
+}
 .card-detail .checklist .checklist-item {
   margin-bottom: 15px;
+  height: 37px;
+}
+.card-detail .checklist .checklist-item .checklist-item-content {
+  width: 100%;
+}
+.card-detail .checklist .checklist-item .checklist-item-finished {
+  margin-right: 15px;
+}
+.card-detail .checklist .checklist-item .input {
+  margin-bottom: 0;
 }

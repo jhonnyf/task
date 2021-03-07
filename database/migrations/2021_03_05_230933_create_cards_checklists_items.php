@@ -17,6 +17,7 @@ class CreateCardsChecklistsItems extends Migration
             $table->foreignId('checklist_id')->references('id')->on('checklists')->cascadeOnDelete();
             $table->integer('sort')->default(0);
             $table->string('checklist_item');
+            $table->boolean('finished')->default(0);
             $table->timestamps();
         });
     }

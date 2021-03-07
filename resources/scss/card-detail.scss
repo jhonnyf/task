@@ -1,7 +1,7 @@
 .card-detail{
     width: 800px;
 
-    .title, .section-date, .checklist, .mt-default{
+    .title, .section-date, .checklist, .mt-default, .title-section, .checklist-title-section{
         margin-bottom: 25px;
     }
 
@@ -11,7 +11,6 @@
 
     .title-section{
         font-size: 16px;
-        margin-bottom: 10px;
     }
 
     .btn{        
@@ -21,8 +20,37 @@
 
     .checklist{
 
+        .checklist-title-section{
+            height: 37px;
+            
+            .checklist-title{
+                font-size: 16px;
+            }
+
+            .mt-default{
+                margin-bottom: 0;
+            }
+        }
+
+        .checklist-destroy, .checklist-item-destroy{
+            margin-left: 15px;
+        }
+
         .checklist-item{
-            margin-bottom: 15px;            
+            margin-bottom: 15px;  
+            height: 37px;
+            
+            .checklist-item-content{
+                width: 100%;
+            }
+
+            .checklist-item-finished{
+                margin-right: 15px;
+            }
+
+            .input{
+                margin-bottom: 0;
+            }            
         }
     }    
 }
