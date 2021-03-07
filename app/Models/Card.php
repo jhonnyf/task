@@ -13,6 +13,6 @@ class Card extends Model
 
     public function checklists()
     {
-        return $this->hasMany(Checklist::class);
+        return $this->hasMany(Checklist::class)->where('active', '<>', 2);
     }
 }

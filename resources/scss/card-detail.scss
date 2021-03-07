@@ -1,9 +1,12 @@
 .card-detail{
     width: 800px;
 
+    .title, .section-date, .checklist, .mt-default{
+        margin-bottom: 25px;
+    }
+
     .title{
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-size: 24px;        
     }
 
     .title-section{
@@ -15,4 +18,16 @@
         width: 100%;        
         margin-bottom: 10px;
     }
+
+    .checklist{
+
+        .checklist-title{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .checklist-item{
+            margin-bottom: 15px;
+        }
+    }    
 }

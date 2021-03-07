@@ -13,3 +13,7 @@
     display: block;
     color: $gray-light;
 }
+
+input[readonly]{
+    background-color: #eee;
+}

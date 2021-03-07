@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\ChecklistController;
+use App\Http\Controllers\ChecklistItemController;
 use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -32,13 +34,22 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('destroy/{column_id}', [ColumnController::class, 'destroy'])->name('column.destroy');
     });
 
-    Route::group(['prefix' => 'cards'], function () {
-        Route::post('generate-checklist-item/{checklist_id}', [CardController::class, 'generateChecklistItem'])->name('card.generate-checklist-item');
-        Route::post('generate-checklist/{card_id}', [CardController::class, 'generateChecklist'])->name('card.generate-checklist');
+    Route::group(['prefix' => 'cards'], function () {        
         Route::post('store/{column_id}', [CardController::class, 'store'])->name('card.store');
-        Route::post('sort/{column_id}', [CardController::class, 'sort'])->name('card.sort');
-        Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');
+        Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');        
+        Route::post('sort/{column_id}', [CardController::class, 'sort'])->name('card.sort');        
         Route::post('update/{card_id}', [CardController::class, 'update'])->name('card.update');
+    });
+
+    Route::group(['prefix' => 'checklist'], function(){
+        Route::post('store/{card_id}', [ChecklistController::class, 'store'])->name('checklist.store');
+        Route::post('update/{checklist_id}', [ChecklistController::class, 'update'])->name('checklist.update');
+        Route::post('destroy/{checklist_id}', [ChecklistController::class, 'destroy'])->name('checklist.destroy');        
+    });
+
+    Route::group(['prefix' => 'checklist-item'], function(){
+        Route::post('store/{checklist_id}', [ChecklistItemController::class, 'store'])->name('checklist-item.store');
+        Route::post('update/{checklist_item_id}', [ChecklistItemController::class, 'update'])->name('checklist-item.store');
     });
 
 });

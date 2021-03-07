@@ -12,38 +12,60 @@ const Card = function () {
 
         let data = { 'element': name, 'value': value }
 
-        axios.post(url, data).then(function (response) {
-            console.log(response);
-        });
+        axios.post(url, data);
     }
 
-    const generateChecklist = function () {
+    const editContent = function(){
         let element = $(this);
-        let card_id = element.closest('.card-detail').data('id');
+        let value = element.text();
 
-        let url = window.location.origin + '/cards/generate-checklist/' + card_id;
-
-        axios.post(url).then(function(response){
-            console.log(response);
-        });
+        element.addClass('edit-blur').hide();
+        element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="input mt-default" value="' + value + '">');
+        
+        document.getElementById('edit-content').select();
     }
-    
-    const generateChecklistItem = function () {
+
+    const saveColumn = function(){
         let element = $(this);
-        let checklist_id = element.closest('.checklist').data('id');
+        let value = element.val();
 
-        let url = window.location.origin + '/cards/generate-checklist-item/' + checklist_id;
+        let elementBlur = $('.edit-blur');
+        let type = elementBlur.data('type');
 
-        axios.post(url).then(function(response){
-            console.log(response);
-        });
+        elementBlur.text(value).show().removeClass('edit-blur');
+        
+        if (type == 'card') {
+            let card = elementBlur.closest('.card-detail');
+            let card_id = card.data('id');
+
+            let url = window.location.origin + '/cards/update/' + card_id;            
+            axios.post(url, {'element': elementBlur.data('element'), 'value': value});                
+        } 
+        
+        if (type == 'checklist') {
+            let checklist = elementBlur.closest('.checklist');
+            let checklist_id = checklist.data('id');
+
+            let url = window.location.origin + '/checklist/update/' + checklist_id;            
+            axios.post(url, {'element': elementBlur.data('element'), 'value': value});                
+        }
+
+        if (type == 'checklist-item') {
+            let checklistItem = elementBlur.closest('.checklist-item');
+            let checklistItem_id = checklistItem.data('id');
+
+            let url = window.location.origin + '/checklist-item/update/' + checklistItem_id;            
+            axios.post(url, {'element': elementBlur.data('element'), 'value': value});                
+        }
+
+        element.remove();
     }
 
     return {
         init: function () {
             $(document).on('blur', '.save-blur', saveBlur);
-            $(document).on('click', '.generate-checklist', generateChecklist);
-            $(document).on('click', '.generate-checklist-item', generateChecklistItem);
+            $(document).on('click', '.focus-edit-content', editContent);        
+            $(document).on('blur', '#edit-content', saveColumn);
         }
     };
 }();

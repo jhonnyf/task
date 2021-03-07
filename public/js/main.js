@@ -1848,7 +1848,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/dropdown */ "./resources/js/modules/dropdown.js");
 /* harmony import */ var _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/link-ajax */ "./resources/js/modules/link-ajax.js");
 /* harmony import */ var _modules_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/card */ "./resources/js/modules/card.js");
+/* harmony import */ var _modules_checklist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/checklist */ "./resources/js/modules/checklist.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -1864,6 +1866,7 @@ function app() {
   _modules_dropdown__WEBPACK_IMPORTED_MODULE_3__.Dropdown.init();
   _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__.LinkAjax.init();
   _modules_card__WEBPACK_IMPORTED_MODULE_5__.Card.init();
+  _modules_checklist__WEBPACK_IMPORTED_MODULE_6__.Checklist.init();
 }
 
 document.onreadystatechange = function () {
@@ -2033,34 +2036,131 @@ var Card = function () {
       'element': name,
       'value': value
     };
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (response) {
-      console.log(response);
-    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data);
   };
 
-  var generateChecklist = function generateChecklist() {
+  var editContent = function editContent() {
     var element = $(this);
-    var card_id = element.closest('.card-detail').data('id');
-    var url = window.location.origin + '/cards/generate-checklist/' + card_id;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
-      console.log(response);
-    });
+    var value = element.text();
+    element.addClass('edit-blur').hide();
+    element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="input mt-default" value="' + value + '">');
+    document.getElementById('edit-content').select();
   };
 
-  var generateChecklistItem = function generateChecklistItem() {
+  var saveColumn = function saveColumn() {
     var element = $(this);
-    var checklist_id = element.closest('.checklist').data('id');
-    var url = window.location.origin + '/cards/generate-checklist-item/' + checklist_id;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
-      console.log(response);
-    });
+    var value = element.val();
+    var elementBlur = $('.edit-blur');
+    var type = elementBlur.data('type');
+    elementBlur.text(value).show().removeClass('edit-blur');
+
+    if (type == 'card') {
+      var card = elementBlur.closest('.card-detail');
+      var card_id = card.data('id');
+      var url = window.location.origin + '/cards/update/' + card_id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
+        'element': elementBlur.data('element'),
+        'value': value
+      });
+    }
+
+    if (type == 'checklist') {
+      var checklist = elementBlur.closest('.checklist');
+      var checklist_id = checklist.data('id');
+
+      var _url = window.location.origin + '/checklist/update/' + checklist_id;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_url, {
+        'element': elementBlur.data('element'),
+        'value': value
+      });
+    }
+
+    if (type == 'checklist-item') {
+      var checklistItem = elementBlur.closest('.checklist-item');
+      var checklistItem_id = checklistItem.data('id');
+
+      var _url2 = window.location.origin + '/checklist-item/update/' + checklistItem_id;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_url2, {
+        'element': elementBlur.data('element'),
+        'value': value
+      });
+    }
+
+    element.remove();
   };
 
   return {
     init: function init() {
       $(document).on('blur', '.save-blur', saveBlur);
-      $(document).on('click', '.generate-checklist', generateChecklist);
-      $(document).on('click', '.generate-checklist-item', generateChecklistItem);
+      $(document).on('click', '.focus-edit-content', editContent);
+      $(document).on('blur', '#edit-content', saveColumn);
+    }
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modules/checklist.js":
+/*!*******************************************!*\
+  !*** ./resources/js/modules/checklist.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Checklist": () => (/* binding */ Checklist)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Checklist = function () {
+  var store = function store() {
+    var element = $(this);
+    var card_id = element.closest('.card-detail').data('id');
+    var url = window.location.origin + '/checklist/store/' + card_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      if (response.status === 200) {
+        $('.list-checklists').append(response.data.result.html);
+      }
+    });
+  };
+
+  var destroy = function destroy() {
+    var element = $(this);
+    var checklist = element.closest('.checklist');
+    var checklist_id = checklist.data('id');
+    var url = window.location.origin + '/checklist/destroy/' + checklist_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      if (response.status === 200) {
+        checklist.fadeOut(function () {
+          $(this).remove();
+        });
+      }
+    });
+  };
+
+  var storeItem = function storeItem() {
+    var element = $(this);
+    var checklist_id = element.closest('.checklist').data('id');
+    var url = window.location.origin + '/checklist-item/store/' + checklist_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      if (response.status === 200) {
+        $('.list-checklist-items').append(response.data.result.html);
+      }
+    });
+  };
+
+  return {
+    init: function init() {
+      $(document).on('click', '.checklist-store', store);
+      $(document).on('click', '.checklist-destroy', destroy);
+      $(document).on('click', '.checklist-item-store', storeItem);
     }
   };
 }();

@@ -1,11 +1,14 @@
 <div class="checklist" data-id="{{ $checklist->id }}">
-    <h4 class="title-section">{{ $checklist->checklist }}</h4>
-    @if ($checklist->items()->count() > 0)
-        <ul>
+    <div class="checklist-title">
+        <h4 class="title-section focus-edit-content" data-type="checklist" data-element="checklist">{{ $checklist->checklist }}</h4>
+        <a href="javascript:;" class="checklist-destroy"><i class="far fa-trash-alt"></i></a>
+    </div>
+    <div class="list-checklist-items">        
+        @if ($checklist->items()->count() > 0)            
             @foreach ($checklist->items as $item)
-                <li>{{ $item->checklist_item }}</li>
-            @endforeach
-        </ul>
-    @endif
-    <a href="javascript:;" class="generate-checklist-item">Novo item</a>
+                <x-checklist-item  :checklistItem="$item"/>
+            @endforeach            
+        @endif        
+    </div>
+    <a href="javascript:;" class="checklist-item-store">Novo item</a>
 </div>
