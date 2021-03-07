@@ -35,4 +35,4 @@ mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts', 'publ
  * BrowserSync
  */
 
-mix.browserSync();
+mix.browserSync('my-domain.test');

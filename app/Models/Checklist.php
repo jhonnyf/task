@@ -13,6 +13,6 @@ class Checklist extends Model
 
     public function items()
     {
-        return $this->hasMany(ChecklistsItem::class);
+        return $this->hasMany(ChecklistsItem::class)->where('active', '<>', 2);
     }
 }

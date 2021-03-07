@@ -418,10 +418,6 @@ header .settings {
   width: 100%;
   margin-bottom: 10px;
 }
-.card-detail .checklist .checklist-title {
-  display: flex;
-  justify-content: space-between;
-}
 .card-detail .checklist .checklist-item {
   margin-bottom: 15px;
 }

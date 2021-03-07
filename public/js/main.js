@@ -2156,11 +2156,26 @@ var Checklist = function () {
     });
   };
 
+  var destroyItem = function destroyItem() {
+    var element = $(this);
+    var checklistItem = element.closest('.checklist-item');
+    var checklistItem_id = checklistItem.data('id');
+    var url = window.location.origin + '/checklist-item/destroy/' + checklistItem_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      if (response.status === 200) {
+        checklistItem.fadeOut(function () {
+          $(this).remove();
+        });
+      }
+    });
+  };
+
   return {
     init: function init() {
       $(document).on('click', '.checklist-store', store);
       $(document).on('click', '.checklist-destroy', destroy);
       $(document).on('click', '.checklist-item-store', storeItem);
+      $(document).on('click', '.checklist-item-destroy', destroyItem);
     }
   };
 }();

@@ -46,4 +46,20 @@ class ChecklistItemController extends Controller
 
         return response()->json($response);
     }
+
+    public function destroy(int $checklist_item_id)
+    {
+        $Checklist = Model::find($checklist_item_id);
+
+        $Checklist->active = 2;
+        $Checklist->save();
+
+        $response = [
+            'error'   => false,
+            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
+            'result'  => [],
+        ];
+
+        return response()->json($response);
+    }
 }

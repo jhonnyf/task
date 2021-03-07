@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'checklist-item'], function(){
         Route::post('store/{checklist_id}', [ChecklistItemController::class, 'store'])->name('checklist-item.store');
         Route::post('update/{checklist_item_id}', [ChecklistItemController::class, 'update'])->name('checklist-item.store');
+        Route::post('destroy/{checklist_item_id}', [ChecklistItemController::class, 'destroy'])->name('checklist-item.destroy');
     });
 
 });
