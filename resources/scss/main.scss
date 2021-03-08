@@ -1,4 +1,5 @@
-@import 'variables.scss';
+@import 'bootstrap';
+@import 'variables';
 
 *{
     margin: 0;
@@ -14,11 +15,11 @@ body{
     background-color: $pink-light;
 }
 
-@import 'utilities.scss';
-@import 'modal.scss';
-@import 'form.scss';
-@import 'login.scss';
-@import 'header.scss';
-@import 'board-list.scss';
-@import 'board-detail.scss';
-@import 'card-detail.scss';
+@import 'utilities';
+@import 'modal';
+@import 'form';
+@import 'login';
+@import 'header';
+@import 'board-list';
+@import 'board-detail';
+@import 'card-detail';

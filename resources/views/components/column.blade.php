@@ -3,18 +3,13 @@
         <div class="column-title">
             <h3>{{ $column->column }}</h3>
         </div>
-        <div class="column-actions dropdown">
-            <div class="column-menu dropdown-toggle">
-                <i class="fas fa-ellipsis-v"></i>
-            </div>
-            <div class="dropdown-content">
-                <h4 class="title">Ações</h4>
-                <div class="separator"></div>
-                <ul>
-                    <li><a href="javascript:;"><i class="fas fa-copy"></i> Clonar</a></li>
-                    <li><a href="{{ route('column.destroy', ['column_id' => $column->id]) }}" class="link-ajax delete"><i class="fas fa-trash"></i> Arquivar</a></li>
-                </ul>
-            </div>
+
+        <div class="dropdown column-actions">
+            <div class="column-menu" id="column-dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></div>
+            <ul class="dropdown-menu" aria-labelledby="column-dropdown">
+                <li><a class="dropdown-item" href="#"><i class="fas fa-copy"></i> Clonar</a></a></li>                
+                <li><a class="dropdown-item link-ajax delete" href="{{ route('column.destroy', ['column_id' => $column->id]) }}"><i class="fas fa-trash"></i> Arquivar</a></a></li>
+            </ul>
         </div>
     </div>    
 
