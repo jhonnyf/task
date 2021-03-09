@@ -1,20 +1,30 @@
 .board-list{    
+    background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
+    backdrop-filter: blur(2rem);    
+    margin-top: 30px;
 
-    .board-menu{
+    .section-menu{
+        background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
+    }
+
+    .board-menu, .boards{
+        margin: 30px 0;
+    }
+
+    .board-menu{        
         li{                
             list-style: none;
             margin-bottom: 10px;
 
             &:hover{
-                transition: background-color .7s ease;
-                background-color: $pink-dark;
+                transition: all .7s ease;                
                 opacity: 0.7;
             }
 
             a{
                 text-decoration: none;
                 display: block;
-                color: #fff;
+                color: $gray-dark;
                 font-weight: 400;
                 padding: 10px 15px;
                 font-size: 16px;
@@ -47,8 +57,8 @@
                 width: 100%;
             }
 
-            a{
-                background-color: $pink-dark;            
+            a{       
+                background: linear-gradient(to left top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));                     
                 padding: 40px 25px;
                 color: $gray-dark;
                 text-decoration: none;
@@ -64,4 +74,23 @@
             }
         }
     }
+
+    .circle {
+        background: white;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+        height: 20rem;
+        width: 20rem;
+        position: absolute;
+        border-radius: 50%;
+
+        &.circle1 {
+            top: 5%;
+            right: 15%;
+        }
+    
+        &.circle2 {
+            bottom: 5%;
+            left: 10%;
+        }
+    }    
 }

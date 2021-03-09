@@ -6213,7 +6213,8 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #444f5a;
-  background-color: #ffc8c8;
+  background: linear-gradient(to right top, #ffc8c8, #ff9999);
+  min-height: 100vh;
 }
 
 .vh-100 {
@@ -6454,19 +6455,30 @@ header .settings {
   }
 }
 
+.board-list {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  -webkit-backdrop-filter: blur(2rem);
+          backdrop-filter: blur(2rem);
+  margin-top: 30px;
+}
+.board-list .section-menu {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+.board-list .board-menu, .board-list .boards {
+  margin: 30px 0;
+}
 .board-list .board-menu li {
   list-style: none;
   margin-bottom: 10px;
 }
 .board-list .board-menu li:hover {
-  transition: background-color 0.7s ease;
-  background-color: #ff9999;
+  transition: all 0.7s ease;
   opacity: 0.7;
 }
 .board-list .board-menu li a {
   text-decoration: none;
   display: block;
-  color: #fff;
+  color: #3e4149;
   font-weight: 400;
   padding: 10px 15px;
   font-size: 16px;
@@ -6495,7 +6507,7 @@ header .settings {
   }
 }
 .board-list .boards .board a {
-  background-color: #ff9999;
+  background: linear-gradient(to left top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
   padding: 40px 25px;
   color: #3e4149;
   text-decoration: none;
@@ -6507,6 +6519,22 @@ header .settings {
 .board-list .boards .board a:hover {
   opacity: 0.7;
   transition: opacity 0.7s ease;
+}
+.board-list .circle {
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  height: 20rem;
+  width: 20rem;
+  position: absolute;
+  border-radius: 50%;
+}
+.board-list .circle.circle1 {
+  top: 5%;
+  right: 15%;
+}
+.board-list .circle.circle2 {
+  bottom: 5%;
+  left: 10%;
 }
 
 .board-detail {

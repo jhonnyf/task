@@ -3,13 +3,13 @@
 @section('content')
     <div class="container board-list">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3 section-menu">
                 <ul class="board-menu">
                     <li><a href="javascript:;">Quadros</a></li>
                     <li><a href="javascript:;">Logs</a></li>
                 </ul>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <div class="boards">
                     <h2 class="board-title">Meus quadros</h2>
                     <div class="itens">
@@ -25,5 +25,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 @endsection
