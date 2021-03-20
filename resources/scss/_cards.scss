@@ -1,0 +1,16 @@
+.cards{
+
+    .card{
+        margin-top: 15px;
+        background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
+
+        h4{            
+            a{
+                color: $gray-dark;
+                display: block;
+                text-decoration: none;
+                padding: 15px 10px;
+            }
+        }
+    }                
+}

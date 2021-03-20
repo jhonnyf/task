@@ -6564,39 +6564,40 @@ header .settings {
   flex-direction: row;
   margin-right: 15px;
 }
-.board-detail .columns .column {
+
+.column {
   width: 300px;
-  background-color: #3e4149;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
   padding: 15px 10px;
   margin-right: 15px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
-.board-detail .columns .column .column-header {
+.column .column-header {
   display: flex;
   flex-direction: row;
 }
-.board-detail .columns .column .column-header .column-title {
+.column .column-header .column-title {
   width: 90%;
   display: flex;
   align-items: center;
 }
-.board-detail .columns .column .column-header .column-title h3 {
-  color: #fff;
+.column .column-header .column-title h3 {
+  color: #3e4149;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   width: 100%;
 }
-.board-detail .columns .column .column-header .column-title input {
+.column .column-header .column-title input {
   width: 100%;
   padding: 10px 15px;
 }
-.board-detail .columns .column .column-header .column-actions {
+.column .column-header .column-actions {
   width: 10%;
 }
-.board-detail .columns .column .column-header .column-actions .column-menu {
+.column .column-header .column-actions .column-menu {
   color: #444f5a;
   font-size: 19px;
   padding: 5px 0;
@@ -6605,29 +6606,28 @@ header .settings {
   align-items: center;
   justify-content: center;
 }
-.board-detail .columns .column .column-header .column-actions .column-menu:hover {
+.column .column-header .column-actions .column-menu:hover {
   color: #3e4149;
   background-color: #444f5a;
 }
-.board-detail .columns .column:last-child {
+.column:last-child {
   margin-right: 0;
 }
-.board-detail .columns .column .new-column {
+.column .new-column {
   color: #fff;
   text-decoration: none;
   display: block;
 }
-.board-detail .columns .column .form-new-card {
+.column .form-new-card {
   margin-top: 15px;
 }
-.board-detail .columns .column .cards .card {
+
+.cards .card {
   margin-top: 15px;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
 }
-.board-detail .columns .column .cards .card h4 {
-  background-color: #444f5a;
-}
-.board-detail .columns .column .cards .card h4 a {
-  color: #fff;
+.cards .card h4 a {
+  color: #3e4149;
   display: block;
   text-decoration: none;
   padding: 15px 10px;
