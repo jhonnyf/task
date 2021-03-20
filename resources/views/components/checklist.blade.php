@@ -6,7 +6,7 @@
             <li><a href="javascript:;" class="checklist-destroy"><i class="far fa-trash-alt"></i> Excluir</a></li>
         </ul>
     </div>
-    <div class="list-checklist-items">        
+    <div class="list-checklist-items" id="sortable-checklist-{{ $checklist->id }}">        
         @if ($checklist->items()->count() > 0)            
             @foreach ($checklist->items as $item)
                 <x-checklist-item  :checklistItem="$item"/>

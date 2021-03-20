@@ -2147,11 +2147,12 @@ var Checklist = function () {
 
   var storeItem = function storeItem() {
     var element = $(this);
-    var checklist_id = element.closest('.checklist').data('id');
+    var checklist = element.closest('.checklist');
+    var checklist_id = checklist.data('id');
     var url = window.location.origin + '/checklist-item/store/' + checklist_id;
     axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
       if (response.status === 200) {
-        $('.list-checklist-items').append(response.data.result.html);
+        checklist.find('.list-checklist-items').append(response.data.result.html);
       }
     });
   };
@@ -2184,8 +2185,26 @@ var Checklist = function () {
     });
   };
 
+  var checklistSortable = function checklistSortable() {
+    $('.checklist').each(function () {
+      var element = $(this);
+      var id = element.data('id');
+      console.log('sortable-checklist-' + id);
+      Sortable.create(document.getElementById('sortable-checklist-' + id), {
+        animation: 150,
+        onUpdate: function onUpdate(el) {// let target = el.target.id;
+          // sortCards(target);
+        },
+        onAdd: function onAdd(el) {// let target = el.target.id;
+          // sortCards(target);
+        }
+      });
+    });
+  };
+
   return {
     init: function init() {
+      $(document).on('DOMContentLoaded', '.checklist', checklistSortable);
       $(document).on('click', '.checklist-store', store);
       $(document).on('click', '.checklist-destroy', destroy);
       $(document).on('click', '.checklist-item-store', storeItem);

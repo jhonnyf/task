@@ -6649,9 +6649,6 @@ header .settings {
   width: 100%;
   margin-bottom: 10px;
 }
-.card-detail .checklist .checklist-title-section {
-  height: 37px;
-}
 .card-detail .checklist .checklist-title-section .checklist-title {
   font-size: 16px;
 }
@@ -6663,13 +6660,12 @@ header .settings {
 }
 .card-detail .checklist .checklist-item {
   margin-bottom: 15px;
-  height: 37px;
 }
 .card-detail .checklist .checklist-item .checklist-item-content {
   width: 100%;
 }
 .card-detail .checklist .checklist-item .checklist-item-finished {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .card-detail .checklist .checklist-item .input {
   margin-bottom: 0;

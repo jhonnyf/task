@@ -22,7 +22,7 @@
     </div>
     <form action="{{ route('card.store', ['column_id' => $column->id]) }}" method="post" class="form form-ajax form-new-card" autocomplete="off">
         <div class="form-field">
-            <input type="text" class="input" name="card" id="card" placeholder="Adicione o título para o seu card" required>
+            <input type="text" class="input" name="card" placeholder="Adicione o título para o seu card" required>
         </div>
 
         <div class="text-right">
