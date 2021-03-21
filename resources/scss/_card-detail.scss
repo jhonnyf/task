@@ -36,7 +36,12 @@
         }
 
         .checklist-item{
-            margin-bottom: 15px;
+            padding: 6px 0;
+
+            &:hover{
+                background: #eee;
+                cursor: pointer;
+            }
             
             .checklist-item-content{
                 width: 100%;

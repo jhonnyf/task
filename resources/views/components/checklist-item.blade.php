@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between align-items-start">
         <div class="d-flex align-items-start checklist-item-content">
             <input type="checkbox" name="finished" value="1" class="checklist-item-finished" {{ $checklistItem->finished === 1 ? 'checked' : '' }}>
-            <div class="focus-edit-content" data-type="checklist-item" data-element="checklist_item">{{ $checklistItem->checklist_item }}</div>
+            <div class="focus-edit-content checklist-item-text" data-type="checklist-item" data-element="checklist_item">{{ $checklistItem->checklist_item }}</div>
         </div>
         <div id="column-dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></div>
         <ul class="dropdown-menu" aria-labelledby="column-dropdown">            

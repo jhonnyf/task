@@ -6659,7 +6659,11 @@ header .settings {
   margin-left: 15px;
 }
 .card-detail .checklist .checklist-item {
-  margin-bottom: 15px;
+  padding: 6px 0;
+}
+.card-detail .checklist .checklist-item:hover {
+  background: #eee;
+  cursor: pointer;
 }
 .card-detail .checklist .checklist-item .checklist-item-content {
   width: 100%;
