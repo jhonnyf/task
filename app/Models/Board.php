@@ -11,6 +11,11 @@ class Board extends Model
 
     protected $fillable = ['board'];
 
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
+
     public function columns()
     {
         return $this->hasMany(Column::class)

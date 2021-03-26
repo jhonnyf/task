@@ -16,6 +16,15 @@ body{
     min-height: 100vh; 
 }
 
+a{
+    color: $gray-dark;
+    text-decoration: none;
+
+    &:hover{
+        opacity: .7;
+    }
+}
+
 @import 'utilities';
 @import 'modal';
 @import 'form';
