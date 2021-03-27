@@ -16,6 +16,7 @@ class CreateTags extends Migration
             $table->integer('active')->default(1);
             $table->foreignId('board_id')->references('id')->on('boards')->cascadeOnDelete();
             $table->string('tag', 120);
+            $table->string('color', 7);
             $table->timestamps();
         });
     }

@@ -15,4 +15,14 @@ class Card extends Model
     {
         return $this->hasMany(Checklist::class)->where('active', '<>', 2);
     }
+
+    public function column()
+    {
+        return $this->belongsTo(Column::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

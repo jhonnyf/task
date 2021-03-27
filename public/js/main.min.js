@@ -2091,11 +2091,25 @@ var Card = function () {
     element.remove();
   };
 
+  var addTag = function addTag() {
+    var element = $(this);
+    var card_id = element.data('card_id');
+    var tag = element.data('tag');
+    var color = element.data('color');
+    var url = window.location.origin + '/cards/add-tag/' + card_id;
+    var data = {
+      'tag': tag,
+      'color': color
+    };
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data);
+  };
+
   return {
     init: function init() {
       $(document).on('blur', '.save-blur', saveBlur);
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
+      $(document).on('click', '.btn-add-tag', addTag);
     }
   };
 }();

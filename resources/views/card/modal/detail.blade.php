@@ -16,6 +16,14 @@
                 </div>
             </div>
 
+            @if ($Card->tags()->count() > 0)
+                <div class="tags">
+                    @foreach ($Card->tags as $tag)
+                        <div class="tag" style="background-color: {{ $tag->color }}">{{ $tag->tag }}</div>
+                    @endforeach
+                </div>
+            @endif
+
             <div class="row">
                 <div class="col-md-9">
                     <h4 class="title-section">Descrição</h4>
@@ -24,7 +32,12 @@
                 <div class="col-md-3">
                     <h4 class="title-section">Ações</h4>
                     <button class="btn">Membros</button>
-                    <button class="btn">Etiquetas</button>
+                    <button type="button" class="btn dropdown-toggle" id="dropdown-tags" data-bs-toggle="dropdown" aria-expanded="false">Etiquetas</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown-tags">
+                        <li><a class="dropdown-item btn-add-tag" data-card_id="{{ $Card->id }}" data-color="#0d6efd" data-tag="Normal" href="javascript:;">Normal</a></li>
+                        <li><a class="dropdown-item btn-add-tag" data-card_id="{{ $Card->id }}" data-color="#ffc107" data-tag="Médio" href="javascript:;">Médio</a></li>
+                        <li><a class="dropdown-item btn-add-tag" data-card_id="{{ $Card->id }}" data-color="#dc3545" data-tag="Urgente" href="javascript:;">Urgente</a></li>
+                      </ul>
                     <button class="btn checklist-store">Checklist</button>
                 </div>
             </div>
