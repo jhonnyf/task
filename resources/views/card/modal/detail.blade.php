@@ -16,13 +16,13 @@
                 </div>
             </div>
 
-            @if ($Card->tags()->count() > 0)
-                <div class="tags">
+            <div class="tags">
+                @if ($Card->tags()->count() > 0)                    
                     @foreach ($Card->tags as $tag)
-                        <div class="tag" style="background-color: {{ $tag->color }}">{{ $tag->tag }}</div>
+                        <x-tag :tag="$tag" />
                     @endforeach
-                </div>
-            @endif
+                @endif
+            </div>
 
             <div class="row">
                 <div class="col-md-9">

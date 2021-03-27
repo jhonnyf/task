@@ -1,0 +1,1 @@
+<div class="tag" style="background-color: {{ $tag->color }}">{{ $tag->tag }}</div>

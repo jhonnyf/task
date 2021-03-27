@@ -1,7 +1,7 @@
 .card-detail{
     width: 800px;
 
-    .title, .section-date, .checklist, .mt-default, .title-section, .checklist-title-section{
+    .title, .section-date, .checklist, .mt-default, .title-section, .checklist-title-section, .tag{
         margin-bottom: 25px;
     }
 
@@ -16,6 +16,23 @@
     .btn{        
         width: 100%;        
         margin-bottom: 10px;
+    }
+
+    .tags{
+        display: flex;
+        flex-direction: row;       
+        flex-wrap: wrap;
+
+        .tag{
+            padding: 5px 15px;
+            color: #fff;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:hover{
+                opacity: .7;
+            }
+        }
     }
 
     .checklist{

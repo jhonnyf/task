@@ -105,7 +105,11 @@ class CardController extends Controller
         $response = [
             'error'   => false,
             'message' => 'Ação realizada com sucesso!',
-            'result'  => [],
+            'result'  => [
+                'html'   => view('components.tag', ['tag' => $tag])->render(),
+                'method' => 'append',
+                'target' => ".tags",
+            ],
         ];
 
         return response()->json($response);

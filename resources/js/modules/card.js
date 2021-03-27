@@ -71,7 +71,12 @@ const Card = function () {
         let url = window.location.origin + '/cards/add-tag/' + card_id;
         let data = { 'tag': tag, 'color': color }
 
-        axios.post(url, data);
+        axios.post(url, data)
+        .then(function(response){
+            let data = response.data;
+
+            $(data.result.target).append(data.result.html);
+        });
     }
 
     return {

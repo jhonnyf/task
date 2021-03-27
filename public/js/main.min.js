@@ -2101,7 +2101,10 @@ var Card = function () {
       'tag': tag,
       'color': color
     };
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data);
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (response) {
+      var data = response.data;
+      $(data.result.target).append(data.result.html);
+    });
   };
 
   return {
