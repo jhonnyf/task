@@ -108,7 +108,7 @@ class CardController extends Controller
             'result'  => [
                 'html'   => view('components.tag', ['tag' => $tag])->render(),
                 'method' => 'append',
-                'target' => ".tags",
+                'target' => ".card-{$Card->id} .tags",
             ],
         ];
 

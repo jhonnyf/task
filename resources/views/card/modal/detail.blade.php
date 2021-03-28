@@ -1,7 +1,7 @@
 @extends('layout.modal')
 
 @section('content')
-    <div class="card-detail" data-id="{{ $Card->id }}">
+    <div class="card-detail card-{{ $Card->id }}" data-id="{{ $Card->id }}">
         <div class="container-fluid">
             <h3 class="title focus-edit-content" data-type="card" data-element="card">{{ $Card->card }}</h3>
             

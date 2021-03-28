@@ -1,4 +1,4 @@
-<div class="card" data-id="{{ $card->id }}">
+<div class="card card-{{ $card->id }}" data-id="{{ $card->id }}">
     <div class="tags">
         @if ($card->tags()->count() > 0)                    
             @foreach ($card->tags as $tag)
