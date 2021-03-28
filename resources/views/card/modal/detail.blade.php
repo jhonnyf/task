@@ -32,12 +32,24 @@
                 <div class="col-md-3">
                     <h4 class="title-section">Ações</h4>
                     <button class="btn">Membros</button>
-                    <button type="button" class="btn dropdown-toggle" id="dropdown-tags" data-bs-toggle="dropdown" aria-expanded="false">Etiquetas</button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown-tags">
-                        <li><a class="dropdown-item btn-add-tag" data-card_id="{{ $Card->id }}" data-color="#0d6efd" data-tag="Normal" href="javascript:;">Normal</a></li>
-                        <li><a class="dropdown-item btn-add-tag" data-card_id="{{ $Card->id }}" data-color="#ffc107" data-tag="Médio" href="javascript:;">Médio</a></li>
-                        <li><a class="dropdown-item btn-add-tag" data-card_id="{{ $Card->id }}" data-color="#dc3545" data-tag="Urgente" href="javascript:;">Urgente</a></li>
-                      </ul>
+                    <button type="button" class="btn">Tags</button>
+                    <div class="dropdown-tags">
+                        <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
+                        <div class="colors">
+                            <input type="radio" class="btn-check input-tag-color" value="#198754" name="tag-color" id="tag-sucess">
+                            <label class="btn color btn-secondary bg-success" for="tag-sucess"></label>
+
+                            <input type="radio" class="btn-check input-tag-color" value="#ffc107" name="tag-color" id="tag-warning">
+                            <label class="btn color btn-secondary bg-warning" for="tag-warning"></label>
+
+                            <input type="radio" class="btn-check input-tag-color" value="#dc3545" name="tag-color" id="tag-danger">
+                            <label class="btn color btn-secondary bg-danger" for="tag-danger"></label>
+
+                            <input type="radio" class="btn-check input-tag-color" value="#0d6efd" name="tag-color" id="tag-primary">
+                            <label class="btn color btn-secondary bg-primary" for="tag-primary"></label>
+                        </div>
+                        <button type="button" class="btn save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
+                    </div>
                     <button class="btn checklist-store">Checklist</button>
                 </div>
             </div>

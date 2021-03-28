@@ -17,3 +17,9 @@
 input[readonly]{
     background-color: #eee;
 }
+
+.btn-check {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}

@@ -61,22 +61,31 @@ const Card = function () {
         element.remove();
     }
 
-    const addTag = function () {
+    const saveTag = function () {
         let element = $(this);
         let card_id = element.data('card_id');
+        let dropdownTag = element.closest('.dropdown-tags');
 
-        let tag = element.data('tag');
-        let color = element.data('color');
-        
+        if (dropdownTag.find('input[name="tag-color"]:checked').length == 0) {
+            alert('Selecione uma cor');
+            return false;
+        }
+
+        let tag = dropdownTag.find('#tag-name').val();
+        let color = dropdownTag.find('input[name="tag-color"]:checked').val();
+
         let url = window.location.origin + '/cards/add-tag/' + card_id;
-        let data = { 'tag': tag, 'color': color }
+        let data = { 'tag': tag, 'color': color };
 
         axios.post(url, data)
-        .then(function(response){
-            let data = response.data;
+            .then(function (response) {
+                let data = response.data;
 
-            $(data.result.target).append(data.result.html);
-        });
+                $(data.result.target).append(data.result.html);
+
+                dropdownTag.find('#tag-name').val('');
+                dropdownTag.find('input[name="tag-color"]').prop('checked', false);
+            });
     }
 
     return {
@@ -84,7 +93,7 @@ const Card = function () {
             $(document).on('blur', '.save-blur', saveBlur);
             $(document).on('click', '.focus-edit-content', editContent);
             $(document).on('blur', '#edit-content', saveColumn);
-            $(document).on('click', '.btn-add-tag', addTag);
+            $(document).on('click', '.save-tag', saveTag);
         }
     };
 }();

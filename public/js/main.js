@@ -2091,11 +2091,18 @@ var Card = function () {
     element.remove();
   };
 
-  var addTag = function addTag() {
+  var saveTag = function saveTag() {
     var element = $(this);
     var card_id = element.data('card_id');
-    var tag = element.data('tag');
-    var color = element.data('color');
+    var dropdownTag = element.closest('.dropdown-tags');
+
+    if (dropdownTag.find('input[name="tag-color"]:checked').length == 0) {
+      alert('Selecione uma cor');
+      return false;
+    }
+
+    var tag = dropdownTag.find('#tag-name').val();
+    var color = dropdownTag.find('input[name="tag-color"]:checked').val();
     var url = window.location.origin + '/cards/add-tag/' + card_id;
     var data = {
       'tag': tag,
@@ -2104,6 +2111,8 @@ var Card = function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (response) {
       var data = response.data;
       $(data.result.target).append(data.result.html);
+      dropdownTag.find('#tag-name').val('');
+      dropdownTag.find('input[name="tag-color"]').prop('checked', false);
     });
   };
 
@@ -2112,7 +2121,7 @@ var Card = function () {
       $(document).on('blur', '.save-blur', saveBlur);
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
-      $(document).on('click', '.btn-add-tag', addTag);
+      $(document).on('click', '.save-tag', saveTag);
     }
   };
 }();

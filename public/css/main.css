@@ -6385,6 +6385,12 @@ input[readonly] {
   background-color: #eee;
 }
 
+.btn-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
 .login .brand {
   font-weight: bold;
   text-align: center;
@@ -6626,19 +6632,33 @@ header .settings {
 
 .cards .card {
   margin-top: 15px;
+  padding: 15px 10px;
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+.cards .card .tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.cards .card .tags .tag {
+  color: #fff;
+  min-width: 38px;
+  height: 27px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  text-align: center;
 }
 .cards .card h4 a {
   color: #3e4149;
   display: block;
   text-decoration: none;
-  padding: 15px 10px;
 }
 
 .card-detail {
   width: 800px;
 }
-.card-detail .title, .card-detail .section-date, .card-detail .checklist, .card-detail .mt-default, .card-detail .title-section, .card-detail .checklist-title-section, .card-detail .tag {
+.card-detail .title, .card-detail .section-date, .card-detail .checklist, .card-detail .mt-default, .card-detail .title-section, .card-detail .checklist-title-section, .card-detail .tags {
   margin-bottom: 25px;
 }
 .card-detail .title {
@@ -6661,6 +6681,7 @@ header .settings {
   color: #fff;
   margin-right: 10px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 .card-detail .tags .tag:hover {
   opacity: 0.7;
@@ -6692,4 +6713,32 @@ header .settings {
 }
 .card-detail .checklist .checklist-item-store {
   font-weight: bold;
+}
+.card-detail .dropdown-tags {
+  margin-bottom: 10px;
+}
+.card-detail .dropdown-tags .input {
+  margin-bottom: 10px;
+}
+.card-detail .dropdown-tags .colors {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.card-detail .dropdown-tags .colors .input-tag-color:checked {
+  color: #fff;
+  background-color: #565e64;
+  border-color: #51585e;
+}
+.card-detail .dropdown-tags .colors .color {
+  width: 38px;
+  height: 28px;
+}
+.card-detail .dropdown-tags .colors .color:last-child {
+  margin-right: 0;
+}
+.card-detail .dropdown-tags .btn {
+  margin-bottom: 0;
 }
