@@ -16,6 +16,7 @@
                 </div>
             </div>
 
+            <h4 class="title-section"><i class="fas fa-tags"></i> Tags</h4>
             <div class="tags">
                 @if ($Card->tags()->count() > 0)                    
                     @foreach ($Card->tags as $tag)
@@ -26,13 +27,13 @@
 
             <div class="row">
                 <div class="col-md-9">
-                    <h4 class="title-section">Descrição</h4>
+                    <h4 class="title-section"><i class="fas fa-align-justify"></i> Descrição</h4>
                     <textarea name="description" id="description" class="input save-blur" rows="5" placeholder="Digite aqui uma descrição detalhada para o seu card">{{ $Card->description }}</textarea>
                 </div>
                 <div class="col-md-3">
-                    <h4 class="title-section">Ações</h4>
-                    <button class="btn">Membros</button>
-                    <button type="button" class="btn">Tags</button>
+                    <h4 class="title-section"><i class="fas fa-cogs"></i> Ações</h4>
+                    <button type="button" class="btn-actions btn"><i class="fas fa-users"></i> Membros</button>
+                    <button type="button" class="btn-actions btn open-tags"><i class="fas fa-tags"></i> Tags</button>
                     <div class="dropdown-tags">
                         <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
                         <div class="colors">
@@ -50,7 +51,7 @@
                         </div>
                         <button type="button" class="btn save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
                     </div>
-                    <button class="btn checklist-store">Checklist</button>
+                    <button class="btn-actions btn checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
                 </div>
             </div>
 

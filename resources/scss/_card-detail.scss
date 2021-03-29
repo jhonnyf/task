@@ -13,6 +13,16 @@
         font-size: 16px;
     }
 
+    .btn-actions{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+
+        i{
+            margin-right: 10px;
+        }
+    }
+
     .btn{        
         width: 100%;        
         margin-bottom: 10px;
@@ -81,7 +91,7 @@
     
     .dropdown-tags{
         margin-bottom: 10px;
-        // display: none;
+        display: none;
 
         .input{
             margin-bottom: 10px;

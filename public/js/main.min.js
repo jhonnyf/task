@@ -2122,6 +2122,9 @@ var Card = function () {
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
       $(document).on('click', '.save-tag', saveTag);
+      $(document).on('click', '.open-tags', function () {
+        $('.dropdown-tags').slideToggle();
+      });
     }
   };
 }();
