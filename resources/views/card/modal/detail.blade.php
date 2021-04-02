@@ -32,6 +32,7 @@
                 </div>
                 <div class="col-md-3">
                     <h4 class="title-section"><i class="fas fa-cogs"></i> Ações</h4>
+                    <button type="button" class="btn-actions btn act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
                     <button type="button" class="btn-actions btn"><i class="fas fa-users"></i> Membros</button>
                     <button type="button" class="btn-actions btn open-tags"><i class="fas fa-tags"></i> Tags</button>
                     <div class="dropdown-tags">

@@ -2116,12 +2116,23 @@ var Card = function () {
     });
   };
 
+  var joinCard = function joinCard() {
+    var element = $(this);
+    var card_id = element.data('card_id');
+    var user_id = element.data('user_id');
+    var url = window.location.origin + '/cards/join-card/' + card_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
+      'user_id': user_id
+    });
+  };
+
   return {
     init: function init() {
       $(document).on('blur', '.save-blur', saveBlur);
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
       $(document).on('click', '.save-tag', saveTag);
+      $(document).on('click', '.act-join-card', joinCard);
       $(document).on('click', '.open-tags', function () {
         $('.dropdown-tags').slideToggle();
       });

@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'cards'], function () {        
+        Route::post('join-card/{card_id}', [CardController::class, 'joinCard'])->name('card.join-card');
         Route::post('add-tag/{card_id}', [CardController::class, 'addTag'])->name('card.add-tag');
         Route::post('store/{column_id}', [CardController::class, 'store'])->name('card.store');
         Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');        

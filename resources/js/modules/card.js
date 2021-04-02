@@ -88,12 +88,25 @@ const Card = function () {
             });
     }
 
+    const joinCard = function(){        
+
+        let element = $(this);
+        let card_id = element.data('card_id');
+        let user_id = element.data('user_id');
+
+        let url = window.location.origin + '/cards/join-card/' + card_id;
+        axios.post(url, { 'user_id': user_id });
+
+        
+    }
+
     return {
         init: function () {
             $(document).on('blur', '.save-blur', saveBlur);
             $(document).on('click', '.focus-edit-content', editContent);
             $(document).on('blur', '#edit-content', saveColumn);
             $(document).on('click', '.save-tag', saveTag);
+            $(document).on('click', '.act-join-card', joinCard);
             $(document).on('click', '.open-tags', function(){
                 $('.dropdown-tags').slideToggle();
             })

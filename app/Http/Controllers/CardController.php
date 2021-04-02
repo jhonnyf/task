@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Board;
 use App\Models\Card as Model;
 use App\Models\Column;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -110,6 +111,20 @@ class CardController extends Controller
                 'method' => 'append',
                 'target' => ".card-{$Card->id} .tags",
             ],
+        ];
+
+        return response()->json($response);
+    }
+    
+    public function joinCard(int $card_id, Request $request)
+    {
+        $Card = Model::find($card_id);                  
+        $Card->user()->attach($request->all());
+
+        $response = [
+            'error'   => false,
+            'message' => 'Ação realizada com sucesso!',
+            'result'  => [],
         ];
 
         return response()->json($response);
