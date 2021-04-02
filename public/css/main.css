@@ -6658,7 +6658,13 @@ header .settings {
 .card-detail {
   width: 800px;
 }
-.card-detail .title, .card-detail .section-date, .card-detail .checklist, .card-detail .mt-default, .card-detail .title-section, .card-detail .checklist-title-section, .card-detail .tags {
+.card-detail .title,
+.card-detail .section-date,
+.card-detail .checklist,
+.card-detail .mt-default,
+.card-detail .title-section,
+.card-detail .checklist-title-section,
+.card-detail .tags {
   margin-bottom: 25px;
 }
 .card-detail .title {
@@ -6670,7 +6676,7 @@ header .settings {
 .card-detail .btn-actions {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .card-detail .btn-actions i {
   margin-right: 10px;
@@ -6700,7 +6706,8 @@ header .settings {
 .card-detail .checklist .checklist-title-section .mt-default {
   margin-bottom: 0;
 }
-.card-detail .checklist .checklist-destroy, .card-detail .checklist .checklist-item-destroy {
+.card-detail .checklist .checklist-destroy,
+.card-detail .checklist .checklist-item-destroy {
   margin-left: 15px;
 }
 .card-detail .checklist .checklist-item {

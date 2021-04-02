@@ -31,13 +31,17 @@ mix.js([
 mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
 
 /**
+ * WebpackConfig
+ */
+
+mix.webpackConfig({
+    stats: {
+        children: false
+    }
+});
+
+/**
  * BrowserSync
  */
 
-mix.browserSync('task.test');
-
-module.exports = {
-    stats: {
-        children: true,
-    },
-};
+mix.browserSync('http://127.0.0.1:8000/');
