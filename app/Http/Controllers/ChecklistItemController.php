@@ -19,7 +19,8 @@ class ChecklistItemController extends Controller
             'error'   => false,
             'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
             'result'  => [
-                'html' => view('components.checklist-item', ['checklistItem' => Model::find($responseChecklistItem->id)])->render(),
+                'html'       => view('components.checklist-item', ['checklistItem' => Model::find($responseChecklistItem->id)])->render(),
+                'totalItems' => "({$Checklist->items()->where('finished', 1)->count()}/{$Checklist->items()->count()})",
             ],
         ];
 
@@ -28,20 +29,24 @@ class ChecklistItemController extends Controller
 
     public function update(int $checklist_item_id, Request $request)
     {
-        $Checklist = Model::find($checklist_item_id);
+        $ChecklistItem = Model::find($checklist_item_id);
 
         if (isset($request->element)) {
             $element = $request->element;
 
-            $Checklist->$element = $request->value;
+            $ChecklistItem->$element = $request->value;
         }
 
-        $Checklist->save();
+        $ChecklistItem->save();
+
+        $CheckList = Checklist::find($ChecklistItem->checklist_id);
 
         $response = [
             'error'   => false,
             'message' => '',
-            'result'  => [],
+            'result'  => [
+                'totalItems' => "({$CheckList->items()->where('finished', 1)->count()}/{$CheckList->items()->count()})",
+            ],
         ];
 
         return response()->json($response);
@@ -49,15 +54,19 @@ class ChecklistItemController extends Controller
 
     public function destroy(int $checklist_item_id)
     {
-        $Checklist = Model::find($checklist_item_id);
+        $ChecklistItem = Model::find($checklist_item_id);
 
-        $Checklist->active = 2;
-        $Checklist->save();
+        $ChecklistItem->active = 2;
+        $ChecklistItem->save();
+
+        $CheckList = Checklist::find($ChecklistItem->checklist_id);
 
         $response = [
             'error'   => false,
             'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
-            'result'  => [],
+            'result'  => [
+                'totalItems' => "({$CheckList->items()->where('finished', 1)->count()}/{$CheckList->items()->count()})",
+            ],
         ];
 
         return response()->json($response);

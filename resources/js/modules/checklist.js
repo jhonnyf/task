@@ -36,8 +36,11 @@ const Checklist = function () {
 
         let url = window.location.origin + '/checklist-item/store/' + checklist_id;
         axios.post(url).then(function (response) {
+            let data = response.data;
+
             if (response.status === 200) {
-                checklist.find('.list-checklist-items').append(response.data.result.html);
+                checklist.find('.list-checklist-items').append(data.result.html);
+                $('.checklist-total-items').html(data.result.totalItems);
             }
         });
     }
@@ -49,10 +52,14 @@ const Checklist = function () {
 
         let url = window.location.origin + '/checklist-item/destroy/' + checklistItem_id;
         axios.post(url).then(function (response) {
+            let data = response.data;
+            
             if (response.status === 200) {
                 checklistItem.fadeOut(function () {
                     $(this).remove();
                 });
+                
+                $('.checklist-total-items').html(data.result.totalItems);
             }
         });
     }
@@ -65,20 +72,22 @@ const Checklist = function () {
         let value = element.is(':checked') ? 1 : 0;
 
         let url = window.location.origin + '/checklist-item/update/' + checklistItem_id;
-        axios.post(url, {'element': 'finished', 'value': value}).then(function (response) {
+        axios.post(url, { 'element': 'finished', 'value': value }).then(function (response) {
+            let data = response.data;
+
             if (response.status === 200) {
-                
+                $('.checklist-total-items').html(data.result.totalItems);
             }
         });
     }
 
-    const checklistSortable = function(){        
-        $('.checklist').each(function(){
+    const checklistSortable = function () {
+        $('.checklist').each(function () {
             let element = $(this);
             let id = element.data('id');
 
             console.log('sortable-checklist-' + id);
-            Sortable.create(document.getElementById('sortable-checklist-' + id),{                
+            Sortable.create(document.getElementById('sortable-checklist-' + id), {
                 animation: 150,
                 onUpdate: function (el) {
                     // let target = el.target.id;

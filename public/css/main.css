@@ -6722,6 +6722,11 @@ header .settings {
 .card-detail .checklist .checklist-item-store {
   font-weight: bold;
 }
+.card-detail .checklist .checklist-total-items {
+  margin-right: 10px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+}
 .card-detail .dropdown-tags {
   margin-bottom: 10px;
   display: none;

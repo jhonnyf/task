@@ -2180,8 +2180,11 @@ var Checklist = function () {
     var checklist_id = checklist.data('id');
     var url = window.location.origin + '/checklist-item/store/' + checklist_id;
     axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      var data = response.data;
+
       if (response.status === 200) {
-        checklist.find('.list-checklist-items').append(response.data.result.html);
+        checklist.find('.list-checklist-items').append(data.result.html);
+        $('.checklist-total-items').html(data.result.totalItems);
       }
     });
   };
@@ -2192,10 +2195,13 @@ var Checklist = function () {
     var checklistItem_id = checklistItem.data('id');
     var url = window.location.origin + '/checklist-item/destroy/' + checklistItem_id;
     axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      var data = response.data;
+
       if (response.status === 200) {
         checklistItem.fadeOut(function () {
           $(this).remove();
         });
+        $('.checklist-total-items').html(data.result.totalItems);
       }
     });
   };
@@ -2210,7 +2216,11 @@ var Checklist = function () {
       'element': 'finished',
       'value': value
     }).then(function (response) {
-      if (response.status === 200) {}
+      var data = response.data;
+
+      if (response.status === 200) {
+        $('.checklist-total-items').html(data.result.totalItems);
+      }
     });
   };
 
