@@ -2243,7 +2243,8 @@ var Checklist = function () {
 
   return {
     init: function init() {
-      $(document).on('DOMContentLoaded', '.checklist', checklistSortable);
+      $(document).on('DOMContentLoaded', '.checklist', checklistSortable); // Deve ser executado ao abrir o modal
+
       $(document).on('click', '.checklist-store', store);
       $(document).on('click', '.checklist-destroy', destroy);
       $(document).on('click', '.checklist-item-store', storeItem);

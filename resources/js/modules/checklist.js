@@ -103,7 +103,7 @@ const Checklist = function () {
 
     return {
         init: function () {
-            $(document).on('DOMContentLoaded', '.checklist', checklistSortable);
+            $(document).on('DOMContentLoaded', '.checklist', checklistSortable); // Deve ser executado ao abrir o modal
 
             $(document).on('click', '.checklist-store', store);
             $(document).on('click', '.checklist-destroy', destroy);
