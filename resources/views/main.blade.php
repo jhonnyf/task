@@ -17,7 +17,9 @@
                     <div class="col-md-4 brand">
                         <a href="{{ route('board.index') }}">Task</a>
                     </div>
-                    <div class="col-md-4 settings">configurações</div>
+                    <div class="col-md-4 settings">
+                        <a href="{{ route('config.index') }}">configurações</a>
+                    </div>
                 </div>
             </div>
         </header>

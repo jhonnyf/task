@@ -5,6 +5,7 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\ChecklistController;
 use App\Http\Controllers\ChecklistItemController;
 use App\Http\Controllers\ColumnController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,25 +35,32 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('destroy/{column_id}', [ColumnController::class, 'destroy'])->name('column.destroy');
     });
 
-    Route::group(['prefix' => 'cards'], function () {        
+    Route::group(['prefix' => 'cards'], function () {
         Route::post('join-card/{card_id}', [CardController::class, 'joinCard'])->name('card.join-card');
         Route::post('add-tag/{card_id}', [CardController::class, 'addTag'])->name('card.add-tag');
         Route::post('store/{column_id}', [CardController::class, 'store'])->name('card.store');
-        Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');        
-        Route::post('sort/{column_id}', [CardController::class, 'sort'])->name('card.sort');        
+        Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');
+        Route::post('sort/{column_id}', [CardController::class, 'sort'])->name('card.sort');
         Route::post('update/{card_id}', [CardController::class, 'update'])->name('card.update');
     });
 
-    Route::group(['prefix' => 'checklist'], function(){
+    Route::group(['prefix' => 'checklist'], function () {
         Route::post('store/{card_id}', [ChecklistController::class, 'store'])->name('checklist.store');
         Route::post('update/{checklist_id}', [ChecklistController::class, 'update'])->name('checklist.update');
-        Route::post('destroy/{checklist_id}', [ChecklistController::class, 'destroy'])->name('checklist.destroy');        
+        Route::post('destroy/{checklist_id}', [ChecklistController::class, 'destroy'])->name('checklist.destroy');
     });
 
-    Route::group(['prefix' => 'checklist-item'], function(){
+    Route::group(['prefix' => 'checklist-item'], function () {
         Route::post('store/{checklist_id}', [ChecklistItemController::class, 'store'])->name('checklist-item.store');
         Route::post('update/{checklist_item_id}', [ChecklistItemController::class, 'update'])->name('checklist-item.store');
         Route::post('destroy/{checklist_item_id}', [ChecklistItemController::class, 'destroy'])->name('checklist-item.destroy');
+    });
+
+    Route::group(['prefix' => 'config'], function () {
+        Route::group(['prefix' => 'my-data'], function () {
+            Route::get('', [ConfigController::class, 'index'])->name('config.index');
+            Route::post('save', [ConfigController::class, 'save'])->name('config.my-data-save');
+        });
     });
 
 });
