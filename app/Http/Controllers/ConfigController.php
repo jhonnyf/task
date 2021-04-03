@@ -34,4 +34,11 @@ class ConfigController extends Controller
 
         return redirect()->route('config.index');
     }
+
+    public function team()
+    {
+        $data = [];
+
+        return view('config.team', $data);
+    }
 }

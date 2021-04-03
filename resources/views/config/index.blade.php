@@ -6,7 +6,7 @@
             <div class="col-md-3 menu">
                 <ul>
                     <li><a href="{{ route('config.index') }}">Meus dados</a></li>
-                    <li><a href="javascript:;">Times</a></li>
+                    <li><a href="{{ route('config.team') }}">Times</a></li>
                 </ul>
             </div>
             <div class="col-md-9">

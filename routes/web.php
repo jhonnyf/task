@@ -61,6 +61,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('', [ConfigController::class, 'index'])->name('config.index');
             Route::post('save', [ConfigController::class, 'save'])->name('config.my-data-save');
         });
+
+        Route::group(['prefix' => 'team'], function(){
+            Route::get('', [ConfigController::class, 'team'])->name('config.team');
+        });
     });
 
 });
