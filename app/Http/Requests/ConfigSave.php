@@ -21,7 +21,8 @@ class ConfigSave extends FormRequest
         ];
 
         if (isset($request->password)) {
-            $rules['password'] = 'min:6|confirmed';
+            $rules['password']              = 'required|min:6|confirmed';
+            $rules['password_confirmation'] = 'required|min:6';
         }
 
         return $rules;

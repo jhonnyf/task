@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-3 menu">
                 <ul>
-                    <li><a href="javascript:;">Meus dados</a></li>
+                    <li><a href="{{ route('config.index') }}">Meus dados</a></li>
                     <li><a href="javascript:;">Times</a></li>
                 </ul>
             </div>
@@ -14,6 +14,12 @@
 
                 <form action="{{ route('config.my-data-save') }}" method="post">
                     @csrf
+
+                    @if(Session::has('success'))
+                        <div class="alert alert-success mb-3">
+                            <p>{{ Session::get('success') }}</p>
+                        </div>
+                    @endif
 
                     @if ($errors->any())                            
                         @foreach ($errors->all() as $error)

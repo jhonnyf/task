@@ -30,6 +30,8 @@ class ConfigController extends Controller
 
         $User->fill($fill)->save();
 
+        $request->session()->flash('success', 'Ação realizada com sucesso!');
+
         return redirect()->route('config.index');
     }
 }
