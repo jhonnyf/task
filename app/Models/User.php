@@ -20,4 +20,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Board::class);
     }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class);
+    }
 }

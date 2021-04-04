@@ -34,8 +34,7 @@ const Form = function () {
         return false;
     }
 
-    const responseAjax = (response) => {
-        console.log(response);
+    const responseAjax = (response) => {        
 
         if (response.result.method == 'redirect') {
             window.location = response.result.url;

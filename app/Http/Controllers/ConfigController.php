@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ConfigSave;
+use App\Models\Team;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,8 +39,48 @@ class ConfigController extends Controller
 
     public function team()
     {
-        $data = [];
+        $data = [
+            'User' => User::find(Auth::user()->id)
+        ];
 
         return view('config.team', $data);
+    }
+
+    public function teamManager(int $id = null, Request $request)
+    {
+        $data = [
+            'id'   => $id,
+            'Team' => Team::find($id),
+        ];
+
+        return view('config.team-manager', $data);
+    }
+
+    public function teamStore(int $id = null, Request $request)
+    {
+        if (is_null($id)) {
+            $responseTeam = Team::create($request->all());
+
+            $User = User::find(Auth::user()->id);
+            $User->teams()->attach($responseTeam);
+        } else {
+            $Team = Team::find($id);
+
+            $Team->fill($request->all());
+            $Team->save();
+
+            $responseTeam = $Team;
+        }
+
+        $response = [
+            'error'   => false,
+            'message' => 'Ação realizada com sucesso',
+            'result'  => $responseTeam,
+        ];
+
+        $response['result']['method'] = 'redirect';
+        $response['result']['url']    = route('config.team-manager', ['id' => $responseTeam['id']]);
+
+        return response()->json($response);
     }
 }

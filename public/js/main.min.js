@@ -2346,8 +2346,6 @@ var Form = function () {
   };
 
   var responseAjax = function responseAjax(response) {
-    console.log(response);
-
     if (response.result.method == 'redirect') {
       window.location = response.result.url;
     }
