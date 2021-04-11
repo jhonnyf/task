@@ -1,6 +1,6 @@
 .config-section{
     background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
-    backdrop-filter: blur(2rem);    
+    backdrop-filter: blur(2rem);
     margin-top: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -23,6 +23,28 @@
                 &:last-child{
                     margin-bottom: 0;
                 }
+            }
+        }
+    }
+
+    .teams{
+        display: flex;
+        flex-direction: row;        
+
+        .team{
+            background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
+            backdrop-filter: blur(2rem);
+            color: $gray-dark;
+            width: 25%;
+            margin-right: 10px;
+            padding: 10px 15px;
+
+            a{
+                display: block;
+            }
+
+            &:last-child{
+                margin-right: 0;
             }
         }
     }

@@ -6786,3 +6786,22 @@ header .settings {
 .config-section .menu ul li:last-child {
   margin-bottom: 0;
 }
+.config-section .teams {
+  display: flex;
+  flex-direction: row;
+}
+.config-section .teams .team {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  -webkit-backdrop-filter: blur(2rem);
+          backdrop-filter: blur(2rem);
+  color: #3e4149;
+  width: 25%;
+  margin-right: 10px;
+  padding: 10px 15px;
+}
+.config-section .teams .team a {
+  display: block;
+}
+.config-section .teams .team:last-child {
+  margin-right: 0;
+}
