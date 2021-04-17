@@ -21,9 +21,8 @@ class TeamInvitation extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.teams.invitation')
-            ->subject('Convite de time')
-            ->with([
+        return $this->subject('Convite de time')
+            ->view('emails.teams.invitation', [
                 'email'   => $this->email,
                 'team_id' => $this->team_id,
             ]);

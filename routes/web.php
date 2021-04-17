@@ -7,6 +7,7 @@ use App\Http\Controllers\ChecklistItemController;
 use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailTemplateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', function () {
@@ -62,12 +63,16 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('save', [ConfigController::class, 'save'])->name('config.my-data-save');
         });
 
-        Route::group(['prefix' => 'team'], function(){
+        Route::group(['prefix' => 'team'], function () {
             Route::get('', [ConfigController::class, 'team'])->name('config.team');
             Route::get('manager/{id?}', [ConfigController::class, 'teamManager'])->name('config.team-manager');
             Route::post('store/{id?}', [ConfigController::class, 'teamStore'])->name('config.team-store');
             Route::post('invitation/{id}', [ConfigController::class, 'teamInvitation'])->name('config.team-invitation');
         });
+    });
+
+    Route::group(['prefix' => 'mail-template'], function () {
+        Route::get('team-invitation', [MailTemplateController::class, 'teamInvitation']);
     });
 
 });

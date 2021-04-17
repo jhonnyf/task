@@ -91,5 +91,13 @@ class ConfigController extends Controller
         if ($checkEmail === false) {
             ProcessTeamInvitation::dispatch($request->email, $id);
         }
+
+        $response = [
+            'error'   => false,
+            'message' => 'Ação realizada com sucesso',
+            'result'  => [],
+        ];
+
+        return response()->json($response);
     }
 }
