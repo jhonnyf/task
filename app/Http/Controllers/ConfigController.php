@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ConfigSave;
+use App\Jobs\ProcessTeamInvitation;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class ConfigController extends Controller
     public function team()
     {
         $data = [
-            'User' => User::find(Auth::user()->id)
+            'User' => User::find(Auth::user()->id),
         ];
 
         return view('config.team', $data);
@@ -82,5 +83,13 @@ class ConfigController extends Controller
         $response['result']['url']    = route('config.team-manager', ['id' => $responseTeam['id']]);
 
         return response()->json($response);
+    }
+
+    public function teamInvitation(int $id, Request $request)
+    {
+        $checkEmail = User::where('email', $request->email)->exists();
+        if ($checkEmail === false) {
+            ProcessTeamInvitation::dispatch($request->email, $id);
+        }
     }
 }

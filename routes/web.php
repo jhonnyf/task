@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('', [ConfigController::class, 'team'])->name('config.team');
             Route::get('manager/{id?}', [ConfigController::class, 'teamManager'])->name('config.team-manager');
             Route::post('store/{id?}', [ConfigController::class, 'teamStore'])->name('config.team-store');
+            Route::post('invitation/{id}', [ConfigController::class, 'teamInvitation'])->name('config.team-invitation');
         });
     });
 
