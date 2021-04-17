@@ -19,7 +19,6 @@ mix.combine([
  */
 
 mix.sass('./resources/scss/main.scss', './public/css/main.css').minify('./public/css/main.css');
-mix.sass('./resources/scss/mail/mail.scss', './public/css/mail.css').minify('./public/css/mail.css');
 
 mix.js([
     './resources/js/app.js'
