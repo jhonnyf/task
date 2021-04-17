@@ -7,7 +7,7 @@ use App\Http\Controllers\ChecklistItemController;
 use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MailTemplateController;
+use App\Mail\TeamInvitation;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', function () {
@@ -68,11 +68,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('manager/{id?}', [ConfigController::class, 'teamManager'])->name('config.team-manager');
             Route::post('store/{id?}', [ConfigController::class, 'teamStore'])->name('config.team-store');
             Route::post('invitation/{id}', [ConfigController::class, 'teamInvitation'])->name('config.team-invitation');
+            Route::get('accept-invitation/{id}', [ConfigController::class, 'acceptInvitation'])->name('config.accept-invitation');
         });
     });
 
     Route::group(['prefix' => 'mail-template'], function () {
-        Route::get('team-invitation', [MailTemplateController::class, 'teamInvitation']);
+        Route::get('team-invitation', function () {
+            return new TeamInvitation('jhonnyf@live.com', 1);
+        });
     });
 
 });

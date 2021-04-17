@@ -100,4 +100,9 @@ class ConfigController extends Controller
 
         return response()->json($response);
     }
+
+    public function acceptInvitation(int $id, Request $request)
+    {
+        echo ':D';
+    }
 }

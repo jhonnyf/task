@@ -10,8 +10,8 @@ class TeamInvitation extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $email;
-    private $team_id;
+    public $email;
+    public $team_id;
 
     public function __construct(string $email, int $team_id)
     {
@@ -21,10 +21,12 @@ class TeamInvitation extends Mailable
 
     public function build()
     {
-        return $this->subject('Convite de time')
-            ->view('emails.teams.invitation', [
-                'email'   => $this->email,
-                'team_id' => $this->team_id,
-            ]);
+        //['id' => $this->team_id, 'email' => $this->email]
+
+        return $this->markdown('emails.teams.invitation', [
+            'email'   => $this->email,
+            'team_id' => $this->team_id,
+        ])
+            ->subject('Convite de time');
     }
 }
