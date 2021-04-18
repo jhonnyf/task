@@ -21,8 +21,6 @@ class TeamInvitation extends Mailable
 
     public function build()
     {
-        //['id' => $this->team_id, 'email' => $this->email]
-
         return $this->markdown('emails.teams.invitation', [
             'email'   => $this->email,
             'team_id' => $this->team_id,

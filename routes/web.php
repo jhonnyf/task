@@ -18,7 +18,10 @@ Route::group(['prefix' => 'login'], function () {
     Route::get('', [LoginController::class, 'index'])->name('login.index');
     Route::post('authenticate', [LoginController::class, 'authenticate'])->name('login.authenticate');
     Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
+    Route::get('register', [LoginController::class, 'register'])->name('login.register');
 });
+
+Route::get('accept-invitation/{id}', [ConfigController::class, 'acceptInvitation'])->name('config.accept-invitation');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -67,8 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('', [ConfigController::class, 'team'])->name('config.team');
             Route::get('manager/{id?}', [ConfigController::class, 'teamManager'])->name('config.team-manager');
             Route::post('store/{id?}', [ConfigController::class, 'teamStore'])->name('config.team-store');
-            Route::post('invitation/{id}', [ConfigController::class, 'teamInvitation'])->name('config.team-invitation');
-            Route::get('accept-invitation/{id}', [ConfigController::class, 'acceptInvitation'])->name('config.accept-invitation');
+            Route::post('invitation/{id}', [ConfigController::class, 'teamInvitation'])->name('config.team-invitation');            
         });
     });
 

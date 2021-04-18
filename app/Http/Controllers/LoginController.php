@@ -29,4 +29,9 @@ class LoginController extends Controller
 
         return redirect()->route('login.index');
     }
+
+    public function register()
+    {
+        return view('login.register');
+    }
 }

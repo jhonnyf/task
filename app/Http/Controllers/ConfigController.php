@@ -103,6 +103,9 @@ class ConfigController extends Controller
 
     public function acceptInvitation(int $id, Request $request)
     {
-        echo ':D';
+        $checkEmail = User::where('email', $request->email)->exists();
+        if ($checkEmail === false) {
+            return redirect()->route('login.register');
+        }
     }
 }
