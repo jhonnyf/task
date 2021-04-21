@@ -101,11 +101,11 @@ class ConfigController extends Controller
         return response()->json($response);
     }
 
-    public function acceptInvitation(int $id, Request $request)
+    public function acceptInvitation(int $team_id, Request $request)
     {
         $checkEmail = User::where('email', $request->email)->exists();
         if ($checkEmail === false) {
-            return redirect()->route('login.register');
+            return redirect()->route('login.register', ['team_id' => $team_id, 'email' => $request->email]);
         }
     }
 }

@@ -13,7 +13,7 @@
         <header>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 menu">home</div>
+                    <div class="col-md-4 menu"><a href="{{ route('board.index') }}"><i class="fas fa-home"></i></a></div>
                     <div class="col-md-4 brand">
                         <a href="{{ route('board.index') }}">Task</a>
                     </div>

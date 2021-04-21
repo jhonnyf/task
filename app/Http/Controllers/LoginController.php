@@ -33,9 +33,14 @@ class LoginController extends Controller
         return redirect()->route('login.index');
     }
 
-    public function register()
+    public function register(int $team_id = null, Request $request)
     {
-        return view('login.register');
+        $data = [
+            'email'   => $request->email,
+            'team_id' => $team_id,
+        ];
+
+        return view('login.register', $data);
     }
 
     public function store(UserStoreRequest $request)
@@ -43,11 +48,18 @@ class LoginController extends Controller
         $data = $request->all();
 
         $original_password = $data['password'];
-        $data['password']  = Hash::make($original_password);
+        $team_id           = $data['team_id'];
+
+        $data['password'] = Hash::make($original_password);
 
         unset($data['password_confirmation']);
+        unset($data['team_id']);
 
-        User::create($data);
+        $responseUser = User::create($data);
+        if ($team_id > 0) {
+            $User = User::find($responseUser['id']);
+            $User->teams()->attach($team_id);
+        }
 
         $credentials = ['email' => $data['email'], 'password' => $original_password];
 

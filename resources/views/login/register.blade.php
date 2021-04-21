@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-md-6 offset-md-3 register d-flex justify-content-center align-items-center">
             <form action="{{ route('login.store') }}" method="post" class="form" autocomplete="off">
+                @if (is_null($team_id) === false)
+                    <input type="hidden" name="team_id" value="{{ $team_id }}">
+                @endif
                 @csrf
 
                 @if(Session::has('success'))
@@ -37,8 +40,8 @@
                 </div>
     
                 <div class="form-field">
-                    <input type="email" class="input" name="email" id="email" placeholder="E-mail" required value="{{ old('email') }}">
-                </div>
+                    <input type="email" class="input" name="email" id="email" placeholder="E-mail" required value="{{ isset($email) ? $email : old('email') }}" {{ isset($email) ? 'readonly' : '' }}>
+                </div> 
             
                 <div class="row">
                     <div class="col-md-6">
