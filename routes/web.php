@@ -19,6 +19,7 @@ Route::group(['prefix' => 'login'], function () {
     Route::post('authenticate', [LoginController::class, 'authenticate'])->name('login.authenticate');
     Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
     Route::get('register', [LoginController::class, 'register'])->name('login.register');
+    Route::post('store', [LoginController::class, 'store'])->name('login.store');
 });
 
 Route::get('accept-invitation/{id}', [ConfigController::class, 'acceptInvitation'])->name('config.accept-invitation');

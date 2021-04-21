@@ -6419,6 +6419,10 @@ input[readonly] {
   line-height: 25px;
 }
 
+.register {
+  height: 100vh;
+}
+
 header {
   background-color: #3e4149;
   color: #fff;

@@ -1,13 +1,11 @@
 {
     "/js/main.js": "/js/main.js",
-    "/css/mail.css": "/css/mail.css",
     "/css/main.css": "/css/main.css",
     "/css/vendor.css": "/css/vendor.css",
     "/css/vendor.min.css": "/css/vendor.min.css",
     "/js/vendor.js": "/js/vendor.js",
     "/js/vendor.min.js": "/js/vendor.min.js",
     "/css/main.min.css": "/css/main.min.css",
-    "/css/mail.min.css": "/css/mail.min.css",
     "/js/main.min.js": "/js/main.min.js",
     "/webfonts/fa-brands-400.eot": "/webfonts/fa-brands-400.eot",
     "/webfonts/fa-brands-400.svg": "/webfonts/fa-brands-400.svg",
