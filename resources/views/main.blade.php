@@ -18,7 +18,8 @@
                         <a href="{{ route('board.index') }}">Task</a>
                     </div>
                     <div class="col-md-4 settings">
-                        <a href="{{ route('config.index') }}">configurações</a>
+                        <a href="{{ route('config.index') }}"><i class="fas fa-cogs"></i></a>
+                        <a href="{{ route('login.logout') }}"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
             </div>

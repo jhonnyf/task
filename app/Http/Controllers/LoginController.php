@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Login;
+use App\Http\Requests\UserStoreRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -33,5 +36,24 @@ class LoginController extends Controller
     public function register()
     {
         return view('login.register');
+    }
+
+    public function store(UserStoreRequest $request)
+    {
+        $data = $request->all();
+
+        $original_password = $data['password'];
+        $data['password']  = Hash::make($original_password);
+
+        unset($data['password_confirmation']);
+
+        User::create($data);
+
+        $credentials = ['email' => $data['email'], 'password' => $original_password];
+
+        Auth::logout();
+        Auth::attempt($credentials, true);
+
+        return redirect()->route('board.index');
     }
 }
