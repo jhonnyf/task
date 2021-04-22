@@ -108,4 +108,12 @@ class ConfigController extends Controller
             return redirect()->route('login.register', ['team_id' => $team_id, 'email' => $request->email]);
         }
     }
+
+    public function teamRemoveUser(int $id, int $user_id)
+    {
+        $User = User::find($user_id);
+        $User->teams()->detach($id);
+
+        return redirect()->route('config.team-manager', ['id' => $id]);
+    }
 }
