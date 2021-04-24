@@ -93,7 +93,9 @@ class ConfigController extends Controller
         } else {
 
             $User = User::where('email', $request->email)->first();
-            $User->teams()->attach($id);
+            if ($User->teams()->where('team_id', $id)->exists() === false) {
+                $User->teams()->attach($id, ['responsibility_id' => 2]);
+            }
         }
 
         $response = [

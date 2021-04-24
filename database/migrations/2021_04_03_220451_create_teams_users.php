@@ -15,6 +15,8 @@ class CreateTeamsUsers extends Migration
             $table->foreignId('team_id')->references('id')->on('teams')->cascadeOnDelete();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreignId('responsibility_id')->references('id')->on('responsibilities')->cascadeOnDelete();
+
+            $table->unique(['team_id', 'user_id']);
         });
     }
 
