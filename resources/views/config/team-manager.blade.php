@@ -32,6 +32,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>E-mail</th>
+                                <th>Responsabilidade</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -41,8 +42,9 @@
                                     <tr>
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->pivot->responsibility->responsibility }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('config.team-remove-user', ['id' => $Team->id, 'user_id' => $user->id]) }}"><i class="fas fa-trash"></i></a>                                        
+                                            <a href="{{ route('config.team-remove-user', ['id' => $Team->id, 'user_id' => $user->id]) }}"><i class="fas fa-trash"></i></a>                                            
                                         </td>
                                     </tr>
                                 @endforeach                                                                           

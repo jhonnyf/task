@@ -58,7 +58,7 @@ class LoginController extends Controller
         $responseUser = User::create($data);
         if ($team_id > 0) {
             $User = User::find($responseUser['id']);
-            $User->teams()->attach($team_id);
+            $User->teams()->attach($team_id, ['responsibility_id' => 2]);
         }
 
         $credentials = ['email' => $data['email'], 'password' => $original_password];

@@ -63,7 +63,7 @@ class ConfigController extends Controller
             $responseTeam = Team::create($request->all());
 
             $User = User::find(Auth::user()->id);
-            $User->teams()->attach($responseTeam);
+            $User->teams()->attach($responseTeam, ['responsibility_id' => 1]);
         } else {
             $Team = Team::find($id);
 

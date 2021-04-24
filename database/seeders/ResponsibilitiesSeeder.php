@@ -17,7 +17,7 @@ class ResponsibilitiesSeeder extends Seeder
         Responsibility::create($data);
 
         $data = [
-            'responsibility' => 'Usuário'
+            'responsibility' => 'Editor'
         ];
 
         Responsibility::create($data);

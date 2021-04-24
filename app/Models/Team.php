@@ -13,7 +13,7 @@ class Team extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->using(TeamUser::class)->withPivot('responsibility_id');
     }
 
     public function boards()

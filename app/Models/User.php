@@ -23,7 +23,7 @@ class User extends Authenticatable
         $User     = User::find(Auth::user()->id);
 
         foreach ($User->teams as $team) {
-            foreach ($team->boards as $key => $board) {
+            foreach ($team->boards as $board) {
                 $board_id[] = $board->id;
             }
 
@@ -34,6 +34,6 @@ class User extends Authenticatable
 
     public function teams()
     {
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class)->using(TeamUser::class)->withPivot('responsibility_id');
     }
 }
