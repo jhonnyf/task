@@ -25,35 +25,36 @@
                         <div class="text-right mt-3 2">
                             <button class="btn">Convidar</button>
                         </div>
-                    </form>
-                @endif
+                    </form>               
 
-                <table class="mt-3 table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($Team->users()->exists())
-                            @foreach ($Team->users as $user)
-                                <tr>
-                                    <td>{{ $user->first_name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('config.team-remove-user', ['id' => $Team->id, 'user_id' => $user->id]) }}"><i class="fas fa-trash"></i></a>                                        
-                                    </td>
-                                </tr>
-                            @endforeach                                                                           
-                        @else                                            
+                    <table class="mt-3 table table-striped table-hover">
+                        <thead>
                             <tr>
-                                <td>Não existe nenhum usuário no seu time</td>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Ações</th>
                             </tr>
-                        @endif
-                    </tbody>
-                </table>                                
+                        </thead>
+                        <tbody>
+                            @if ($Team->users()->exists())
+                                @foreach ($Team->users as $user)
+                                    <tr>
+                                        <td>{{ $user->first_name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td class="text-center">
+                                            <a href="{{ route('config.team-remove-user', ['id' => $Team->id, 'user_id' => $user->id]) }}"><i class="fas fa-trash"></i></a>                                        
+                                        </td>
+                                    </tr>
+                                @endforeach                                                                           
+                            @else                                            
+                                <tr>
+                                    <td>Não existe nenhum usuário no seu time</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>        
+                
+                @endif
 
             </div>
         </div>

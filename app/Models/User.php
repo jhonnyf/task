@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,17 @@ class User extends Authenticatable
 
     public function boards()
     {
-        return $this->hasMany(Board::class);
+        $board_id = [];
+        $User     = User::find(Auth::user()->id);
+
+        foreach ($User->teams as $team) {
+            foreach ($team->boards as $key => $board) {
+                $board_id[] = $board->id;
+            }
+
+        }
+
+        return $this->belongsToMany(Board::class)->whereNotIn('board_id', $board_id);
     }
 
     public function teams()

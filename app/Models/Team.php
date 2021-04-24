@@ -15,4 +15,9 @@ class Team extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function boards()
+    {
+        return $this->belongsToMany(Board::class);
+    }
 }

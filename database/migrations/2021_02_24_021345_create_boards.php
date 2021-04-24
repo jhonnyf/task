@@ -13,7 +13,6 @@ class CreateBoards extends Migration
 
             $table->id();
             $table->integer('active')->default(1);
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('board', 120);            
             $table->timestamps();
         });
