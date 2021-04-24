@@ -90,6 +90,10 @@ class ConfigController extends Controller
         $checkEmail = User::where('email', $request->email)->exists();
         if ($checkEmail === false) {
             ProcessTeamInvitation::dispatch($request->email, $id);
+        } else {
+
+            $User = User::where('email', $request->email)->first();
+            $User->teams()->attach($id);
         }
 
         $response = [
