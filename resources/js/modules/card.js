@@ -64,15 +64,10 @@ const Card = function () {
     const saveTag = function () {
         let element = $(this);
         let card_id = element.data('card_id');
-        let dropdownTag = element.closest('.dropdown-tags');
-
-        if (dropdownTag.find('input[name="tag-color"]:checked').length == 0) {
-            alert('Selecione uma cor');
-            return false;
-        }
+        let dropdownTag = element.closest('.dropdown-tags');        
 
         let tag = dropdownTag.find('#tag-name').val();
-        let color = dropdownTag.find('input[name="tag-color"]:checked').val();
+        let color = dropdownTag.find('.color-custom').val();
 
         let url = window.location.origin + '/cards/add-tag/' + card_id;
         let data = { 'tag': tag, 'color': color };

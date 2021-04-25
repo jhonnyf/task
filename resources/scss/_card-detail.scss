@@ -112,8 +112,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 10px;
+            justify-content: space-between;            
 
             .input-tag-color:checked {
                 color: #fff;
@@ -124,10 +123,22 @@
             .color {
                 width: 38px;
                 height: 28px;
+                margin-bottom: 10px;
 
                 &:last-child {
                     margin-right: 0;
                 }
+
+                &.bg-custom{
+                    background-color: purple;
+                    width: 100%;
+                }
+            }
+
+            .color-custom{
+                width: 100%;
+                height: 38px;
+                margin-bottom: 10px;
             }
         }
 

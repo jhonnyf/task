@@ -2095,14 +2095,8 @@ var Card = function () {
     var element = $(this);
     var card_id = element.data('card_id');
     var dropdownTag = element.closest('.dropdown-tags');
-
-    if (dropdownTag.find('input[name="tag-color"]:checked').length == 0) {
-      alert('Selecione uma cor');
-      return false;
-    }
-
     var tag = dropdownTag.find('#tag-name').val();
-    var color = dropdownTag.find('input[name="tag-color"]:checked').val();
+    var color = dropdownTag.find('.color-custom').val();
     var url = window.location.origin + '/cards/add-tag/' + card_id;
     var data = {
       'tag': tag,

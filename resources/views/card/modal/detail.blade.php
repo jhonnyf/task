@@ -38,17 +38,7 @@
                     <div class="dropdown-tags">
                         <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
                         <div class="colors">
-                            <input type="radio" class="btn-check input-tag-color" value="#198754" name="tag-color" id="tag-sucess">
-                            <label class="btn color btn-secondary bg-success" for="tag-sucess"></label>
-
-                            <input type="radio" class="btn-check input-tag-color" value="#ffc107" name="tag-color" id="tag-warning">
-                            <label class="btn color btn-secondary bg-warning" for="tag-warning"></label>
-
-                            <input type="radio" class="btn-check input-tag-color" value="#dc3545" name="tag-color" id="tag-danger">
-                            <label class="btn color btn-secondary bg-danger" for="tag-danger"></label>
-
-                            <input type="radio" class="btn-check input-tag-color" value="#0d6efd" name="tag-color" id="tag-primary">
-                            <label class="btn color btn-secondary bg-primary" for="tag-primary"></label>
+                            <input type="color" name="color-custom" class="color-custom">
                         </div>
                         <button type="button" class="btn save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
                     </div>
