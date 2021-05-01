@@ -26,9 +26,7 @@ class ConfigController extends Controller
             $User->password = Hash::make($request->password);
         }
 
-        $fill = $request->only(['first_name', 'last_name']);
-
-        $User->fill($fill)->save();
+        $User->fill($request->only(['first_name', 'last_name']))->save();
 
         $request->session()->flash('success', 'Ação realizada com sucesso!');
 

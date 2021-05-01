@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
-    public function team()
+    public function index()
     {
         $data = [
             'User' => User::find(Auth::user()->id),
         ];
 
-        return view('config.team', $data);
+        return view('team.index', $data);
     }
 
     public function manager(int $id = null, Request $request)
@@ -26,7 +26,7 @@ class TeamController extends Controller
             'Team' => Team::find($id),
         ];
 
-        return view('config.team-manager', $data);
+        return view('team.manager', $data);
     }
 
     public function store(int $id = null, Request $request)

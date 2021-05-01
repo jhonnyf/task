@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
         });
 
         Route::group(['prefix' => 'team'], function () {
-            Route::get('', [TeamController::class, 'team'])->name('config.team');
+            Route::get('', [TeamController::class, 'index'])->name('config.team');
             Route::get('manager/{id?}', [TeamController::class, 'manager'])->name('config.team-manager');
             Route::post('store/{id?}', [TeamController::class, 'store'])->name('config.team-store');
             Route::post('invitation/{id}', [TeamController::class, 'invitation'])->name('config.team-invitation');            
