@@ -7,6 +7,7 @@ use App\Http\Controllers\ChecklistItemController;
 use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TeamController;
 use App\Mail\TeamInvitation;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::group(['prefix' => 'login'], function () {
     Route::post('store', [LoginController::class, 'store'])->name('login.store');
 });
 
-Route::get('accept-invitation/{team_id}', [ConfigController::class, 'acceptInvitation'])->name('config.accept-invitation');
+Route::get('accept-invitation/{team_id}', [TeamController::class, 'acceptInvitation'])->name('config.accept-invitation');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -68,11 +69,11 @@ Route::group(['middleware' => 'auth'], function () {
         });
 
         Route::group(['prefix' => 'team'], function () {
-            Route::get('', [ConfigController::class, 'team'])->name('config.team');
-            Route::get('manager/{id?}', [ConfigController::class, 'teamManager'])->name('config.team-manager');
-            Route::post('store/{id?}', [ConfigController::class, 'teamStore'])->name('config.team-store');
-            Route::post('invitation/{id}', [ConfigController::class, 'teamInvitation'])->name('config.team-invitation');            
-            Route::get('remove-team/{id}/{user_id}', [ConfigController::class, 'teamRemoveUser'])->name('config.team-remove-user');
+            Route::get('', [TeamController::class, 'team'])->name('config.team');
+            Route::get('manager/{id?}', [TeamController::class, 'manager'])->name('config.team-manager');
+            Route::post('store/{id?}', [TeamController::class, 'store'])->name('config.team-store');
+            Route::post('invitation/{id}', [TeamController::class, 'invitation'])->name('config.team-invitation');            
+            Route::get('remove-team/{id}/{user_id}', [TeamController::class, 'removeUser'])->name('config.team-remove-user');
         });
     });
 
