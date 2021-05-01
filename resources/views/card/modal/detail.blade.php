@@ -38,7 +38,7 @@
                     <div class="dropdown-tags">
                         <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
                         <div class="colors">
-                            <input type="color" name="color-custom" class="color-custom">
+                            <input type="color" name="color-custom" class="color-custom" value="#800080">
                         </div>
                         <button type="button" class="btn save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
                     </div>
