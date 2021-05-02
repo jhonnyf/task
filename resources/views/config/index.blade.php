@@ -12,7 +12,7 @@
             <div class="col-md-9">
                 <h3 class="mb-4">Meus dados</h3>
 
-                <form action="{{ route('config.my-data-save') }}" method="post">
+                <form action="{{ route('config.my-data-save') }}" method="post" class="form">
                     @csrf
 
                     @if(Session::has('success'))

@@ -72,7 +72,7 @@ class TeamController extends Controller
 
         $response = [
             'error'   => false,
-            'message' => 'Ação realizada com sucesso',
+            'message' => '<div class="alert alert-success">Ação realizada com sucesso</div>',
             'result'  => [],
         ];
 

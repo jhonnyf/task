@@ -12,7 +12,7 @@
             <div class="col-md-9">
                 <h3 class="mb-4">Times</h3>
 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between align-items-center">
                     <p>Gerencie aqui os seus times</p>
                     <p class="text-right"><a href="{{ route('config.team-manager') }}" class="btn"><i class="fas fa-plus"></i> Novo time</a></p>
                 </div>
