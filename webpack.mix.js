@@ -1,10 +1,12 @@
 const mix = require('laravel-mix');
 
+mix.sass('./resources/scss/_bootstrap.scss', './public/css/bootstrap.css');
+
 /**
  * VENDOR
  */
 mix.combine([
-    // './node_modules/bootstrap/dist/css/bootstrap-grid.css',    
+    './public/css/bootstrap.css',    
     './node_modules/@fortawesome/fontawesome-free/css/all.css',
 ], './public/css/vendor.css').minify('./public/css/vendor.css');
 

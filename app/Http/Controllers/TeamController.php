@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ProcessTeamInvitation;
+use App\Models\Responsibility;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,8 +23,9 @@ class TeamController extends Controller
     public function manager(int $id = null, Request $request)
     {
         $data = [
-            'id'   => $id,
-            'Team' => Team::find($id),
+            'id'               => $id,
+            'Team'             => Team::find($id),
+            'responsibilities' => Responsibility::all(),
         ];
 
         return view('team.manager', $data);
@@ -93,5 +95,25 @@ class TeamController extends Controller
         $User->teams()->detach($id);
 
         return redirect()->route('config.team-manager', ['id' => $id]);
+    }
+
+    public function changeResponsibility(int $id, int $user_id, int $responsibility_id)
+    {
+        $User = User::find($user_id);
+        $team = $User->teams()->where('team_id', $id)->first();
+
+        $team->pivot->responsibility_id = $responsibility_id;
+        $team->pivot->save();     
+        
+        $response = [
+            'error'   => false,
+            'message' => '<div class="alert alert-success">Ação realizada com sucesso</div>',
+            'result'  => [
+                'method' => 'redirect',
+                'url' => route('config.team-manager', ['id' => $id])
+            ],
+        ];
+
+        return response()->json($response);
     }
 }

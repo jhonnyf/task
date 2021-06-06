@@ -1927,6 +1927,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var Board = function () {
   var columnSortable = function columnSortable() {
+    if ($('#sortable-columns').length == 0) {
+      return false;
+    }
+
     sortablejs__WEBPACK_IMPORTED_MODULE_1__.default.create(document.getElementById('sortable-columns'), {
       onUpdate: function onUpdate() {
         var columns = [];
@@ -19692,6 +19696,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/scss/_bootstrap.scss":
+/*!****************************************!*\
+  !*** ./resources/scss/_bootstrap.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/scss/main.scss":
 /*!**********************************!*\
   !*** ./resources/scss/main.scss ***!
@@ -23762,7 +23779,8 @@ Sortable.mount(Remove, Revert);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/main": 0,
-/******/ 			"css/main": 0
+/******/ 			"css/main": 0,
+/******/ 			"css/bootstrap": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -23810,8 +23828,9 @@ Sortable.mount(Remove, Revert);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./resources/scss/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/bootstrap"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/bootstrap"], () => (__webpack_require__("./resources/scss/_bootstrap.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/main","css/bootstrap"], () => (__webpack_require__("./resources/scss/main.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

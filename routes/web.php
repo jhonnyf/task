@@ -73,6 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('manager/{id?}', [TeamController::class, 'manager'])->name('config.team-manager');
             Route::post('store/{id?}', [TeamController::class, 'store'])->name('config.team-store');
             Route::post('invitation/{id}', [TeamController::class, 'invitation'])->name('config.team-invitation');            
+            Route::post('change-responsibility/{id}/{user_id}/{responsibility_id}', [TeamController::class, 'changeResponsibility'])->name('config.change-responsibility');            
             Route::get('remove-team/{id}/{user_id}', [TeamController::class, 'removeUser'])->name('config.team-remove-user');
         });
     });

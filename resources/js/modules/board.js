@@ -3,7 +3,11 @@ import Sortable from 'sortablejs';
 
 const Board = function () {
 
-    const columnSortable = function() {        
+    const columnSortable = function() {     
+        if ($('#sortable-columns').length ==0) {
+            return false;    
+        }
+
         Sortable.create(document.getElementById('sortable-columns'),{
             onUpdate: function () {
 

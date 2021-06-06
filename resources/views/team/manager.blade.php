@@ -42,7 +42,11 @@
                                     <tr>
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->pivot->responsibility->responsibility }}</td>
+                                        <td>
+                                            @foreach ($responsibilities as $responsibility)
+                                                <a href="{{ route('config.change-responsibility', ['id'=>$Team->id, 'user_id' => $user->id, 'responsibility_id' => $responsibility['id']]) }}" class="link-ajax badge {{ $user->pivot->responsibility->id == $responsibility['id'] ? "bg-secondary" : "bg-light text-dark" }}">{{ $responsibility['responsibility'] }}</a>
+                                            @endforeach                                            
+                                        </td>
                                         <td class="text-center">
                                             <a href="{{ route('config.team-remove-user', ['id' => $Team->id, 'user_id' => $user->id]) }}"><i class="fas fa-trash"></i></a>                                            
                                         </td>
