@@ -13,11 +13,11 @@
         <header>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 menu"><a href="{{ route('board.index') }}"><i class="fas fa-home"></i></a></div>
-                    <div class="col-md-4 brand">
+                    <div class="col-md-6 brand">
                         <a href="{{ route('board.index') }}">Task</a>
                     </div>
-                    <div class="col-md-4 settings">
+                    <div class="col-md-6 settings">
+                        <a href="{{ route('board.index') }}"><i class="fas fa-home"></i></a>
                         <a href="{{ route('config.index') }}"><i class="fas fa-cogs"></i></a>
                         <a href="{{ route('login.logout') }}"><i class="fas fa-sign-out-alt"></i></a>
                     </div>

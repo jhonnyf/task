@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 
-mix.sass('./resources/scss/_bootstrap.scss', './public/css/bootstrap.css');
+mix.sass('./resources/scss/bootstrap.scss', './public/css/bootstrap.css');
 
 /**
  * VENDOR

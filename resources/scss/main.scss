@@ -1,38 +1,21 @@
-@import 'variables';
+@import "variables";
 
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;   
+    box-sizing: border-box;
     outline: none;
 }
 
-body{
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+body {
+    background: rgb(238, 238, 238);
+    background: -moz-linear-gradient(225deg, rgba(238, 238, 238, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(225deg, rgba(238, 238, 238, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(225deg, rgba(238, 238, 238, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeeeee",endColorstr="#ffffff",GradientType=1);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: $gray-light;   
-    background: linear-gradient(to right top, $pink-light, $pink-dark);
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
-a{
-    color: $gray-dark;
-    text-decoration: none;
-
-    &:hover{
-        opacity: .7;
-    }
-}
-
-@import 'utilities';
-@import 'modal';
-@import 'form';
-@import 'login';
-@import 'register';
-@import 'header';
-@import 'board-list';
-@import 'board-detail';
-@import 'column';
-@import 'cards';
-@import 'card-detail';
-@import 'config';
+@import "header";
