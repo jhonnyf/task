@@ -146,8 +146,7 @@ header .brand {
   margin-bottom: 0;
 }
 .board-list .board-menu li:hover a {
-  color: #f54748;
-  background-color: #f5e6ca;
+  color: #FF6700;
   transition: all 0.7s ease;
 }
 .board-list .board-menu li a {
@@ -157,10 +156,10 @@ header .brand {
   font-weight: 800;
   padding: 7px 15px;
   font-size: 14px;
+  transition: all 0.7s ease;
 }
 .board-list .board-menu li a.active {
-  color: #f54748;
-  background-color: #f5e6ca;
+  color: #FF6700;
 }
 .board-list .boards .board-title {
   color: #343f56;
@@ -198,10 +197,12 @@ header .brand {
   letter-spacing: 1.5px;
   border: 1px solid #eee;
   box-shadow: 1px 1px 1px #eee;
+  transition: all 0.7s ease;
 }
 .board-list .boards .board a:hover {
+  color: #FF6700;
   opacity: 0.7;
-  transition: opacity 0.7s ease;
+  transition: all 0.7s ease;
 }
 
 .board-detail .header-board .title {
