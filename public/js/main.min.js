@@ -2353,8 +2353,7 @@ var Form = function () {
     if (response.result.method == 'append') {
       $(response.result.target).append(response.result.html);
 
-      if (response.result.target == ".columns .columns-board") {
-        _board__WEBPACK_IMPORTED_MODULE_1__.Board.init();
+      if (response.result.target == ".columns .columns-board") {// Board.init();
       }
     }
   };
