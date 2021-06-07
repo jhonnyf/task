@@ -259,8 +259,11 @@ header .brand {
   align-items: center;
   justify-content: center;
 }
-.column .column-header .column-actions .dropdown-menu a {
+.column .column-header .column-actions .dropdown-menu .dropdown-item {
   font-size: 14px;
+}
+.column .column-header .column-actions .dropdown-menu .dropdown-item:hover {
+  background-color: #f3f3f3;
 }
 .column:last-child {
   margin-right: 0;
