@@ -69,6 +69,11 @@
   border-color: #ced4da;
 }
 
+.btn {
+  font-weight: 400;
+  font-size: 14px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -103,6 +108,7 @@ header .brand {
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 2.5px;
+  font-weight: 200;
 }
 header .settings {
   text-align: right;
@@ -229,6 +235,8 @@ header .brand {
 .column .column-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  height: 30px;
 }
 .column .column-header .column-title {
   width: 90%;
@@ -250,6 +258,9 @@ header .brand {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.column .column-header .column-actions .dropdown-menu a {
+  font-size: 14px;
 }
 .column:last-child {
   margin-right: 0;
