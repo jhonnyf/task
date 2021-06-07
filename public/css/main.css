@@ -58,6 +58,17 @@
   font-style: italic;
   font-weight: 800;
 }
+*:focus {
+  box-shadow: none !important;
+}
+
+.form-control {
+  font-size: 14px;
+}
+.form-control:focus {
+  border-color: #ced4da;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -90,6 +101,14 @@ header .brand {
   font-size: 18px;
   letter-spacing: 2.5px;
 }
+header .settings {
+  text-align: right;
+}
+@media (max-width: 800px) {
+  header .settings {
+    text-align: center;
+  }
+}
 header a {
   color: #fff;
   text-decoration: none;
@@ -99,14 +118,6 @@ header a:hover {
   opacity: 0.7;
   transition: all 0.5s ease;
 }
-header .settings {
-  text-align: right;
-}
-@media (max-width: 800px) {
-  header .settings {
-    text-align: center;
-  }
-}
 @media (max-width: 800px) {
   header .menu {
     text-align: center;
@@ -115,4 +126,71 @@ header .settings {
 header .brand {
     margin-bottom: 10px;
   }
+}
+
+.board-list .board-menu li {
+  list-style: none;
+  transition: all 0.7s ease;
+  margin-bottom: 10px;
+}
+.board-list .board-menu li :last-child {
+  margin-bottom: 0;
+}
+.board-list .board-menu li:hover a {
+  color: #f54748;
+  background-color: #f5e6ca;
+  transition: all 0.7s ease;
+}
+.board-list .board-menu li a {
+  color: #343f56;
+  text-decoration: none;
+  display: block;
+  font-weight: 800;
+  padding: 7px 15px;
+  font-size: 14px;
+}
+.board-list .board-menu li a.active {
+  color: #f54748;
+  background-color: #f5e6ca;
+}
+.board-list .boards .board-title {
+  color: #343f56;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+.board-list .boards .itens {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 800px) {
+  .board-list .boards .itens {
+    flex-direction: column;
+  }
+}
+.board-list .boards .board {
+  width: 25%;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  background-color: #fff;
+}
+@media (max-width: 800px) {
+  .board-list .boards .board {
+    width: 100%;
+  }
+}
+.board-list .boards .board a {
+  color: #343f56;
+  padding: 40px 25px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  border: 1px solid #eee;
+  box-shadow: 1px 1px 1px #eee;
+}
+.board-list .boards .board a:hover {
+  opacity: 0.7;
+  transition: opacity 0.7s ease;
 }

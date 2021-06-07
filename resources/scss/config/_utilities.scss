@@ -1,0 +1,11 @@
+*:focus{
+    box-shadow: none !important;
+}
+
+.form-control{
+    font-size: 14px;
+    
+    &:focus {
+        border-color: #ced4da;
+    }
+}

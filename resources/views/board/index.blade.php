@@ -1,11 +1,11 @@
 @extends('main')
 
 @section('content')
-    <div class="container board-list">
+    <div class="container board-list mt-5">
         <div class="row">
             <div class="col-md-3 section-menu">
-                <ul class="board-menu">
-                    <li><a href="javascript:;">Quadros</a></li>
+                <ul class="board-menu p-0 m-0">
+                    <li><a href="javascript:;" class="active">Quadros</a></li>
                     <li><a href="javascript:;">Logs</a></li>
                 </ul>
             </div>

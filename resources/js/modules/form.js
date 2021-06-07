@@ -37,7 +37,9 @@ const Form = function () {
     const responseAjax = (response) => {        
 
         if (response.result.method == 'redirect') {
-            window.location = response.result.url;
+            setTimeout(() => {
+                window.location = response.result.url;
+            }, 2500);
         }
 
         if (response.result.method == 'append') {

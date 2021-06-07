@@ -1,5 +1,6 @@
-@import "fonts";
-@import "variables";
+@import "config/fonts";
+@import "config/utilities";
+@import "config/variables";
 
 * {
     margin: 0;
@@ -20,4 +21,5 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeeeee",endColorstr="#ffffff",GradientType=1);
 }
 
-@import "header";
+@import "share/header";
+@import "page/board-list";

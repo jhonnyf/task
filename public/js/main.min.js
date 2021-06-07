@@ -2345,7 +2345,9 @@ var Form = function () {
 
   var responseAjax = function responseAjax(response) {
     if (response.result.method == 'redirect') {
-      window.location = response.result.url;
+      setTimeout(function () {
+        window.location = response.result.url;
+      }, 2500);
     }
 
     if (response.result.method == 'append') {
@@ -2431,51 +2433,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Modal": () => (/* binding */ Modal)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-
 var Modal = function () {
   var loadModal = function loadModal() {
     var element = $(this);
     var url = element.data('modal');
-    var type = 'GET';
-    axios__WEBPACK_IMPORTED_MODULE_0___default()({
-      url: url,
-      method: type,
-      responseType: 'json'
-    }).then(function (response) {
-      response = response.data;
-      $('.container-modal').remove();
-
-      if (response.error) {
-        alert(response.message);
-      } else {
-        $('body').addClass('no-scroll');
-        $('body').prepend(response.result.html);
-        $('.container-modal').fadeIn(function () {
-          $(this).addClass('d-flex');
-          $('.modal').fadeIn();
-        });
+    $.fancybox.open({
+      src: url,
+      type: 'ajax',
+      opts: {
+        clickOutside: false,
+        clickSlide: false,
+        touch: false
       }
-    });
-  };
-
-  var closeModal = function closeModal() {
-    var element = $(this);
-    var modal = element.closest('.modal');
-    modal.fadeOut(function () {
-      $(this).closest('.container-modal').fadeOut(function () {
-        $(this).remove();
-        $('body').removeClass('no-scroll');
-      });
     });
   };
 
   return {
     init: function init() {
       $(document).on('click', '[data-modal]', loadModal);
-      $(document).on('click', '.modal-close', closeModal);
     }
   };
 }();

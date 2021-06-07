@@ -15,6 +15,14 @@ header {
         letter-spacing: 2.5px;
     }
 
+    .settings {
+        text-align: right;
+
+        @media (max-width: 800px) {
+            text-align: center;
+        }
+    }
+
     a {
         color: #fff;
         text-decoration: none;
@@ -26,13 +34,7 @@ header {
         }
     }
 
-    .settings {
-        text-align: right;
-
-        @media (max-width: 800px) {
-            text-align: center;
-        }
-    }
+    
 
     @media (max-width: 800px) {
         .menu {

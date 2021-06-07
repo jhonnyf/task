@@ -42,15 +42,7 @@ class BoardController extends Controller
             'team_id' => isset($request->team_id) ? $request->team_id : null,
         ];
 
-        $response = [
-            'error'   => false,
-            'message' => 'Ação realizada com sucesso!',
-            'result'  => [
-                'html' => view('board.modal.create', $data)->render(),
-            ],
-        ];
-
-        return response()->json($response);
+        return view('board.modal.create', $data);
     }
 
     public function store(Request $request)

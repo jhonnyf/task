@@ -6,12 +6,9 @@
             <input type="hidden" name="team_id" value="{{ $team_id }}">
         @endif
 
-        <div class="form-field">
-            <input type="text" class="input" name="board" id="board" placeholder="Adicionar título do quadro" required>
-        </div>
-
-        <div class="text-right">
-            <button class="btn">ENVIAR</button>
+        <div class="input-group">
+            <input type="text" class="form-control" name="board" id="board" placeholder="Adicionar título do quadro" required>
+            <button type="submit" class="btn btn-dark">ENVIAR</button>
         </div>        
     </form>
 @endsection
