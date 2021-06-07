@@ -1,8 +1,6 @@
 <div class="column column-{{ $column->id }}" data-id="{{ $column->id }}">
     <div class="column-header">
-        <div class="column-title">
-            <h3>{{ $column->column }}</h3>
-        </div>
+        <h3 class="column-title">{{ $column->column }}</h3>
 
         <div class="dropdown column-actions">
             <div class="column-menu" id="column-dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></div>
@@ -22,11 +20,11 @@
     </div>
     <form action="{{ route('card.store', ['column_id' => $column->id]) }}" method="post" class="form form-ajax form-new-card" autocomplete="off">
         <div class="form-field">
-            <input type="text" class="input" name="card" placeholder="Adicione o título para o seu card" required>
+            <input type="text" class="form-control" name="card" placeholder="Adicione o título para o seu card" required>
         </div>
 
-        <div class="text-right">
-            <button class="btn">ENVIAR</button>
+        <div class="text-end mt-2">
+            <button class="btn btn-dark">ENVIAR</button>
         </div>        
     </form>
 </div>    

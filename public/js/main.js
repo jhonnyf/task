@@ -1983,7 +1983,7 @@ var Board = function () {
     var element = $(this);
     var value = element.text();
     element.hide();
-    element.after('<input type="text" autocomplete="off" name="column" id="edit-column" value="' + value + '">');
+    element.after('<input type="text" autocomplete="off" name="column" class="form-control" id="edit-column" value="' + value + '">');
     document.getElementById('edit-column').select();
   };
 

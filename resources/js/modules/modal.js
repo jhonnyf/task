@@ -16,7 +16,6 @@ const Modal = function () {
 
     }
 
-
     return {
         init: function () {
             $(document).on('click', '[data-modal]', loadModal);

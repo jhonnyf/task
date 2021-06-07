@@ -21,5 +21,17 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeeeee",endColorstr="#ffffff",GradientType=1);
 }
 
+/*
+* PAGES
+*/
+
 @import "share/header";
 @import "page/board-list";
+@import "page/board-detail";
+
+/*
+* COMPONENTS
+*/
+
+@import "components/column";
+
