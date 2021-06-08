@@ -32,17 +32,19 @@
                 </div>
                 <div class="col-md-3">
                     <h4 class="title-section"><i class="fas fa-cogs"></i> Ações</h4>
-                    <button type="button" class="btn btn-dark act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
-                    <button type="button" class="btn btn-dark"><i class="fas fa-users"></i> Membros</button>
-                    <button type="button" class="btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
-                    <div class="dropdown-tags">
-                        <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
-                        <div class="colors">
-                            <input type="color" name="color-custom" class="color-custom" value="#800080">
+                    <div class="actions">
+                        <button type="button" class="btn btn-dark act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
+                        <button type="button" class="btn btn-dark"><i class="fas fa-users"></i> Membros</button>
+                        <button type="button" class="btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
+                        <div class="dropdown-tags">
+                            <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
+                            <div class="colors">
+                                <input type="color" name="color-custom" class="color-custom" value="#800080">
+                            </div>
+                            <button type="button" class="btn btn-dark save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
                         </div>
-                        <button type="button" class="btn save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
+                        <button class="btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
                     </div>
-                    <button class="btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
                 </div>
             </div>
 

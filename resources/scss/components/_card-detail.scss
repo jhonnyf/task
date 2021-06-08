@@ -18,20 +18,6 @@
 
     .title-section {
         font-size: 16px;
-    }
-
-    .btn-actions {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-
-        i {
-            margin-right: 10px;
-        }
-    }
-
-    .btn {
-        width: 100%;
         margin-bottom: 10px;
     }
 
@@ -145,6 +131,18 @@
 
         .btn {
             margin-bottom: 0;
+        }
+    }
+
+    .actions{
+        .btn{
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: left;
+
+            i{
+                margin-right: 10px;
+            }
         }
     }
 }

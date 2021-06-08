@@ -329,17 +329,6 @@ header .brand {
 }
 .card-detail .title-section {
   font-size: 16px;
-}
-.card-detail .btn-actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.card-detail .btn-actions i {
-  margin-right: 10px;
-}
-.card-detail .btn {
-  width: 100%;
   margin-bottom: 10px;
 }
 .card-detail .tags {
@@ -428,4 +417,12 @@ header .brand {
 }
 .card-detail .dropdown-tags .btn {
   margin-bottom: 0;
+}
+.card-detail .actions .btn {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.card-detail .actions .btn i {
+  margin-right: 10px;
 }

@@ -2047,7 +2047,7 @@ var Card = function () {
     var element = $(this);
     var value = element.text();
     element.addClass('edit-blur').hide();
-    element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="input mt-default" value="' + value + '">');
+    element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="form-control" value="' + value + '">');
     document.getElementById('edit-content').select();
   };
 
