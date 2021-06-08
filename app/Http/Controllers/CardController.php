@@ -56,15 +56,7 @@ class CardController extends Controller
             'Card' => Model::find($card_id),
         ];
 
-        $response = [
-            'error'   => false,
-            'message' => view('components.message', ['message' => 'Ação realizada com sucesso!', 'error' => false])->render(),
-            'result'  => [
-                'html' => view('card.modal.detail', $data)->render(),
-            ],
-        ];
-
-        return response()->json($response);
+        return view('card.modal.detail', $data);
     }
 
     public function update(int $card_id, Request $request)
@@ -115,10 +107,10 @@ class CardController extends Controller
 
         return response()->json($response);
     }
-    
+
     public function joinCard(int $card_id, Request $request)
     {
-        $Card = Model::find($card_id);                  
+        $Card = Model::find($card_id);
         $Card->user()->attach($request->all());
 
         $response = [
