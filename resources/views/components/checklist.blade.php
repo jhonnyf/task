@@ -1,6 +1,6 @@
-<div class="checklist" data-id="{{ $checklist->id }}">
+<div class="checklist mb-3" data-id="{{ $checklist->id }}">
     <div class="d-flex justify-content-between checklist-title-section">
-        <h4 class="checklist-title focus-edit-content" data-type="checklist" data-element="checklist"><i class="fas fa-tasks"></i> {{ $checklist->checklist }}</h4>        
+        <h4 class="checklist-title mb-2 focus-edit-content" data-type="checklist" data-element="checklist"><i class="fas fa-tasks"></i> {{ $checklist->checklist }}</h4>        
         <div class="d-flex justify-content-between">
             @php
                 $finished = $checklist->items()->where('finished', 1)->count();

@@ -71,7 +71,8 @@
 
 .btn {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
 }
 
 * {
@@ -314,17 +315,8 @@ header .brand {
 .card-detail {
   width: 800px;
 }
-.card-detail .title,
-.card-detail .section-date,
-.card-detail .checklist,
-.card-detail .mt-default,
-.card-detail .title-section,
-.card-detail .checklist-title-section,
-.card-detail .tags {
-  margin-bottom: 20px;
-}
 .card-detail .title {
-  font-size: 24px;
+  font-size: 29.5px;
   font-weight: 300;
 }
 .card-detail .title-section {
@@ -339,9 +331,8 @@ header .brand {
 .card-detail .tags .tag {
   padding: 5px 15px;
   color: #fff;
-  margin-right: 10px;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-right: 10px;
 }
 .card-detail .tags .tag:hover {
   opacity: 0.7;
@@ -420,8 +411,10 @@ header .brand {
 }
 .card-detail .actions .btn {
   width: 100%;
-  margin-bottom: 10px;
   text-align: left;
+}
+.card-detail .actions .btn:last-child {
+  margin-bottom: 0;
 }
 .card-detail .actions .btn i {
   margin-right: 10px;

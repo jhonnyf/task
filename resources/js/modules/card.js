@@ -20,7 +20,7 @@ const Card = function () {
         let value = element.text();
 
         element.addClass('edit-blur').hide();
-        element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="form-control" value="' + value + '">');
+        element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="form-control mb-3" value="' + value + '">');
 
         document.getElementById('edit-content').select();
     }

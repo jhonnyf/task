@@ -1,18 +1,8 @@
 .card-detail {
     width: 800px;
 
-    .title,
-    .section-date,
-    .checklist,
-    .mt-default,
-    .title-section,
-    .checklist-title-section,
-    .tags {
-        margin-bottom: 20px;
-    }
-
     .title {
-        font-size: 24px;
+        font-size: 29.5px;
         font-weight: 300;
     }
 
@@ -29,9 +19,9 @@
         .tag {
             padding: 5px 15px;
             color: #fff;
-            margin-right: 10px;
             cursor: pointer;
-            margin-bottom: 10px;
+            margin-right: 10px;
+            // margin-bottom: 10px;
 
             &:hover {
                 opacity: 0.7;
@@ -99,7 +89,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between;            
+            justify-content: space-between;
 
             .input-tag-color:checked {
                 color: #fff;
@@ -116,13 +106,13 @@
                     margin-right: 0;
                 }
 
-                &.bg-custom{
+                &.bg-custom {
                     background-color: purple;
                     width: 100%;
                 }
             }
 
-            .color-custom{
+            .color-custom {
                 width: 100%;
                 height: 38px;
                 margin-bottom: 10px;
@@ -134,13 +124,16 @@
         }
     }
 
-    .actions{
-        .btn{
-            width: 100%;
-            margin-bottom: 10px;
+    .actions {
+        .btn {
+            width: 100%;        
             text-align: left;
 
-            i{
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            i {
                 margin-right: 10px;
             }
         }
