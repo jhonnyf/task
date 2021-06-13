@@ -99,7 +99,7 @@ class CardController extends Controller
             'error'   => false,
             'message' => 'Ação realizada com sucesso!',
             'result'  => [
-                'html'   => view('components.tag', ['tag' => $tag])->render(),
+                'html'   => view('components.tag', ['tag' => $tag, 'card' => $Card])->render(),
                 'method' => 'append',
                 'target' => ".card-{$Card->id} .tags",
             ],
