@@ -7,6 +7,7 @@ import { Dropdown } from "./modules/dropdown";
 import { LinkAjax } from "./modules/link-ajax";
 import { Card } from "./modules/card";
 import { Checklist } from "./modules/checklist";
+import { Tags } from "./modules/tags";
 
 
 function app() {
@@ -17,6 +18,7 @@ function app() {
     LinkAjax.init();
     Card.init();
     Checklist.init();
+    Tags.init();    
 }
 
 document.onreadystatechange = function () {

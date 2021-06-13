@@ -61,29 +61,7 @@ const Card = function () {
         element.remove();
     }
 
-    const saveTag = function () {
-        let element = $(this);
-        let card_id = element.data('card_id');
-        let dropdownTag = element.closest('.dropdown-tags');        
-
-        let tag = dropdownTag.find('#tag-name').val();
-        let color = dropdownTag.find('.color-custom').val();
-
-        let url = window.location.origin + '/cards/add-tag/' + card_id;
-        let data = { 'tag': tag, 'color': color };
-
-        axios.post(url, data)
-            .then(function (response) {
-                let data = response.data;
-
-                $(data.result.target).append(data.result.html);
-
-                dropdownTag.find('#tag-name').val('');
-                dropdownTag.find('input[name="tag-color"]').prop('checked', false);
-            });
-    }
-
-    const joinCard = function(){        
+    const joinCard = function () {
 
         let element = $(this);
         let card_id = element.data('card_id');
@@ -98,9 +76,9 @@ const Card = function () {
             $(document).on('blur', '.save-blur', saveBlur);
             $(document).on('click', '.focus-edit-content', editContent);
             $(document).on('blur', '#edit-content', saveColumn);
-            $(document).on('click', '.save-tag', saveTag);
+
             $(document).on('click', '.act-join-card', joinCard);
-            $(document).on('click', '.open-tags', function(){
+            $(document).on('click', '.open-tags', function () {
                 $('.dropdown-tags').slideToggle();
             })
         }

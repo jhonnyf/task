@@ -284,20 +284,6 @@ header .brand {
   margin-bottom: 10px;
   padding: 10px 10px;
 }
-.cards .card .tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.cards .card .tags .tag {
-  color: #fff;
-  min-width: 38px;
-  height: 27px;
-  padding: 5px 10px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  text-align: center;
-}
 .cards .card h4 {
   margin-bottom: 0;
   font-size: 16px;
@@ -322,54 +308,6 @@ header .brand {
 .card-detail .title-section {
   font-size: 16px;
   margin-bottom: 10px;
-}
-.card-detail .tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.card-detail .tags .tag {
-  padding: 5px 15px;
-  color: #fff;
-  cursor: pointer;
-  margin-right: 10px;
-}
-.card-detail .tags .tag:hover {
-  opacity: 0.7;
-}
-.card-detail .checklist .checklist-title-section .checklist-title {
-  font-size: 16px;
-}
-.card-detail .checklist .checklist-title-section .mt-default {
-  margin-bottom: 0;
-}
-.card-detail .checklist .checklist-destroy,
-.card-detail .checklist .checklist-item-destroy {
-  margin-left: 15px;
-}
-.card-detail .checklist .checklist-item {
-  padding: 6px 0;
-}
-.card-detail .checklist .checklist-item:hover {
-  background: #eee;
-  cursor: pointer;
-}
-.card-detail .checklist .checklist-item .checklist-item-content {
-  width: 100%;
-}
-.card-detail .checklist .checklist-item .checklist-item-finished {
-  margin-right: 10px;
-}
-.card-detail .checklist .checklist-item .input {
-  margin-bottom: 0;
-}
-.card-detail .checklist .checklist-item-store {
-  font-weight: bold;
-}
-.card-detail .checklist .checklist-total-items {
-  margin-right: 10px;
-  font-weight: bold;
-  letter-spacing: 1.3px;
 }
 .card-detail .dropdown-tags {
   margin-bottom: 10px;
@@ -418,4 +356,60 @@ header .brand {
 }
 .card-detail .actions .btn i {
   margin-right: 10px;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tags .tag {
+  padding: 2px 11px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 12px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+.tags .tag:last-child {
+  margin-right: 0;
+}
+.tags .tag:hover {
+  opacity: 0.7;
+}
+
+.checklist .checklist-title-section .checklist-title {
+  font-size: 16px;
+}
+.checklist .checklist-title-section .mt-default {
+  margin-bottom: 0;
+}
+.checklist .checklist-destroy,
+.checklist .checklist-item-destroy {
+  margin-left: 15px;
+}
+.checklist .checklist-item {
+  padding: 6px 0;
+}
+.checklist .checklist-item:hover {
+  background: #eee;
+  cursor: pointer;
+}
+.checklist .checklist-item .checklist-item-content {
+  width: 100%;
+}
+.checklist .checklist-item .checklist-item-finished {
+  margin-right: 10px;
+}
+.checklist .checklist-item .input {
+  margin-bottom: 0;
+}
+.checklist .checklist-item-store {
+  font-weight: bold;
+}
+.checklist .checklist-total-items {
+  margin-right: 10px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
 }

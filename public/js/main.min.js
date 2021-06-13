@@ -1849,7 +1849,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/link-ajax */ "./resources/js/modules/link-ajax.js");
 /* harmony import */ var _modules_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/card */ "./resources/js/modules/card.js");
 /* harmony import */ var _modules_checklist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/checklist */ "./resources/js/modules/checklist.js");
+/* harmony import */ var _modules_tags__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tags */ "./resources/js/modules/tags.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -1867,6 +1869,7 @@ function app() {
   _modules_link_ajax__WEBPACK_IMPORTED_MODULE_4__.LinkAjax.init();
   _modules_card__WEBPACK_IMPORTED_MODULE_5__.Card.init();
   _modules_checklist__WEBPACK_IMPORTED_MODULE_6__.Checklist.init();
+  _modules_tags__WEBPACK_IMPORTED_MODULE_7__.Tags.init();
 }
 
 document.onreadystatechange = function () {
@@ -2095,25 +2098,6 @@ var Card = function () {
     element.remove();
   };
 
-  var saveTag = function saveTag() {
-    var element = $(this);
-    var card_id = element.data('card_id');
-    var dropdownTag = element.closest('.dropdown-tags');
-    var tag = dropdownTag.find('#tag-name').val();
-    var color = dropdownTag.find('.color-custom').val();
-    var url = window.location.origin + '/cards/add-tag/' + card_id;
-    var data = {
-      'tag': tag,
-      'color': color
-    };
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (response) {
-      var data = response.data;
-      $(data.result.target).append(data.result.html);
-      dropdownTag.find('#tag-name').val('');
-      dropdownTag.find('input[name="tag-color"]').prop('checked', false);
-    });
-  };
-
   var joinCard = function joinCard() {
     var element = $(this);
     var card_id = element.data('card_id');
@@ -2129,7 +2113,6 @@ var Card = function () {
       $(document).on('blur', '.save-blur', saveBlur);
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
-      $(document).on('click', '.save-tag', saveTag);
       $(document).on('click', '.act-join-card', joinCard);
       $(document).on('click', '.open-tags', function () {
         $('.dropdown-tags').slideToggle();
@@ -2450,6 +2433,67 @@ var Modal = function () {
   return {
     init: function init() {
       $(document).on('click', '[data-modal]', loadModal);
+    }
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modules/tags.js":
+/*!**************************************!*\
+  !*** ./resources/js/modules/tags.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Tags": () => (/* binding */ Tags)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Tags = function () {
+  var removeTag = function removeTag() {
+    var element = $(this);
+    var id = element.data('id');
+    var card_id = element.data('card_id');
+    var url = window.location.origin + '/cards/remove-tag/' + card_id + "/" + id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      var data = response.data;
+
+      if (data.error === false) {
+        element.remove();
+      }
+    });
+  };
+
+  var saveTag = function saveTag() {
+    var element = $(this);
+    var card_id = element.data('card_id');
+    var dropdownTag = element.closest('.dropdown-tags');
+    var tag = dropdownTag.find('#tag-name').val();
+    var color = dropdownTag.find('.color-custom').val();
+    var url = window.location.origin + '/cards/add-tag/' + card_id;
+    var data = {
+      'tag': tag,
+      'color': color
+    };
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (response) {
+      var data = response.data;
+      $(data.result.target).append(data.result.html);
+      dropdownTag.find('#tag-name').val('');
+      dropdownTag.find('input[name="tag-color"]').prop('checked', false);
+    });
+  };
+
+  return {
+    init: function init() {
+      $(document).on('click', '.save-tag', saveTag);
+      $(document).on('click', '.card-detail .tag', removeTag);
     }
   };
 }();

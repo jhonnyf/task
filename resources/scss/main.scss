@@ -9,7 +9,7 @@
     outline: none;
 }
 
-body {    
+body {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -36,4 +36,5 @@ body {
 @import "components/column";
 @import "components/cards";
 @import "components/card-detail";
-
+@import "components/tags";
+@import "components/checklist";

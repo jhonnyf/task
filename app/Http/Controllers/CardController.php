@@ -108,6 +108,21 @@ class CardController extends Controller
         return response()->json($response);
     }
 
+    public function removeTag(int $card_id, int $tag_id)
+    {
+        $Card = Model::find($card_id);
+
+        $Card->tags()->detach($tag_id);
+
+        $response = [
+            'error'   => false,
+            'message' => 'Ação realizada com sucesso!',
+            'result'  => ['card' => $card_id, 'tag' => $tag_id],
+        ];
+
+        return response()->json($response);
+    }
+
     public function joinCard(int $card_id, Request $request)
     {
         $Card = Model::find($card_id);

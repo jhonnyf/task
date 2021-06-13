@@ -2,7 +2,7 @@
     <div class="tags">
         @if ($card->tags()->count() > 0)                    
             @foreach ($card->tags as $tag)
-                <x-tag :tag="$tag" />
+                <x-tag :tag="$tag" :card="$card" />
             @endforeach
         @endif
     </div>

@@ -11,72 +11,6 @@
         margin-bottom: 10px;
     }
 
-    .tags {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        .tag {
-            padding: 5px 15px;
-            color: #fff;
-            cursor: pointer;
-            margin-right: 10px;
-            // margin-bottom: 10px;
-
-            &:hover {
-                opacity: 0.7;
-            }
-        }
-    }
-
-    .checklist {
-        .checklist-title-section {
-            .checklist-title {
-                font-size: 16px;
-            }
-
-            .mt-default {
-                margin-bottom: 0;
-            }
-        }
-
-        .checklist-destroy,
-        .checklist-item-destroy {
-            margin-left: 15px;
-        }
-
-        .checklist-item {
-            padding: 6px 0;
-
-            &:hover {
-                background: #eee;
-                cursor: pointer;
-            }
-
-            .checklist-item-content {
-                width: 100%;
-            }
-
-            .checklist-item-finished {
-                margin-right: 10px;
-            }
-
-            .input {
-                margin-bottom: 0;
-            }
-        }
-
-        .checklist-item-store {
-            font-weight: bold;
-        }
-
-        .checklist-total-items {
-            margin-right: 10px;
-            font-weight: bold;
-            letter-spacing: 1.3px;
-        }
-    }
-
     .dropdown-tags {
         margin-bottom: 10px;
         display: none;
@@ -126,7 +60,7 @@
 
     .actions {
         .btn {
-            width: 100%;        
+            width: 100%;
             text-align: left;
 
             &:last-child {

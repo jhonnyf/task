@@ -18,7 +18,7 @@ Route::get('', function () {
 Route::group(['prefix' => 'login'], function () {
     Route::get('', [LoginController::class, 'index'])->name('login.index');
     Route::post('authenticate', [LoginController::class, 'authenticate'])->name('login.authenticate');
-    Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');    
+    Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
     Route::get('register/{team_id?}', [LoginController::class, 'register'])->name('login.register');
     Route::post('store', [LoginController::class, 'store'])->name('login.store');
 });
@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'cards'], function () {
         Route::post('join-card/{card_id}', [CardController::class, 'joinCard'])->name('card.join-card');
         Route::post('add-tag/{card_id}', [CardController::class, 'addTag'])->name('card.add-tag');
+        Route::post('remove-tag/{card_id}/{tag_id}', [CardController::class, 'removeTag'])->name('card.remove-tag');
         Route::post('store/{column_id}', [CardController::class, 'store'])->name('card.store');
         Route::get('detail/{card_id}', [CardController::class, 'detail'])->name('card.detail');
         Route::post('sort/{column_id}', [CardController::class, 'sort'])->name('card.sort');
@@ -72,8 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('', [TeamController::class, 'index'])->name('config.team');
             Route::get('manager/{id?}', [TeamController::class, 'manager'])->name('config.team-manager');
             Route::post('store/{id?}', [TeamController::class, 'store'])->name('config.team-store');
-            Route::post('invitation/{id}', [TeamController::class, 'invitation'])->name('config.team-invitation');            
-            Route::post('change-responsibility/{id}/{user_id}/{responsibility_id}', [TeamController::class, 'changeResponsibility'])->name('config.change-responsibility');            
+            Route::post('invitation/{id}', [TeamController::class, 'invitation'])->name('config.team-invitation');
+            Route::post('change-responsibility/{id}/{user_id}/{responsibility_id}', [TeamController::class, 'changeResponsibility'])->name('config.change-responsibility');
             Route::get('remove-team/{id}/{user_id}', [TeamController::class, 'removeUser'])->name('config.team-remove-user');
         });
     });
