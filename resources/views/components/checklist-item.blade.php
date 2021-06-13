@@ -17,6 +17,6 @@
         <ul class="dropdown-menu" aria-labelledby="dropdown-{{ $checklistItem->id }}">                
             <li><a href="javascript:;" class="dropdown-item"><i class="far fa-trash-alt"></i> Excluir</a></li>
         </ul>
-    </div>        
+    </div>
     
 </div>

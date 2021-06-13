@@ -12,10 +12,15 @@
                 $finished = $checklist->items()->where('finished', 1)->count();
             @endphp
             <div class="checklist-total-items">({{ $finished }}/{{ $checklist->items()->count() }})</div>
-            <div id="column-dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></div>
-            <ul class="dropdown-menu" aria-labelledby="column-dropdown">            
-                <li><a href="javascript:;" class="checklist-destroy"><i class="far fa-trash-alt"></i> Excluir</a></li>
-            </ul>
+
+            <div class="dropdown">
+                <button type="button" id="dropdown-{{ $checklist->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdown-{{ $checklist->id }}">                
+                    <li><a href="javascript:;" class="dropdown-item checklist-destroy"><i class="far fa-trash-alt"></i> Excluir</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="list-checklist-items mb-2" id="sortable-checklist-{{ $checklist->id }}">        

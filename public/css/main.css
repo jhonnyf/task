@@ -75,6 +75,10 @@
   letter-spacing: 1.2px;
 }
 
+.fancybox-content {
+  padding: 31px 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -516,12 +520,15 @@ header .brand {
   cursor: pointer;
   width: 100%;
 }
-.checklist .checklist-item .dropdown button {
+.checklist .checklist-item:hover {
+  background-color: #f5e6ca;
+}
+.checklist .dropdown button {
   background: none;
   border: none;
 }
-.checklist .checklist-item:hover {
-  background-color: #f5e6ca;
+.checklist .dropdown .dropdown-item {
+  font-size: 12px;
 }
 .checklist .checklist-total-items {
   font-weight: bold;

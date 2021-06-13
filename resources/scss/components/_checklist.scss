@@ -1,6 +1,6 @@
 .checklist {
     .checklist-title-section {
-        .title-checklist{
+        .title-checklist {
             width: 100%;
             padding-right: 10px;
         }
@@ -23,28 +23,32 @@
         justify-content: space-between;
         align-items: center;
 
-        .checklist-item-content{
+        .checklist-item-content {
             display: flex;
             align-items: center;
             width: 100%;
             padding-right: 10px;
             height: 35px;
 
-            .checklist-item-text{
+            .checklist-item-text {
                 cursor: pointer;
                 width: 100%;
             }
         }
 
-        .dropdown {
-            button {
-                background: none;
-                border: none;
-            }
+        &:hover {
+            background-color: $beige;
+        }
+    }
+
+    .dropdown {
+        button {
+            background: none;
+            border: none;
         }
 
-        &:hover{
-            background-color: $beige;
+        .dropdown-item {
+            font-size: 12px;
         }
     }
 
