@@ -2466,7 +2466,7 @@ var Tags = function () {
       var data = response.data;
 
       if (data.error === false) {
-        element.remove();
+        $('.tag-' + id).remove();
       }
     });
   };

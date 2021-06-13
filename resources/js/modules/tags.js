@@ -14,7 +14,7 @@ const Tags = function () {
                 let data = response.data;
 
                 if (data.error === false) {
-                    element.remove();
+                    $('.tag-' + id).remove();
                 }
             });
     }

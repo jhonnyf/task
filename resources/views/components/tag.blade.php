@@ -1,1 +1,1 @@
-<div class="tag" data-id="{{ $tag->id }}" data-card_id="{{ $card->id }}" style="background-color: {{ $tag->color }}"><span>{{ $tag->tag }}</span></div>
+<div class="tag tag-{{ $tag->id }}" data-id="{{ $tag->id }}" data-card_id="{{ $card->id }}" style="background-color: {{ $tag->color }}"><span>{{ $tag->tag }}</span></div>
