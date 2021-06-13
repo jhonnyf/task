@@ -1,17 +1,21 @@
 .login{   
 
+    .bg-orange{
+        background-color: $orange;
+    }    
+
     .brand{
         font-weight: bold;
         text-align: center;
         opacity: 0.7;
         font-size: 48px;
         letter-spacing: 2.5px;
-        color: #fff;
+        color: $blue;
 
         .brand-sub{
             margin-top: 20px;
             font-size: 18px;
-            font-weight: 400;
+            font-weight: 800;
         }
     }
 

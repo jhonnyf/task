@@ -1,50 +1,61 @@
-.config-section{
-    background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
-    backdrop-filter: blur(2rem);
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-
-    .menu{                
-
-        ul{
-            
-            li{
-                background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
-                backdrop-filter: blur(2rem);
+.config {
+    .menu {
+        ul {
+            li {
                 margin-bottom: 15px;
                 list-style: none;
 
-                a{
+                a {
+                    color: $blue;
+                    text-decoration: none;
                     display: block;
-                    padding: 10px 20px;
+                    font-weight: 800;
+                    padding: 7px 15px;
+                    font-size: 14px;
+                    transition: all 0.7s ease;
+
+                    &.active {
+                        color: $orange;
+                    }
                 }
 
-                &:last-child{
+                &:last-child {
                     margin-bottom: 0;
                 }
             }
         }
     }
 
-    .teams{
-        display: flex;
-        flex-direction: row;        
+    .bg-white {
+        background-color: #fff;
+        border: 1px solid #eee;
+        box-shadow: 1px 1px 1px #eee;
+    }
 
-        .team{
-            background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255, 0.3));
-            backdrop-filter: blur(2rem);
-            color: $gray-dark;
+    .teams {
+        display: flex;
+        flex-direction: row;
+
+        .team {
             width: 25%;
             margin-right: 10px;
-            padding: 10px 15px;
+            background-color: #f3f3f3;
 
-            a{
+            a {
+                padding: 10px 15px;
                 display: block;
+                text-decoration: none;
+                color: $blue;
+                font-weight: 600;
+                text-align: center;
             }
 
-            &:last-child{
+            &:last-child {
                 margin-right: 0;
+            }
+
+            &:hover {
+                opacity: 0.7;
             }
         }
     }

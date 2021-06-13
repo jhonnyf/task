@@ -8,11 +8,11 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col">
-                        <span class="mb-2 d-block">Data de cadastro:</span> 
+                        <label class="form-label">Data de cadastro:</label> 
                         <input type="datetime-local" value="{{ str_replace(' ', 'T', $Card->created_at) }}" class="form-control" readonly>
                     </div>
                     <div class="col">
-                        <span class="mb-2 d-block">Data de entrega:</span>                         
+                        <label class="form-label">Data de entrega:</label>                         
                         <input type="datetime-local" name="final_date" class="form-control save-blur" min="{{ str_replace(' ', 'T', date('Y-m-d H:i', strtotime($Card->created_at))) }}" value="{{ str_replace(' ', 'T', $Card->final_date) }}">
                     </div>
                 </div>
