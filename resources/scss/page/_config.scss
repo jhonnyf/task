@@ -59,4 +59,38 @@
             }
         }
     }
+
+    .team-users {
+        font-size: 14px;
+        font-weight: 400;
+
+        .badge {
+            text-decoration: none;
+            background-color: $beige;
+            color: $blue;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all .7s ease;
+            
+            &.active{
+                background-color: $orange;
+                color: $beige;
+                font-weight: 800;                
+            }
+
+            &:hover{
+                opacity: .7;
+                transition: all .7s ease;
+                background-color: $orange;
+                color: $beige;
+            }
+        }
+
+        .actions {
+            a{
+                color: $blue;
+            }
+        }
+    }
 }

@@ -30,7 +30,7 @@
                             </div>
                         </form>               
 
-                        <table class="mt-3 table table-striped table-hover">
+                        <table class="mt-3 table table-striped table-hover team-users">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -47,10 +47,10 @@
                                             <td>{{ $user->email }}</td>
                                             <td>
                                                 @foreach ($responsibilities as $responsibility)
-                                                    <a href="{{ route('config.change-responsibility', ['id'=>$Team->id, 'user_id' => $user->id, 'responsibility_id' => $responsibility['id']]) }}" class="link-ajax badge {{ $user->pivot->responsibility->id == $responsibility['id'] ? "bg-secondary" : "bg-light text-dark" }}">{{ $responsibility['responsibility'] }}</a>
+                                                    <a href="{{ route('config.change-responsibility', ['id'=>$Team->id, 'user_id' => $user->id, 'responsibility_id' => $responsibility['id']]) }}" class="link-ajax badge {{ $user->pivot->responsibility->id == $responsibility['id'] ? "active" : "" }}">{{ $responsibility['responsibility'] }}</a>
                                                 @endforeach                                            
                                             </td>
-                                            <td class="text-center">
+                                            <td class="text-center actions">
                                                 <a href="{{ route('config.team-remove-user', ['id' => $Team->id, 'user_id' => $user->id]) }}"><i class="fas fa-trash"></i></a>                                            
                                             </td>
                                         </tr>

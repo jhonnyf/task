@@ -216,6 +216,33 @@ header .brand {
 .config .teams .team:hover {
   opacity: 0.7;
 }
+.config .team-users {
+  font-size: 14px;
+  font-weight: 400;
+}
+.config .team-users .badge {
+  text-decoration: none;
+  background-color: #f5e6ca;
+  color: #343f56;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 12px;
+  transition: all 0.7s ease;
+}
+.config .team-users .badge.active {
+  background-color: #FF6700;
+  color: #f5e6ca;
+  font-weight: 800;
+}
+.config .team-users .badge:hover {
+  opacity: 0.7;
+  transition: all 0.7s ease;
+  background-color: #FF6700;
+  color: #f5e6ca;
+}
+.config .team-users .actions a {
+  color: #343f56;
+}
 
 .board-list .board-menu li {
   list-style: none;
