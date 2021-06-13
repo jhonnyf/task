@@ -47,7 +47,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>
                                                 @foreach ($responsibilities as $responsibility)
-                                                    <a href="{{ route('config.change-responsibility', ['id'=>$Team->id, 'user_id' => $user->id, 'responsibility_id' => $responsibility['id']]) }}" class="link-ajax badge {{ $user->pivot->responsibility->id == $responsibility['id'] ? "active" : "" }}">{{ $responsibility['responsibility'] }}</a>
+                                                    <a href="{{ route('config.change-responsibility', ['id'=>$Team->id, 'user_id' => $user->id, 'responsibility_id' => $responsibility['id']]) }}" class="link-ajax badge {{ $user->pivot->responsibility->id == $responsibility['id'] ? "active" : "                                                                                                                       " }}">{{ $responsibility['responsibility'] }}</a>
                                                 @endforeach                                            
                                             </td>
                                             <td class="text-center actions">
