@@ -3,7 +3,9 @@
 @section('content')
     <div class="card-detail card-{{ $Card->id }}" data-id="{{ $Card->id }}">
         <div class="container-fluid">
-            <h3 class="mb-3 title focus-edit-content" data-type="card" data-element="card">{{ $Card->card }}</h3>
+            <div class="mb-3">
+                <h3 class="title focus-edit-content" data-type="card" data-element="card">{{ $Card->card }}</h3>
+            </div>
             
             <div class="mb-3">
                 <div class="row">

@@ -109,7 +109,7 @@ header .brand {
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 2.5px;
-  font-weight: 200;
+  font-weight: 800;
 }
 header .settings {
   text-align: right;
@@ -485,37 +485,46 @@ header .brand {
   opacity: 0.7;
 }
 
+.checklist .checklist-title-section .title-checklist {
+  width: 100%;
+  padding-right: 10px;
+}
 .checklist .checklist-title-section .checklist-title {
   font-size: 16px;
-}
-.checklist .checklist-title-section .mt-default {
+  padding: 8px 0;
   margin-bottom: 0;
+  width: 100%;
+  cursor: pointer;
 }
 .checklist .checklist-destroy,
 .checklist .checklist-item-destroy {
   margin-left: 15px;
 }
 .checklist .checklist-item {
-  padding: 6px 0;
-}
-.checklist .checklist-item:hover {
-  background: #eee;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .checklist .checklist-item .checklist-item-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 10px;
+  height: 35px;
+}
+.checklist .checklist-item .checklist-item-content .checklist-item-text {
+  cursor: pointer;
   width: 100%;
 }
-.checklist .checklist-item .checklist-item-finished {
-  margin-right: 10px;
+.checklist .checklist-item .dropdown button {
+  background: none;
+  border: none;
 }
-.checklist .checklist-item .input {
-  margin-bottom: 0;
-}
-.checklist .checklist-item-store {
-  font-weight: bold;
+.checklist .checklist-item:hover {
+  background-color: #f5e6ca;
 }
 .checklist .checklist-total-items {
-  margin-right: 10px;
   font-weight: bold;
   letter-spacing: 1.3px;
+  padding-right: 10px;
 }
