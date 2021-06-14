@@ -15,6 +15,7 @@
                         <a href="{{ route('board.index') }}">Task</a>
                     </div>
                     <div class="col-md-6 settings">
+                        <span class="me-3">Olá, {{ Auth::user()->first_name }}</span>
                         <a href="{{ route('board.index') }}"><i class="fas fa-home"></i></a>
                         <a href="{{ route('config.index') }}"><i class="fas fa-cogs"></i></a>
                         <a href="{{ route('login.logout') }}"><i class="fas fa-sign-out-alt"></i></a>
