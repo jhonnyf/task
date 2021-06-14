@@ -123,6 +123,9 @@ header .settings {
     text-align: center;
   }
 }
+header .user-name {
+  font-size: 12px;
+}
 header a {
   color: #fff;
   text-decoration: none;
