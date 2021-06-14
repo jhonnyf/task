@@ -29,6 +29,11 @@
                         </div>
     
                     </form>
+
+                    <hr>
+
+                    <p class="text-end">Caso não tenha uma conta, <a href="{{ route('login.register') }}" class="register">clique aqui</a>.</p>
+
                 </div>
             </div>
         </div>

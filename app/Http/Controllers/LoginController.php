@@ -48,7 +48,7 @@ class LoginController extends Controller
         $data = $request->all();
 
         $original_password = $data['password'];
-        $team_id           = $data['team_id'];
+        $team_id           = isset($data['team_id']) ? $data['team_id'] : null;
 
         $data['password'] = Hash::make($original_password);
 

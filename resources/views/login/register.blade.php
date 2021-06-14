@@ -26,38 +26,34 @@
             
                 <p class="text mb-3 text-center">Para acessar nosso sistema, insira suas credenciais e aproveite nosso sistema!</p>
                 
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-md-6">
-                        <div class="form-field">
-                            <input type="text" class="input" name="first_name" id="first_name" placeholder="Nome" value="{{ old('first_name') }}" required>
-                        </div>                                
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nome" value="{{ old('first_name') }}" required>                        
                     </div>
                     <div class="col-md-6">
-                        <div class="form-field">
-                            <input type="text" class="input" name="last_name" id="last_name" placeholder="Sobrenome" value="{{ old('last_name') }}">
-                        </div>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Sobrenome" value="{{ old('last_name') }}">
                     </div>
                 </div>
     
-                <div class="form-field">
-                    <input type="email" class="input" name="email" id="email" placeholder="E-mail" required value="{{ isset($email) ? $email : old('email') }}" {{ isset($email) ? 'readonly' : '' }}>
+                <div class="mb-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required value="{{ isset($email) ? $email : old('email') }}" {{ isset($email) ? 'readonly' : '' }}>
                 </div> 
             
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-field">
-                            <input type="password" class="input" name="password" id="password" placeholder="Senha" required>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Senha" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-field">
-                            <input type="password" class="input" name="password_confirmation" id="password_confirmation" placeholder="Confirme sua senha" required>
+                            <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirme sua senha" required>
                         </div>
                     </div>
                 </div>
             
-                <div class="text-right">
-                    <button class="btn">ENVIAR</button>
+                <div class="text-end">
+                    <button class="btn btn-dark">ENVIAR</button>
                 </div>
             
             </form>
