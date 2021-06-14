@@ -12,13 +12,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 brand">
-                        <a href="{{ route('board.index') }}">Task</a>
+                        <a href="{{ route('board.index') }}" title="Home">Task</a>
                     </div>
                     <div class="col-md-6 settings">
                         <span class="me-3">Olá, {{ Auth::user()->first_name }}</span>
-                        <a href="{{ route('board.index') }}"><i class="fas fa-home"></i></a>
-                        <a href="{{ route('config.index') }}"><i class="fas fa-cogs"></i></a>
-                        <a href="{{ route('login.logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+                        <a href="{{ route('board.index') }}" title="Home"><i class="fas fa-home"></i></a>
+                        <a href="{{ route('config.index') }}" title="Configurações"><i class="fas fa-cogs"></i></a>
+                        <a href="{{ route('login.logout') }}" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
             </div>
