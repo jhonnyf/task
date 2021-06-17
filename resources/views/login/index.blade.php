@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6 bg-orange d-flex justify-content-center align-items-center">
                 <div class="brand">
-                    TASK
+                    EndTasks
                     <p class="brand-sub">Seu sistema de gerenciar tarefas</p>
                 </div>
             </div>

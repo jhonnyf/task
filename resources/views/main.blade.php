@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 brand">
-                        <a href="{{ route('board.index') }}" title="Home">Task</a>
+                        <a href="{{ route('board.index') }}" title="Home">EndTasks</a>
                     </div>
                     <div class="col-md-6 settings">
                         <span class="me-3 user-name">Olá, {{ Auth::user()->first_name }}</span>
