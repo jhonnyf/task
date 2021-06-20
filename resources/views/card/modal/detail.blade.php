@@ -44,9 +44,9 @@
                         <button type="button" class="mb-2 btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
                         <button type="button" class="mb-2 btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
                         <div class="dropdown-tags">
-                            <input type="text" name="tag" class="input" id="tag-name" placeholder="Tag">
+                            <input type="text" name="tag" class="form-control mb-2" id="tag-name" placeholder="Tag">
                             <div class="colors">
-                                <input type="color" name="color-custom" class="color-custom" value="#800080">
+                                <input type="color" name="color-custom" class="form-control color-custom" value="#800080">
                             </div>
                             <button type="button" class="btn btn-dark save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
                         </div>
