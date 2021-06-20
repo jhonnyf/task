@@ -1,3 +1,21 @@
 .register {
     height: 100vh;
+
+    .bg-orange {
+        background-color: $orange;
+    }
+
+    .brand {
+        font-weight: bold;
+        text-align: center;
+        font-size: 48px;
+        letter-spacing: 2.5px;
+        color: #f3f3f3;
+
+        .brand-sub {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+    }
 }

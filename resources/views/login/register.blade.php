@@ -1,9 +1,15 @@
 @extends('layout.login')
 
 @section('content')
-<div class="container">
+<div class="container-fluid register">
     <div class="row">
-        <div class="col-md-6 offset-md-3 register d-flex justify-content-center align-items-center">
+        <div class="col-md-6 bg-orange d-flex justify-content-center align-items-center">
+            <div class="brand">
+                EndTasks
+                <p class="brand-sub">Seu sistema de gerenciar tarefas</p>
+            </div>
+        </div>
+        <div class="col-md-6 register d-flex justify-content-center align-items-center">            
             <form action="{{ route('login.store') }}" method="post" class="form" autocomplete="off">
                 @if (is_null($team_id) === false)
                     <input type="hidden" name="team_id" value="{{ $team_id }}">
@@ -53,6 +59,7 @@
                 </div>
             
                 <div class="text-end">
+                    <a href="{{ route('login.index') }}" class="btn">VOLTAR</a>
                     <button class="btn btn-dark">ENVIAR</button>
                 </div>
             

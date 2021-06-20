@@ -188,6 +188,21 @@ header .brand {
 .register {
   height: 100vh;
 }
+.register .bg-orange {
+  background-color: #FF6700;
+}
+.register .brand {
+  font-weight: bold;
+  text-align: center;
+  font-size: 48px;
+  letter-spacing: 2.5px;
+  color: #f3f3f3;
+}
+.register .brand .brand-sub {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 800;
+}
 
 .config .menu ul li {
   margin-bottom: 15px;
