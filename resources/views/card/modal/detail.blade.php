@@ -37,21 +37,26 @@
                     <textarea name="description" id="description" class="form-control save-blur" rows="5" placeholder="Digite aqui uma descrição detalhada para o seu card">{{ $Card->description }}</textarea>
                 </div>
                 <div class="col-md-3">
-                    <h4 class="title-section mb-3"><i class="fas fa-cogs"></i> Ações</h4>
-                    <div class="actions">
-                        <button type="button" class="mb-2 btn btn-dark act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
-                        <button type="button" class="mb-2 btn btn-dark"><i class="fas fa-users"></i> Membros</button>
-                        <button type="button" class="mb-2 btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
-                        <button type="button" class="mb-2 btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
-                        <div class="dropdown-tags">
-                            <input type="text" name="tag" class="form-control mb-2" id="tag-name" placeholder="Tag">
-                            <div class="colors">
-                                <input type="color" name="color-custom" class="form-control color-custom" value="#800080">
-                            </div>
-                            <button type="button" class="btn btn-dark save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
+                    <div class="mb-3">
+                        <h4 class="title-section mb-3"><i class="fas fa-cogs"></i> Ações</h4>
+                        <div class="actions">
+                            <button type="button" class="mb-2 btn btn-dark act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
+                            <button type="button" class="mb-2 btn btn-dark"><i class="fas fa-users"></i> Membros</button>
+                            <button type="button" class="mb-2 btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
+                            <button type="button" class="mb-2 btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
+                            <div class="dropdown-tags">
+                                <input type="text" name="tag" class="form-control mb-2" id="tag-name" placeholder="Tag">
+                                <div class="colors">
+                                    <input type="color" name="color-custom" class="form-control color-custom" value="#800080">
+                                </div>
+                                <button type="button" class="btn btn-dark save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
+                            </div>                        
                         </div>
-                        
                     </div>
+
+                    <h4 class="title-section mb-3"><i class="fas fa-users"></i> Usuários</h4>
+                    <x-carduser :card="$Card" />                    
+
                 </div>
             </div>
 

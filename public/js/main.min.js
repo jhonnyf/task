@@ -2105,6 +2105,31 @@ var Card = function () {
     var url = window.location.origin + '/cards/join-card/' + card_id;
     axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
       'user_id': user_id
+    }).then(function (response) {
+      var data = response.data;
+
+      if (data.error === false) {
+        $('.card-users').html(data.result.html);
+      }
+    });
+    ;
+  };
+
+  var exitCard = function exitCard() {
+    var element = $(this);
+    var url = element.data('url');
+    var user_id = element.data('user_id');
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, {
+      'user_id': user_id
+    }).then(function (response) {
+      var data = response.data;
+
+      if (data.error === false) {
+        element.addClass('remove');
+        setTimeout(function () {
+          element.remove();
+        }, 1000);
+      }
     });
   };
 
@@ -2114,6 +2139,7 @@ var Card = function () {
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
       $(document).on('click', '.act-join-card', joinCard);
+      $(document).on('click', '.act-exit-card', exitCard);
       $(document).on('click', '.open-tags', function () {
         $('.dropdown-tags').slideToggle();
       });

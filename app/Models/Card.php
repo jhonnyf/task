@@ -26,7 +26,7 @@ class Card extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }
