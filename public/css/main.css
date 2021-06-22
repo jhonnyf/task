@@ -531,10 +531,6 @@ header .brand {
   width: 100%;
   cursor: pointer;
 }
-.checklist .checklist-destroy,
-.checklist .checklist-item-destroy {
-  margin-left: 15px;
-}
 .checklist .checklist-item {
   display: flex;
   justify-content: space-between;
@@ -552,7 +548,7 @@ header .brand {
   width: 100%;
 }
 .checklist .checklist-item:hover {
-  background-color: #f5e6ca;
+  background-color: #E9ECEF;
 }
 .checklist .dropdown button {
   background: none;
@@ -569,7 +565,6 @@ header .brand {
 
 .card-users {
   display: flex;
-  min-height: 35px;
 }
 .card-users .card-user {
   background-color: #f3f3f3;

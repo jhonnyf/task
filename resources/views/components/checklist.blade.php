@@ -1,5 +1,5 @@
 <div class="checklist mb-3" data-id="{{ $checklist->id }}">
-    <div class="d-flex justify-content-between checklist-title-section align-items-center mb-2">
+    <div class="d-flex justify-content-between checklist-title-section align-items-center mb-2 ps-2 pe-2">
         <div class="title-checklist d-flex align-items-center">
             <div class="icon me-2">
                 <i class="fas fa-tasks"></i>

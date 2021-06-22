@@ -2049,8 +2049,14 @@ var Card = function () {
   var editContent = function editContent() {
     var element = $(this);
     var value = element.text();
+    var additionalClass = '';
     element.addClass('edit-blur').hide();
-    element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="form-control" value="' + value.trim() + '">');
+
+    if (element.hasClass('checklist-item-text')) {
+      additionalClass = 'form-control-sm';
+    }
+
+    element.after('<input type="text" autocomplete="off" name="content" id="edit-content" class="form-control ' + additionalClass + '" value="' + value.trim() + '">');
     document.getElementById('edit-content').select();
   };
 

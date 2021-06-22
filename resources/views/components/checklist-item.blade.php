@@ -1,4 +1,4 @@
-<div class="checklist-item" data-id="{{ $checklistItem->id }}">
+<div class="checklist-item ps-2 pe-2" data-id="{{ $checklistItem->id }}">
        
     <div class="checklist-item-content">
         <div class="me-2">
