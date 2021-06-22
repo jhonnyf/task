@@ -35,6 +35,15 @@
                 <div class="col-md-9">
                     <h4 class="title-section mb-3"><i class="fas fa-align-justify"></i> Descrição</h4>
                     <textarea name="description" id="description" class="form-control save-blur" rows="5" placeholder="Digite aqui uma descrição detalhada para o seu card">{{ $Card->description }}</textarea>
+
+                    <div class="mt-3 list-checklists">
+                        @if ($Card->checklists->count() > 0)                        
+                            @foreach ($Card->checklists as $checklist)
+                                <x-checklist :checklist="$checklist" />
+                            @endforeach                            
+                        @endif
+                    </div>
+
                 </div>
                 <div class="col-md-3">
                     <div class="mb-3">
@@ -57,16 +66,6 @@
                     <h4 class="title-section mb-3"><i class="fas fa-users"></i> Usuários</h4>
                     <x-carduser :card="$Card" />                    
 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-9 list-checklists">
-                    @if ($Card->checklists->count() > 0)                        
-                        @foreach ($Card->checklists as $checklist)
-                            <x-checklist :checklist="$checklist" />
-                        @endforeach                            
-                    @endif
                 </div>
             </div>
         </div>
