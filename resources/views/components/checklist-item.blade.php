@@ -11,7 +11,7 @@
     </div>
 
     <div class="dropdown">
-        <button type="button" id="dropdown-{{ $checklistItem->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="ps-2 pe-2" id="dropdown-{{ $checklistItem->id }}" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-ellipsis-v"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdown-{{ $checklistItem->id }}">                

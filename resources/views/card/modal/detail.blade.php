@@ -34,9 +34,11 @@
             <div class="row">
                 <div class="col-md-9">
 
-                    <div class="p-2">
+                    <div class="ps-2 pe-2">
                         <h4 class="title-section mb-3"><i class="fas fa-align-justify"></i> Descrição</h4>
-                        <textarea name="description" id="description" class="form-control save-blur" rows="5" placeholder="Digite aqui uma descrição detalhada para o seu card">{{ $Card->description }}</textarea>
+                        <div class="pe-2">
+                            <textarea name="description" id="description" class="form-control save-blur" rows="5" placeholder="Digite aqui uma descrição detalhada para o seu card">{{ $Card->description }}</textarea>
+                        </div>
                     </div>
 
                     <div class="mt-3 list-checklists">

@@ -14,7 +14,7 @@
             <div class="checklist-total-items">({{ $finished }}/{{ $checklist->items()->count() }})</div>
 
             <div class="dropdown">
-                <button type="button" id="dropdown-{{ $checklist->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="ps-2 pe-2" id="dropdown-{{ $checklist->id }}" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-ellipsis-v"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdown-{{ $checklist->id }}">                
