@@ -135,13 +135,13 @@ class CardController extends Controller
             'error'   => false,
             'message' => 'Ação realizada com sucesso!',
             'result'  => [
-                'html' => view('components.card-user', ['card' => $Card])->render()
+                'html' => view('components.card-user', ['card' => $Card])->render(),
             ],
         ];
 
         return response()->json($response);
     }
-    
+
     public function exitCard(int $card_id, Request $request)
     {
         $Card = Model::find($card_id);
@@ -164,15 +164,20 @@ class CardController extends Controller
         $Card = Model::find($card_id);
 
         $Tag = Tag::find($tag_id);
-        $Card->tags()->attach($tag_id);
+
+        $attach = false;
+        if ($Card->tags()->where('tag_id', $tag_id)->exists() === false) {
+            $Card->tags()->attach($tag_id);
+            $attach = true;
+        }
 
         $response = [
             'error'   => false,
             'message' => 'Ação realizada com sucesso!',
             'result'  => [
                 'html'   => view('components.tag', ['tag' => $Tag, 'card' => $Card])->render(),
-                'method' => 'append',
-                'target' => ".card-{$Card->id} .tags",
+                'method' => $attach ? 'append' : '',
+                'target' => $attach ? ".card-{$Card->id} .tags" : '',
             ],
         ];
 
