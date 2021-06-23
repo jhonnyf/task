@@ -25,7 +25,7 @@ const Tags = function () {
         let dropdownTag = element.closest('.dropdown-tags');
 
         let tag = dropdownTag.find('#tag-name').val();
-        let color = dropdownTag.find('.color-custom').val();
+        let color = dropdownTag.find('[name="color-custom"]').val();
 
         let url = window.location.origin + '/cards/add-tag/' + card_id;
         let data = { 'tag': tag, 'color': color };
@@ -41,10 +41,26 @@ const Tags = function () {
             });
     }
 
+    const addTag = function () {
+        let element = $(this);
+
+        let tag_id = element.data('tag_id');
+        let card_id = element.data('card_id');
+
+        let url = window.location.origin + '/cards/attach-tag/' + card_id + '/' + tag_id;
+
+        axios.post(url).then(function (response) {
+            let data = response.data;
+
+            $(data.result.target).append(data.result.html);
+        });
+    }
+
     return {
         init: function () {
             $(document).on('click', '.save-tag', saveTag);
             $(document).on('click', '.card-detail .tag', removeTag);
+            $(document).on('click', '.add-tag', addTag);
         }
     };
 }();

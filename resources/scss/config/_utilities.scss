@@ -2,7 +2,7 @@
     box-shadow: none !important;
 }
 
-.form-control{
+.form-control, .form-select{
     font-size: 14px;
     
     &:focus {
@@ -17,5 +17,5 @@
 }
 
 .fancybox-content{
-    padding: 31px 16px;
+    padding: 30px 15px 15px 15px;
 }

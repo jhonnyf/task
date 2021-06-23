@@ -61,9 +61,14 @@
                                 <button type="button" class="mb-2 btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
                                 <button type="button" class="mb-2 btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
                                 <div class="dropdown-tags">
-                                    <input type="text" name="tag" class="form-control mb-2" id="tag-name" placeholder="Tag">
-                                    <div class="colors">
-                                        <input type="color" name="color-custom" class="form-control color-custom" value="#800080">
+                                    <div class="tags-created mb-2">
+                                        @foreach ($Card->column->board->tags as $tag)
+                                            <div class="tag-item add-tag mb-2" data-tag_id="{{ $tag->id }}" data-card_id="{{ $Card->id }}"><span style="background-color: {{ $tag->color }}" class="me-2"></span>{{ $tag->tag }}</div>
+                                        @endforeach
+                                    </div>
+                                    <input type="text" name="tag" class="form-control form-control-sm mb-2" id="tag-name" placeholder="Tag" autocomplete="off">
+                                    <div class="colors mb-2">
+                                        <input type="color" name="color-custom" class="form-control form-control-color" value="#800080">
                                     </div>
                                     <button type="button" class="btn btn-dark save-tag" data-card_id="{{ $Card->id }}">Criar tag</button>
                                 </div>                        

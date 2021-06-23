@@ -15,4 +15,9 @@ class Column extends Model
     {
         return $this->hasMany(Card::class)->orderBy('sort', 'asc');
     }
+
+    public function board()
+    {
+        return $this->belongsTo(Board::class);
+    }
 }

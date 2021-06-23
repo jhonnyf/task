@@ -2508,7 +2508,7 @@ var Tags = function () {
     var card_id = element.data('card_id');
     var dropdownTag = element.closest('.dropdown-tags');
     var tag = dropdownTag.find('#tag-name').val();
-    var color = dropdownTag.find('.color-custom').val();
+    var color = dropdownTag.find('[name="color-custom"]').val();
     var url = window.location.origin + '/cards/add-tag/' + card_id;
     var data = {
       'tag': tag,
@@ -2522,10 +2522,22 @@ var Tags = function () {
     });
   };
 
+  var addTag = function addTag() {
+    var element = $(this);
+    var tag_id = element.data('tag_id');
+    var card_id = element.data('card_id');
+    var url = window.location.origin + '/cards/attach-tag/' + card_id + '/' + tag_id;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url).then(function (response) {
+      var data = response.data;
+      $(data.result.target).append(data.result.html);
+    });
+  };
+
   return {
     init: function init() {
       $(document).on('click', '.save-tag', saveTag);
       $(document).on('click', '.card-detail .tag', removeTag);
+      $(document).on('click', '.add-tag', addTag);
     }
   };
 }();

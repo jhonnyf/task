@@ -30,7 +30,7 @@
             @endforeach            
         @endif        
     </div>
-    <p class="text-end">
+    <p class="text-end pe-3">
         <a href="javascript:;" class="btn btn-dark checklist-item-store">Novo item</a>
     </p>    
 </div>

@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'cards'], function () {
+        Route::post('attach-tag/{card_id}/{tag_id}', [CardController::class, 'attachTag'])->name('card.attach-tag');
         Route::post('exit-card/{card_id}', [CardController::class, 'exitCard'])->name('card.exit-card');
         Route::post('join-card/{card_id}', [CardController::class, 'joinCard'])->name('card.join-card');
         Route::post('add-tag/{card_id}', [CardController::class, 'addTag'])->name('card.add-tag');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Board;
 use App\Models\Card as Model;
 use App\Models\Column;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -153,6 +154,26 @@ class CardController extends Controller
             'error'   => false,
             'message' => 'Ação realizada com sucesso!',
             'result'  => [],
+        ];
+
+        return response()->json($response);
+    }
+
+    public function attachTag(int $card_id, int $tag_id)
+    {
+        $Card = Model::find($card_id);
+
+        $Tag = Tag::find($tag_id);
+        $Card->tags()->attach($tag_id);
+
+        $response = [
+            'error'   => false,
+            'message' => 'Ação realizada com sucesso!',
+            'result'  => [
+                'html'   => view('components.tag', ['tag' => $Tag, 'card' => $Card])->render(),
+                'method' => 'append',
+                'target' => ".card-{$Card->id} .tags",
+            ],
         ];
 
         return response()->json($response);
