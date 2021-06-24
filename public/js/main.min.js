@@ -2115,7 +2115,7 @@ var Card = function () {
       var data = response.data;
 
       if (data.error === false) {
-        $('.card-users').html(data.result.html);
+        $('.card-members').html(data.result.html);
       }
     });
     ;
@@ -2139,11 +2139,17 @@ var Card = function () {
     });
   };
 
+  var toggleMembersTeams = function toggleMembersTeams() {
+    var element = $(this);
+    $('.members-teams').slideToggle();
+  };
+
   return {
     init: function init() {
       $(document).on('blur', '.save-blur', saveBlur);
       $(document).on('click', '.focus-edit-content', editContent);
       $(document).on('blur', '#edit-content', saveColumn);
+      $(document).on('click', '.act-members-teams', toggleMembersTeams);
       $(document).on('click', '.act-join-card', joinCard);
       $(document).on('click', '.act-exit-card', exitCard);
       $(document).on('click', '.open-tags', function () {

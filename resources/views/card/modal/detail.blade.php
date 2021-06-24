@@ -56,8 +56,21 @@
                         <div class="mb-3">
                             <h4 class="title-section mb-3"><i class="fas fa-cogs"></i> Ações</h4>
                             <div class="actions">
-                                <button type="button" class="mb-2 btn btn-dark act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
-                                <button type="button" class="mb-2 btn btn-dark"><i class="fas fa-users"></i> Membros</button>
+                                @if ($Card->column->board->team->count() > 0)
+                                    <button type="button" class="mb-2 btn btn-dark act-join-card" data-card_id="{{ $Card->id }}" data-user_id="{{ Auth::user()->id }}"><i class="fas fa-users"></i> Ingressar</button>
+                                    <button type="button" class="mb-2 btn btn-dark act-members-teams"><i class="fas fa-users"></i> Membros</button>
+                                    <div class="members-teams">
+                                        <div class="card-users">
+                                            @foreach ($Card->column->board->team as $team)
+                                                @foreach ($team->users as $user)
+                                                    <div class="card-user mb-2 me-2 act-join-card" data-url="{{ route('card.join-card', ['card_id' => $Card->id]) }}" data-card_id="{{ $Card->id }}" data-user_id="{{ $user->id }}" title="{{ $user->first_name }} {{ $user->last_name }}">
+                                                        {{ substr($user->first_name, 0, 1) }}{{ substr($user->last_name, 0, 1) }}
+                                                    </div>
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
                                 <button type="button" class="mb-2 btn btn-dark checklist-store"><i class="fas fa-tasks"></i> Checklist</button>
                                 <button type="button" class="mb-2 btn btn-dark open-tags"><i class="fas fa-tags"></i> Tags</button>
                                 <div class="dropdown-tags">

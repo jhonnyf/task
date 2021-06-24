@@ -19,9 +19,10 @@ class User extends Authenticatable
 
     public function boards()
     {
-        $board_id = [];
-        $User     = User::find(Auth::user()->id);
 
+        $User = User::find(Auth::user()->id);
+
+        $board_id = [];
         foreach ($User->teams as $team) {
             foreach ($team->boards as $board) {
                 $board_id[] = $board->id;

@@ -16,6 +16,11 @@ class Board extends Model
         return $this->hasMany(Tag::class);
     }
 
+    public function team()
+    {
+        return $this->belongsToMany(Team::class);
+    }
+
     public function columns()
     {
         return $this->hasMany(Column::class)
